@@ -1,0 +1,349 @@
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{- (printf "%s&nbsp;" .Title ) | htmlUnescape -}}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="{{ .Params.placeholder | default (printf "%s ↵" .Title) }}" aria-label="search">
+    <div id="search-results"></div>
+</div>
+
+<!-- Load MathJax for rendering math in previews -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+<script>
+    // Function to strip HTML tags but preserve math delimiters
+    function stripHtml(html) {
+        // Temporarily replace math delimiters with placeholders
+        const mathPlaceholders = [];
+        let tempHtml = html.replace(/\$\$?([^$]+)\$\$?/g, (match) => {
+            mathPlaceholders.push(match);
+            return `%%MATH${mathPlaceholders.length - 1}%%`;
+        });
+        
+        // Remove HTML tags
+        tempHtml = tempHtml.replace(/<[^>]*>/g, ' ');
+        
+        // Restore math delimiters
+        tempHtml = tempHtml.replace(/%%MATH(\d+)%%/g, (match, index) => {
+            return mathPlaceholders[parseInt(index)];
+        });
+        
+        return tempHtml;
+    }
+
+    // Function to highlight search terms in text, preserving math
+    function highlightTerms(text, terms) {
+        if (!terms || terms.length === 0) return text;
+        
+        // Protect math expressions from highlighting
+        const mathBlocks = [];
+        let tempText = text.replace(/\$\$?([^$]+)\$\$?/g, (match) => {
+            mathBlocks.push(match);
+            return `%%MATHBLOCK${mathBlocks.length - 1}%%`;
+        });
+        
+        // Highlight terms outside math blocks
+        terms.forEach(term => {
+            const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            tempText = tempText.replace(regex, '<mark class="search-highlight">$1</mark>');
+        });
+        
+        // Restore math blocks
+        tempText = tempText.replace(/%%MATHBLOCK(\d+)%%/g, (match, index) => {
+            return mathBlocks[parseInt(index)];
+        });
+        
+        return tempText;
+    }
+
+    // Function to extract preview with math context
+    function getPreview(content, terms, previewLength = 300) {
+        if (!terms || terms.length === 0) {
+            let preview = stripHtml(content.substring(0, previewLength));
+            return preview.length < content.length ? preview + '...' : preview;
+        }
+        
+        let bestPosition = -1;
+        
+        // Clean content for position finding
+        const cleanContent = stripHtml(content);
+        
+        // Find the first occurrence of any search term
+        for (const term of terms) {
+            const pos = cleanContent.toLowerCase().indexOf(term.toLowerCase());
+            if (pos !== -1 && (bestPosition === -1 || pos < bestPosition)) {
+                bestPosition = pos;
+            }
+        }
+        
+        if (bestPosition === -1) {
+            let preview = stripHtml(content.substring(0, previewLength));
+            return preview.length < content.length ? preview + '...' : preview;
+        }
+        
+        // Extract text around the match, trying to include complete math expressions
+        let start = Math.max(0, bestPosition - 80);
+        let end = Math.min(cleanContent.length, bestPosition + 220);
+        
+        // Adjust to not cut in the middle of a word
+        while (start > 0 && cleanContent[start] !== ' ' && cleanContent[start] !== '\n') {
+            start--;
+        }
+        while (end < cleanContent.length && cleanContent[end] !== ' ' && cleanContent[end] !== '\n' && end - start < previewLength) {
+            end++;
+        }
+        
+        let preview = cleanContent.substring(start, end);
+        
+        // Add ellipsis if needed
+        if (start > 0) preview = '...' + preview;
+        if (end < cleanContent.length) preview = preview + '...';
+        
+        return preview;
+    }
+
+    // Function to render math in the results
+    function renderMathInResults() {
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    }
+
+    // Perform search with highlighting
+    async function performSearch() {
+        const query = document.getElementById('search-input').value.trim();
+        const resultsContainer = document.getElementById('search-results');
+        
+        if (query.length < 2) {
+            resultsContainer.innerHTML = '';
+            return;
+        }
+        
+        // Load search index
+        const response = await fetch('/index.json');
+        const pages = await response.json();
+        
+        // Simple search (you can enhance with Fuse.js)
+        const searchTerms = query.toLowerCase().split(/\s+/);
+        const results = [];
+        
+        pages.forEach(page => {
+            const content = (page.content || '').toLowerCase();
+            const title = (page.title || '').toLowerCase();
+            const summary = (page.summary || '').toLowerCase();
+            
+            let score = 0;
+            let matchedTerms = [];
+            
+            searchTerms.forEach(term => {
+                if (title.includes(term)) {
+                    score += 10;
+                    matchedTerms.push(term);
+                }
+                if (summary.includes(term)) {
+                    score += 5;
+                    matchedTerms.push(term);
+                }
+                if (content.includes(term)) {
+                    score += 1;
+                    matchedTerms.push(term);
+                }
+            });
+            
+            if (score > 0) {
+                results.push({
+                    ...page,
+                    matchedTerms: [...new Set(matchedTerms)],
+                    score: score
+                });
+            }
+        });
+        
+        // Sort by score
+        results.sort((a, b) => b.score - a.score);
+        
+        // Display results with highlights and math rendering
+        if (results.length === 0) {
+            resultsContainer.innerHTML = '<p class="search-no-results">No results found for "' + query + '"</p>';
+            return;
+        }
+        
+        let html = '<ul class="search-results-list">';
+        
+        results.forEach(result => {
+            // Highlight title
+            let highlightedTitle = result.title;
+            result.matchedTerms.forEach(term => {
+                const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                highlightedTitle = highlightedTitle.replace(regex, '<mark class="search-highlight">$1</mark>');
+            });
+            
+            // Get and highlight preview
+            let previewText = '';
+            if (result.summary) {
+                previewText = result.summary;
+            } else if (result.content) {
+                previewText = getPreview(result.content, result.matchedTerms);
+            }
+            
+            let highlightedPreview = highlightTerms(previewText, result.matchedTerms);
+            
+            html += `
+                <li class="search-result-item">
+                    <h3><a href="${result.permalink}">${highlightedTitle}</a></h3>
+                    <div class="search-preview">${highlightedPreview}</div>
+                    <div class="search-meta">
+                        ${result.date ? `<span class="search-date">📅 ${result.date}</span>` : ''}
+                        ${result.tags ? `<span class="search-tags">🏷️ ${result.tags}</span>` : ''}
+                    </div>
+                </li>
+            `;
+        });
+        
+        html += '</ul>';
+        resultsContainer.innerHTML = html;
+        
+        // Render math in the newly added results
+        setTimeout(() => {
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }, 100);
+    }
+
+    // Add event listener with debounce
+    let searchTimeout;
+    document.getElementById('search-input').addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(performSearch, 300);
+    });
+</script>
+
+<style>
+    #search-container {
+        margin: 20px 0;
+    }
+    
+    #search-input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 16px;
+        border: 1px solid var(--border);
+        background: var(--theme);
+        color: var(--content);
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+    
+    #search-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.1);
+    }
+    
+    .search-results-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+    }
+    
+    .search-result-item {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--theme);
+        transition: all 0.2s;
+    }
+    
+    .search-result-item:hover {
+        transform: translateX(5px);
+        border-color: var(--primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .search-result-item h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.3em;
+    }
+    
+    .search-result-item h3 a {
+        color: var(--primary);
+        text-decoration: none;
+    }
+    
+    .search-result-item h3 a:hover {
+        text-decoration: underline;
+    }
+    
+    .search-preview {
+        color: var(--content);
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+        word-break: break-word;
+    }
+    
+    /* Math rendering in preview */
+    .search-preview mjx-container {
+        font-size: 0.9em;
+        display: inline;
+    }
+    
+    .search-preview .MathJax {
+        font-size: 0.9em;
+    }
+    
+    .search-meta {
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--secondary);
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    mark.search-highlight {
+        background: #ffeb3b;
+        color: #000;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-weight: 600;
+    }
+    
+    .search-no-results {
+        text-align: center;
+        color: var(--secondary);
+        padding: 40px;
+        font-size: 16px;
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+        mark.search-highlight {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .search-result-item {
+            padding: 15px;
+        }
+        
+        .search-meta {
+            font-size: 11px;
+            gap: 10px;
+        }
+    }
+</style>
+
+{{- end }}

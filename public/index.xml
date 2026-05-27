@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Essential Math for AI</title>
+    <link>http://localhost:8847/</link>
+    <description>Recent content on Essential Math for AI</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:8847/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projects</title>
+      <link>http://localhost:8847/projects/</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:8847/projects/</guid>
+      <description>&lt;h2 id=&#34;active-project&#34;&gt;Active Project&lt;/h2&gt;
+&lt;h3 id=&#34;-dual-encoder-for-semantic-search&#34;&gt;🚀 Dual Encoder for Semantic Search&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; 🔵 Active - In Development&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt;
+A neural architecture designed for efficient semantic similarity comparison between queries and documents. This project implements a dual encoder model with in-batch negative sampling for information retrieval tasks.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Technologies:&lt;/strong&gt; PyTorch, Transformers, FAISS, FastAPI&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Features:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Query and document encoding into shared embedding space&lt;/li&gt;
+&lt;li&gt;Cosine similarity scoring for relevance ranking&lt;/li&gt;
+&lt;li&gt;Scalable vector search with FAISS indexing&lt;/li&gt;
+&lt;li&gt;REST API for deployment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Current Milestones:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post with Citation</title>
+      <link>http://localhost:8847/posts/post-with-citation/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:8847/posts/post-with-citation/</guid>
+      <description>&lt;p&gt;A dual encoder is a neural architecture designed for retrieval tasks, where it encodes a query and a document (or passage) independently into a shared embedding space. The core purpose of the dual encoder is to support efficient semantic similarity comparison using vector-based operations, typically a dot product or cosine similarity.&lt;/p&gt;
+&lt;p&gt;Let the query be denoted by $q$ and the passage/document be denoted by $p$. The encoder network maps each of these inputs to dense vector embeddings:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post with Code Snippets</title>
+      <link>http://localhost:8847/posts/post-with-code-snippets/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:8847/posts/post-with-code-snippets/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;list-of-paragraphs&#34;&gt;List of Paragraphs&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;first-paragraph&#34;&gt;First paragraph&lt;/h3&gt;
+&lt;p&gt;A dual encoder is a neural architecture designed for retrieval tasks, where it encodes a query and a document (or passage) independently into a shared embedding space. The core purpose of the dual encoder is to support efficient semantic similarity comparison using vector-based operations, typically a dot product or cosine similarity.&lt;/p&gt;
+&lt;p&gt;Let the query be denoted by $q$ and the passage/document be denoted by $p$. The encoder network maps each of these inputs to dense vector embeddings:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post with Mathematical Expressions</title>
+      <link>http://localhost:8847/posts/post-with-mathematical-expressions/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:8847/posts/post-with-mathematical-expressions/</guid>
+      <description>&lt;h3 id=&#34;previous&#34;&gt;Previous&lt;/h3&gt;
+&lt;p&gt;A dual encoder is a neural architecture designed for retrieval tasks, where it encodes a query and a document (or passage) independently into a shared embedding space. The core purpose of the dual encoder is to support efficient semantic similarity comparison using vector-based operations, typically a dot product or cosine similarity.&lt;/p&gt;
+&lt;p&gt;Let the query be denoted by $q$ and the passage/document be denoted by $p$. The encoder network maps each of these inputs to dense vector embeddings:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ssss</title>
+      <link>http://localhost:8847/posts/ssss/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:8847/posts/ssss/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:8847/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:8847/about/</guid>
+      <description>&lt;h2 id=&#34;about-this-site&#34;&gt;About This Site&lt;/h2&gt;
+&lt;p&gt;Welcome to &lt;strong&gt;Essential Math for Artificial Intelligence&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;This site is dedicated to explaining the fundamental mathematical concepts needed for understanding and building AI systems.&lt;/p&gt;
+&lt;h3 id=&#34;topics-covered&#34;&gt;Topics Covered&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Linear Algebra&lt;/li&gt;
+&lt;li&gt;Calculus&lt;/li&gt;
+&lt;li&gt;Probability &amp;amp; Statistics&lt;/li&gt;
+&lt;li&gt;Optimization&lt;/li&gt;
+&lt;li&gt;Neural Networks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;about-the-author&#34;&gt;About the Author&lt;/h3&gt;
+&lt;p&gt;[Your name and bio here]&lt;/p&gt;
+&lt;h3 id=&#34;contact&#34;&gt;Contact&lt;/h3&gt;
+&lt;p&gt;[Your contact information here]&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

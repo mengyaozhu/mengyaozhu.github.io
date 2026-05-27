@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "a0f9fa03a2ac9447",
+    "type": "split",
+    "children": [
+      {
+        "id": "a452bf1ffd1d4f55",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b4613e8d4cddfbd9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/ssss.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ssss"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d12780333ef9bb17",
+    "type": "split",
+    "children": [
+      {
+        "id": "f270bef31a7f97e2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "edd87cae0cb3db65",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9bffc2f5a725c2e4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "46b209242c832242",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9367c4fb94e94bc1",
+    "type": "split",
+    "children": [
+      {
+        "id": "9fd083964410c16a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fccf965cc4c8280f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/posts/second.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for second"
+            }
+          },
+          {
+            "id": "d28ff0a9b7c816e0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "content/posts/second.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from second"
+            }
+          },
+          {
+            "id": "46fb983f9eb29ef5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6cf6bf16d1a70d97",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "8532dbcfa86da5b7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "content/posts/second.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of second"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "b4613e8d4cddfbd9",
+  "lastOpenFiles": [
+    "public/posts/ssss/index.html",
+    "public/posts/ssss",
+    "content/posts/Post with Citation.md",
+    "content/posts/ssss.md",
+    "public/posts/ddd/index.html",
+    "public/posts/ddd",
+    "public/posts/post-with-citation/index.html",
+    "public/posts/post-with-citation",
+    "hugo-home-info.toml",
+    "public/posts/post-number-two-with-code-snippets/index.html",
+    "public/posts/post-number-two-with-code-snippets",
+    "content/posts/Post Number Two with Code Snippets.md",
+    "public/tags/citation/page/1/index.html",
+    "public/tags/citation/page/1",
+    "content/projects.md",
+    "content/search - Copy.md",
+    "content/about.md",
+    "content/posts/Post Number One.md",
+    "content/posts/Post Number Three.md",
+    "content/posts/Post Number Two with Tags.md",
+    "content/posts/Dual Encoder.md",
+    "content/search.md",
+    "content/posts/Third Paper.md",
+    "content/archives.md",
+    "content/archive.md",
+    "themes/hextra/static/images/logo.svg",
+    "themes/hextra/static/images/logo-dark.svg",
+    "themes/hextra/static/favicon-32x32.png",
+    "themes/hextra/static/favicon.svg",
+    "themes/hextra/static/favicon-16x16.png",
+    "themes/hextra/static/apple-touch-icon.png",
+    "themes/hextra/static/android-chrome-512x512.png",
+    "themes/hextra/static/android-chrome-192x192.png",
+    "themes/hextra/layouts/wide.markdown.md",
+    "themes/hextra/layouts/section.markdown.md",
+    "themes/hextra/layouts/page.markdown.md",
+    "themes/hextra/layouts/glossary.markdown.md",
+    "themes/hextra/examples/README.md",
+    "themes/hextra/docs/content/docs/guide/shortcodes/_index.zh-cn.md",
+    "themes/hextra/docs/content/docs/guide/shortcodes/_index.md",
+    "themes/hextra/docs/content/docs/guide/shortcodes/_index.ja.md",
+    "themes/hextra/docs/content/docs/guide/shortcodes/_index.fa.md",
+    "themes/hextra/docs/content/docs/guide/shortcodes/term.zh-cn.md",
+    "themes/hextra/docs/content/docs/guide/shortcodes/term.md",
+    "themes/hextra/docs/static/images/hextra-search.webp",
+    "themes/hextra/docs/static/images/hextra-markdown.webp"
+  ]
+}

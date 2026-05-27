@@ -1,0 +1,269 @@
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{- (printf "%s&nbsp;" .Title ) | htmlUnescape -}}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if not .Date.IsZero }}
+    <div class="post-meta">
+        {{- partial "post_meta.html" . -}}
+    </div>
+    {{- end }}
+</header>
+
+<div id="searchbox">
+    <input id="searchInput" type="search" placeholder="{{ .Params.placeholder | default (printf "%s ↵" .Title) }}" aria-label="search">
+    <button id="searchButton" type="submit">🔍</button>
+</div>
+
+<div id="searchResults"></div>
+
+<script>
+    // Fuse.js options with highlighting
+    var fuseOptions = {
+        isCaseSensitive: false,
+        shouldSort: true,
+        includeMatches: true,  // Enables highlight matching
+        threshold: 0.3,
+        location: 0,
+        distance: 100,
+        maxPatternLength: 32,
+        minMatchCharLength: 2,
+        keys: [
+            { name: "title", weight: 0.7 },
+            { name: "permalink", weight: 0.1 },
+            { name: "summary", weight: 0.2 },
+            { name: "content", weight: 0.2 }
+        ]
+    };
+
+    // Highlight function
+    function highlightMatches(text, matches) {
+        if (!matches || matches.length === 0) return text;
+        
+        let result = text;
+        let indices = [];
+        
+        matches.forEach(match => {
+            if (match.key === 'content' || match.key === 'title' || match.key === 'summary') {
+                match.indices.forEach(index => {
+                    indices.push({
+                        start: index[0],
+                        end: index[1] + 1,
+                        key: match.key
+                    });
+                });
+            }
+        });
+        
+        // Sort indices in reverse order to not mess up positions
+        indices.sort((a, b) => b.start - a.start);
+        
+        indices.forEach(index => {
+            const before = result.substring(0, index.start);
+            const highlighted = result.substring(index.start, index.end);
+            const after = result.substring(index.end);
+            result = before + '<mark class="search-highlight">' + highlighted + '</mark>' + after;
+        });
+        
+        return result;
+    }
+
+    // Display results with highlights
+    function displayResults(results) {
+        const searchResults = document.getElementById('searchResults');
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<p>No results found.</p>';
+            return;
+        }
+        
+        let html = '<ul class="search-results">';
+        
+        results.forEach(result => {
+            const item = result.item;
+            const matches = result.matches;
+            
+            // Highlight title
+            let titleHighlighted = item.title;
+            const titleMatches = matches?.filter(m => m.key === 'title') || [];
+            if (titleMatches.length > 0) {
+                titleHighlighted = highlightMatches(item.title, titleMatches);
+            }
+            
+            // Highlight summary
+            let summaryHighlighted = item.summary || '';
+            const summaryMatches = matches?.filter(m => m.key === 'summary') || [];
+            if (summaryMatches.length > 0 && summaryHighlighted) {
+                summaryHighlighted = highlightMatches(summaryHighlighted, summaryMatches);
+            }
+            
+            // Highlight content excerpt (first 200 chars)
+            let excerpt = item.content.substring(0, 300) + (item.content.length > 300 ? '...' : '');
+            const contentMatches = matches?.filter(m => m.key === 'content') || [];
+            if (contentMatches.length > 0) {
+                excerpt = highlightMatches(excerpt, contentMatches);
+            }
+            
+            html += `
+                <li class="search-result-item">
+                    <h3><a href="${item.permalink}">${titleHighlighted}</a></h3>
+                    ${summaryHighlighted ? `<p class="search-summary">${summaryHighlighted}</p>` : ''}
+                    ${excerpt ? `<p class="search-excerpt">${excerpt}</p>` : ''}
+                    <div class="search-meta">
+                        ${item.date ? `<span class="search-date">${item.date}</span>` : ''}
+                        ${item.tags ? `<span class="search-tags">🏷️ ${item.tags}</span>` : ''}
+                    </div>
+                </li>
+            `;
+        });
+        
+        html += '</ul>';
+        searchResults.innerHTML = html;
+    }
+
+    // Load search index and initialize
+    function initializeSearch() {
+        fetch('/index.json')
+            .then(response => response.json())
+            .then(data => {
+                const fuse = new Fuse(data, fuseOptions);
+                
+                const searchInput = document.getElementById('searchInput');
+                const searchButton = document.getElementById('searchButton');
+                
+                function performSearch() {
+                    const query = searchInput.value.trim();
+                    if (query.length >= 2) {
+                        const results = fuse.search(query);
+                        displayResults(results);
+                    } else if (query.length === 0) {
+                        document.getElementById('searchResults').innerHTML = '';
+                    }
+                }
+                
+                searchButton.addEventListener('click', performSearch);
+                searchInput.addEventListener('keyup', (e) => {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            });
+    }
+    
+    // Load Fuse.js from CDN and initialize
+    if (typeof Fuse === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@6.6.2';
+        script.onload = initializeSearch;
+        document.head.appendChild(script);
+    } else {
+        initializeSearch();
+    }
+</script>
+
+<style>
+    #searchbox {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    
+    #searchInput {
+        flex: 1;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid var(--border);
+        background: var(--theme);
+        color: var(--content);
+        border-radius: 8px;
+    }
+    
+    #searchButton {
+        padding: 12px 24px;
+        background: var(--primary);
+        color: var(--theme);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    #searchButton:hover {
+        opacity: 0.8;
+    }
+    
+    .search-results {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .search-result-item {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--theme);
+        transition: transform 0.2s;
+    }
+    
+    .search-result-item:hover {
+        transform: translateX(5px);
+        border-color: var(--primary);
+    }
+    
+    .search-result-item h3 {
+        margin: 0 0 10px 0;
+    }
+    
+    .search-result-item h3 a {
+        color: var(--primary);
+        text-decoration: none;
+    }
+    
+    .search-result-item h3 a:hover {
+        text-decoration: underline;
+    }
+    
+    .search-summary {
+        color: var(--secondary);
+        font-size: 14px;
+        margin: 10px 0;
+    }
+    
+    .search-excerpt {
+        color: var(--content);
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+    
+    .search-meta {
+        margin-top: 10px;
+        font-size: 12px;
+        color: var(--secondary);
+        display: flex;
+        gap: 15px;
+    }
+    
+    mark.search-highlight {
+        background: #ffeb3b;
+        color: #000;
+        padding: 2px 0;
+        border-radius: 2px;
+        font-weight: bold;
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+        mark.search-highlight {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+    }
+</style>
+
+{{- end }}

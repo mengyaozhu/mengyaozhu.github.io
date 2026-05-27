@@ -1,0 +1,85 @@
+# baseURL = "https://example.com/"
+baseURL = "https://mengyaozhu.github.io/"
+languageCode = "en-us"
+title = "Essential Math for AI"
+theme = "hugo-PaperMod"
+
+[params]
+  math = true
+  ShowShareButtons = true
+  ShowReadingTime = true 
+  ShowToc = true 
+  ShowBreadCrumbs = true 
+  ShowPostnavLinks = true 
+  ShowCodeCopyButtons = true 
+  ShowRelatedPosts = true 
+  # disableThemeToggle = true
+
+    [params.homeInfoParams]
+    Title = "In Math We Believe"
+    # Content = "Welcome! This site covers the fundamental mathematics needed for artificial intelligence, including linear algebra, calculus, statistics and probability."
+    Content = '''
+Welcome! This site covers the fundamental mathematics needed for artificial intelligence.
+
+| Math Subjects | Introduction | Link |
+|----------|----------|----------|
+| Algebra, Geometry and Trigonometry | Row 1, C2 | Row 1, C3 |
+| Calculus | Row 2, C3 | Row 2, C4 |
+| Linear Algebra | Row 3, C2 | Row 3, C3 |
+| Statistics and Probability | Row 4, C2 | Row 4, C3 |
+| Relevant Math | Row 5, C2 | Row 5, C3 |
+
+'''
+
+  # [[params.socialIcons]]
+  #   name = "github"
+  #   url = "https://github.com/yourusername"
+  # [[params.socialIcons]]
+  #   name = "twitter"
+  #   url = "https://twitter.com/yourusername"
+  # [[params.socialIcons]]
+  #   name = "linkedin"
+  #   url = "https://linkedin.com/in/yourusername"
+
+[menu]
+  [[menu.main]]
+    identifier = "archives"
+    name = "Archive"
+    url = "/archives/"
+    weight = 10
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 20
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 30
+  # [[menu.main]]
+  #  identifier = "about"
+  #  name = "About"
+  #  url = "/about/"
+  #  weight = 40  
+  # [[menu.main]]
+  #   identifier = "projects"
+  #   name = "Projects"
+  #   url = "/projects/"
+  #   weight = 25     
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  tag = "tags"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+  [markup.highlight]
+    noClasses = false

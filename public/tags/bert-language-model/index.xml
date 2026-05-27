@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>BERT Language Model on Essential Math for AI</title>
+    <link>http://localhost:8847/tags/bert-language-model/</link>
+    <description>Recent content in BERT Language Model on Essential Math for AI</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:8847/tags/bert-language-model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post with Mathematical Expressions</title>
+      <link>http://localhost:8847/posts/post-with-mathematical-expressions/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:8847/posts/post-with-mathematical-expressions/</guid>
+      <description>&lt;h3 id=&#34;previous&#34;&gt;Previous&lt;/h3&gt;
+&lt;p&gt;A dual encoder is a neural architecture designed for retrieval tasks, where it encodes a query and a document (or passage) independently into a shared embedding space. The core purpose of the dual encoder is to support efficient semantic similarity comparison using vector-based operations, typically a dot product or cosine similarity.&lt;/p&gt;
+&lt;p&gt;Let the query be denoted by $q$ and the passage/document be denoted by $p$. The encoder network maps each of these inputs to dense vector embeddings:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

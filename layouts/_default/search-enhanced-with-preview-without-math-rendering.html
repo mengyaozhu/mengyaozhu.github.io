@@ -1,0 +1,274 @@
+{{- define "main" }}
+
+<header class="page-header">
+    <h1>{{- (printf "%s&nbsp;" .Title ) | htmlUnescape -}}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="{{ .Params.placeholder | default (printf "%s ↵" .Title) }}" aria-label="search">
+    <div id="search-results"></div>
+</div>
+
+<script>
+    // Function to highlight search terms in text
+    function highlightTerms(text, terms) {
+        if (!terms || terms.length === 0) return text;
+        
+        let result = text;
+        terms.forEach(term => {
+            const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            result = result.replace(regex, '<mark class="search-highlight">$1</mark>');
+        });
+        return result;
+    }
+
+    // Function to extract preview around matched terms
+    function getPreview(content, terms, previewLength = 200) {
+        if (!terms || terms.length === 0) {
+            return content.substring(0, previewLength) + '...';
+        }
+        
+        let bestPosition = -1;
+        let bestTerm = '';
+        
+        // Find the first occurrence of any search term
+        for (const term of terms) {
+            const pos = content.toLowerCase().indexOf(term.toLowerCase());
+            if (pos !== -1 && (bestPosition === -1 || pos < bestPosition)) {
+                bestPosition = pos;
+                bestTerm = term;
+            }
+        }
+        
+        if (bestPosition === -1) {
+            return content.substring(0, previewLength) + '...';
+        }
+        
+        // Extract text around the match
+        let start = Math.max(0, bestPosition - 50);
+        let end = Math.min(content.length, bestPosition + 150);
+        
+        let preview = content.substring(start, end);
+        
+        // Add ellipsis if needed
+        if (start > 0) preview = '...' + preview;
+        if (end < content.length) preview = preview + '...';
+        
+        return preview;
+    }
+
+    // Perform search with highlighting
+    async function performSearch() {
+        const query = document.getElementById('search-input').value.trim();
+        const resultsContainer = document.getElementById('search-results');
+        
+        if (query.length < 2) {
+            resultsContainer.innerHTML = '';
+            return;
+        }
+        
+        // Load search index
+        const response = await fetch('/index.json');
+        const pages = await response.json();
+        
+        // Simple search (you can enhance with Fuse.js)
+        const searchTerms = query.toLowerCase().split(/\s+/);
+        const results = [];
+        
+        pages.forEach(page => {
+            const content = (page.content || '').toLowerCase();
+            const title = (page.title || '').toLowerCase();
+            const summary = (page.summary || '').toLowerCase();
+            
+            let score = 0;
+            let matchedTerms = [];
+            
+            searchTerms.forEach(term => {
+                if (title.includes(term)) {
+                    score += 10;
+                    matchedTerms.push(term);
+                }
+                if (summary.includes(term)) {
+                    score += 5;
+                    matchedTerms.push(term);
+                }
+                if (content.includes(term)) {
+                    score += 1;
+                    matchedTerms.push(term);
+                }
+            });
+            
+            if (score > 0) {
+                results.push({
+                    ...page,
+                    matchedTerms: [...new Set(matchedTerms)],
+                    score: score
+                });
+            }
+        });
+        
+        // Sort by score
+        results.sort((a, b) => b.score - a.score);
+        
+        // Display results with highlights
+        if (results.length === 0) {
+            resultsContainer.innerHTML = '<p class="search-no-results">No results found for "' + query + '"</p>';
+            return;
+        }
+        
+        let html = '<ul class="search-results-list">';
+        
+        results.forEach(result => {
+            // Highlight title
+            let highlightedTitle = result.title;
+            result.matchedTerms.forEach(term => {
+                const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                highlightedTitle = highlightedTitle.replace(regex, '<mark class="search-highlight">$1</mark>');
+            });
+            
+            // Get and highlight preview
+            let previewText = '';
+            if (result.summary) {
+                previewText = result.summary;
+            } else if (result.content) {
+                previewText = getPreview(result.content, result.matchedTerms);
+            }
+            
+            let highlightedPreview = highlightTerms(previewText, result.matchedTerms);
+            
+            html += `
+                <li class="search-result-item">
+                    <h3><a href="${result.permalink}">${highlightedTitle}</a></h3>
+                    <p class="search-preview">${highlightedPreview}</p>
+                    <div class="search-meta">
+                        ${result.date ? `<span class="search-date">📅 ${result.date}</span>` : ''}
+                        ${result.tags ? `<span class="search-tags">🏷️ ${result.tags}</span>` : ''}
+                    </div>
+                </li>
+            `;
+        });
+        
+        html += '</ul>';
+        resultsContainer.innerHTML = html;
+    }
+
+    // Add event listener
+    document.getElementById('search-input').addEventListener('input', performSearch);
+</script>
+
+<style>
+    #search-container {
+        margin: 20px 0;
+    }
+    
+    #search-input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 16px;
+        border: 1px solid var(--border);
+        background: var(--theme);
+        color: var(--content);
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+    
+    #search-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.1);
+    }
+    
+    .search-results-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+    }
+    
+    .search-result-item {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--theme);
+        transition: all 0.2s;
+    }
+    
+    .search-result-item:hover {
+        transform: translateX(5px);
+        border-color: var(--primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .search-result-item h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.3em;
+    }
+    
+    .search-result-item h3 a {
+        color: var(--primary);
+        text-decoration: none;
+    }
+    
+    .search-result-item h3 a:hover {
+        text-decoration: underline;
+    }
+    
+    .search-preview {
+        color: var(--content);
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+        word-break: break-word;
+    }
+    
+    .search-meta {
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--secondary);
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    mark.search-highlight {
+        background: #ffeb3b;
+        color: #000;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-weight: 600;
+    }
+    
+    .search-no-results {
+        text-align: center;
+        color: var(--secondary);
+        padding: 40px;
+        font-size: 16px;
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+        mark.search-highlight {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .search-result-item {
+            padding: 15px;
+        }
+        
+        .search-meta {
+            font-size: 11px;
+            gap: 10px;
+        }
+    }
+</style>
+
+{{- end }}
