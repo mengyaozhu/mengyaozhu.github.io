@@ -19,17 +19,8 @@ theme = "hugo-PaperMod"
     Title = "In Math We Believe"
     # Content = "Welcome! This site covers the fundamental mathematics needed for artificial intelligence, including linear algebra, calculus, statistics and probability."
     Content = '''
-Welcome! This site covers the fundamental mathematics needed for artificial intelligence.
-
-| Math Subjects | Introduction | Link |
-|----------|----------|----------|
-| Algebra, Geometry and Trigonometry | Row 1, C2 | Row 1, C3 |
-| Calculus | Row 2, C3 | Row 2, C4 |
-| Linear Algebra | Row 3, C2 | Row 3, C3 |
-| Statistics and Probability | Row 4, C2 | Row 4, C3 |
-| Relevant Math | Row 5, C2 | Row 5, C3 |
-
-'''
+              Welcome! This site covers the fundamental mathematics needed for artificial intelligence.
+              '''
 
   # [[params.socialIcons]]
   #   name = "github"
