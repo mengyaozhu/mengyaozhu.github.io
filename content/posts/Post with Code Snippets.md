@@ -3,7 +3,7 @@ title = "Post with Code Snippets"
 date = 2026-05-24
 math = true
 tags = ["Neural Networks", "Large Language Model", "Embeddings", "Similarity"]
-author = ["Mengyao Zhu", "DeepSeek"]
+author = ["Mengyao Zhu"]
 +++
 
 ---
