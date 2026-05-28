@@ -2,10 +2,9 @@
 title = "Matrix in Linear Algebra"
 date = 2026-05-24
 math = true
-tags = ["Neural Networks", "Large Language Model", "Embeddings", "Similarity"]
+tags = ["Math for AI", "Linear Algebra", "Matrix", "Definition of Matrix"]
 author = ["Mengyao Zhu"]
 +++
-
 
 A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The size or dimension of a matrix is described by the number of rows followed by the number of columns. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data. When two matrices are of compatible sizes, operations such as addition involve adding corresponding elements, while multiplication follows a specific rule where the element in the $i$-th row and $j$-th column of the product is formed by combining the $i$-th row of the first matrix with the $j$-th column of the second.
 
