@@ -7,23 +7,19 @@ author = ["Mengyao Zhu"]
 +++
 
 
-
-
-
-
 A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The size or dimension of a matrix is described by the number of rows followed by the number of columns. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data. When two matrices are of compatible sizes, operations such as addition involve adding corresponding elements, while multiplication follows a specific rule where the element in the $i$-th row and $j$-th column of the product is formed by combining the $i$-th row of the first matrix with the $j$-th column of the second.
 
 Consider a square matrix of size $n \times n$, meaning it has the same number of rows and columns. For example, a $3 \times 3$ matrix can be written as:
 $$
-A_{3 \times 3} = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}.
+A_{3 \times 3} = \begin{pmatrix} a_{11} & a_{12} & a_{13} \cr a_{21} & a_{22} & a_{23} \cr a_{31} & a_{32} & a_{33} \end{pmatrix}.
 $$
 The equal number of rows and columns is significant because only square matrices can have certain properties such as being invertible. Next, a matrix with more rows than columns, denoted $m \times n$ where $m > n$, appears taller than it is wide. For instance, a $4 \times 2$ matrix is:
 $$
-B_{4 \times 2} = \begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \\ b_{31} & b_{32} \\ b_{41} & b_{42} \end{pmatrix}.
+B_{4 \times 2} = \begin{pmatrix} b_{11} & b_{12} \cr b_{21} & b_{22} \cr b_{31} & b_{32} \cr b_{41} & b_{42} \end{pmatrix}.
 $$
 Such a matrix typically arises when there are more equations than unknown variables in a system. Conversely, a matrix with more columns than rows, written $n \times m$ where $m > n$, is wider than it is tall. A $2 \times 4$ matrix example is:
 $$
-C_{2 \times 4} = \begin{pmatrix} c_{11} & c_{12} & c_{13} & c_{14} \\ c_{21} & c_{22} & c_{23} & c_{24} \end{pmatrix}.
+C_{2 \times 4} = \begin{pmatrix} c_{11} & c_{12} & c_{13} & c_{14} \cr c_{21} & c_{22} & c_{23} & c_{24} \end{pmatrix}.
 $$
 This shape often appears when there are fewer equations than unknowns, leading to multiple possible solutions.
 
@@ -31,20 +27,5 @@ The essential characteristics of a matrix in linear algebra include its size, th
 
 
 
-$$
-\begin{bmatrix}
-a_{11} & a_{12} & a_{13} \\
-a_{21} & a_{22} & a_{23} \\
-a_{31} & a_{32} & a_{33}
-\end{bmatrix}
-$$
 
-
-
-
-$$\begin{bmatrix}
-a_{11} & a_{12} & a_{13} \
-a_{21} & a_{22} & a_{23} \
-a_{31} & a_{32} & a_{33}
-\end{bmatrix}$$
 
