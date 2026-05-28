@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Large Language Model on Essential Math for AI</title>
-    <link>http://localhost:9882/tags/large-language-model/</link>
+    <link>http://localhost:14933/tags/large-language-model/</link>
     <description>Recent content in Large Language Model on Essential Math for AI</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:9882/tags/large-language-model/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:14933/tags/large-language-model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matrix in Linear Algebra</title>
+      <link>http://localhost:14933/posts/matrix-in-linear-algebra/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:14933/posts/matrix-in-linear-algebra/</guid>
+      <description>&lt;p&gt;A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The size or dimension of a matrix is described by the number of rows followed by the number of columns. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data. When two matrices are of compatible sizes, operations such as addition involve adding corresponding elements, while multiplication follows a specific rule where the element in the $i$-th row and $j$-th column of the product is formed by combining the $i$-th row of the first matrix with the $j$-th column of the second.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Post with Code Snippets</title>
-      <link>http://localhost:9882/posts/post-with-code-snippets/</link>
+      <link>http://localhost:14933/posts/post-with-code-snippets/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:9882/posts/post-with-code-snippets/</guid>
+      <guid>http://localhost:14933/posts/post-with-code-snippets/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;list-of-paragraphs&#34;&gt;List of Paragraphs&lt;/h2&gt;
 &lt;hr&gt;

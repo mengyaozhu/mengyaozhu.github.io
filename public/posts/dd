@@ -1,0 +1,34 @@
++++
+title = "Matrix in Linear Algebra"
+date = 2026-05-24
+math = true
+tags = ["Neural Networks", "Large Language Model", "Embeddings", "Similarity"]
+author = ["Mengyao Zhu"]
++++
+
+A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each entry in a matrix is identified by its row position and column position. For a matrix with \( m \) rows and \( n \) columns, it is called an \( m \times n \) matrix (read as “m by n”). Matrices are used to store data, represent systems of linear equations, and perform operations such as addition, subtraction, and multiplication. The size of a matrix is fundamental: the number of rows is always stated first, followed by the number of columns.
+
+A symbolic example of a \( 2 \times 3 \) matrix is given below. The entries are represented by the letter \( a \) with two subscripts: the first subscript indicates the row, and the second indicates the column. For instance, \( a_{12} \) is the entry in row 1, column 2.
+
+\[
+\text{Size: } 2 \text{ rows} \times 3 \text{ columns} \qquad
+A = \begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23}
+\end{bmatrix}
+\]
+
+In this symbolic matrix, the horizontal lines of entries are rows, and the vertical lines of entries are columns. The first row contains \( a_{11}, a_{12}, a_{13} \); the second row contains \( a_{21}, a_{22}, a_{23} \). The first column contains \( a_{11}, a_{21} \); the second column contains \( a_{12}, a_{22} \); the third column contains \( a_{13}, a_{23} \). This symbolic form allows us to describe general rules without using specific numbers.
+
+A concrete numerical example is a \( 3 \times 2 \) matrix. The size means 3 rows and 2 columns.
+
+\[
+\text{Size: } 3 \text{ rows} \times 2 \text{ columns} \qquad
+B = \begin{bmatrix}
+4 & 9 \\
+2 & 7 \\
+5 & 3
+\end{bmatrix}
+\]
+
+Here, the entry in row 1, column 1 is \( 4 \). The entry in row 1, column 2 is \( 9 \). The entry in row 2, column 1 is \( 2 \). The entry in row 2, column 2 is \( 7 \). The entry in row 3, column 1 is \( 5 \). The entry in row 3, column 2 is \( 3 \). This matrix could represent three pairs of numbers. Changing the order of rows or columns changes the matrix, because the position of each number matters.
