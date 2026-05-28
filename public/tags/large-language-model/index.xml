@@ -2,47 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Large Language Model on Essential Math for AI</title>
-    <link>http://localhost:8847/tags/large-language-model/</link>
+    <link>http://localhost:9882/tags/large-language-model/</link>
     <description>Recent content in Large Language Model on Essential Math for AI</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:8847/tags/large-language-model/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Post with Citation</title>
-      <link>http://localhost:8847/posts/post-with-citation/</link>
-      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8847/posts/post-with-citation/</guid>
-      <description>&lt;p&gt;A dual encoder is a neural architecture designed for retrieval tasks, where it encodes a query and a document (or passage) independently into a shared embedding space. The core purpose of the dual encoder is to support efficient semantic similarity comparison using vector-based operations, typically a dot product or cosine similarity.&lt;/p&gt;
-&lt;p&gt;Let the query be denoted by $q$ and the passage/document be denoted by $p$. The encoder network maps each of these inputs to dense vector embeddings:&lt;/p&gt;</description>
-    </item>
+    <atom:link href="http://localhost:9882/tags/large-language-model/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Post with Code Snippets</title>
-      <link>http://localhost:8847/posts/post-with-code-snippets/</link>
+      <link>http://localhost:9882/posts/post-with-code-snippets/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8847/posts/post-with-code-snippets/</guid>
+      <guid>http://localhost:9882/posts/post-with-code-snippets/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;list-of-paragraphs&#34;&gt;List of Paragraphs&lt;/h2&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;first-paragraph&#34;&gt;First paragraph&lt;/h3&gt;
 &lt;p&gt;A dual encoder is a neural architecture designed for retrieval tasks, where it encodes a query and a document (or passage) independently into a shared embedding space. The core purpose of the dual encoder is to support efficient semantic similarity comparison using vector-based operations, typically a dot product or cosine similarity.&lt;/p&gt;
 &lt;p&gt;Let the query be denoted by $q$ and the passage/document be denoted by $p$. The encoder network maps each of these inputs to dense vector embeddings:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Post with Mathematical Expressions</title>
-      <link>http://localhost:8847/posts/post-with-mathematical-expressions/</link>
-      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8847/posts/post-with-mathematical-expressions/</guid>
-      <description>&lt;h3 id=&#34;previous&#34;&gt;Previous&lt;/h3&gt;
-&lt;p&gt;A dual encoder is a neural architecture designed for retrieval tasks, where it encodes a query and a document (or passage) independently into a shared embedding space. The core purpose of the dual encoder is to support efficient semantic similarity comparison using vector-based operations, typically a dot product or cosine similarity.&lt;/p&gt;
-&lt;p&gt;Let the query be denoted by $q$ and the passage/document be denoted by $p$. The encoder network maps each of these inputs to dense vector embeddings:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>ssss</title>
-      <link>http://localhost:8847/posts/ssss/</link>
-      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8847/posts/ssss/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

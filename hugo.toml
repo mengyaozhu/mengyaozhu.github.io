@@ -16,11 +16,9 @@ theme = "hugo-PaperMod"
   # disableThemeToggle = true
 
     [params.homeInfoParams]
-    Title = "In Math We Believe"
-    # Content = "Welcome! This site covers the fundamental mathematics needed for artificial intelligence, including linear algebra, calculus, statistics and probability."
-    Content = '''
-              Welcome! This site covers the fundamental mathematics needed for artificial intelligence.
-              '''
+    Title = "In Science We Believe"
+    Content = "Welcome! This site covers essential mathematics for artificial intelligence."
+    # Content = "Welcome! This site covers the fundamental mathematics needed for artificial intelligence."
 
   # [[params.socialIcons]]
   #   name = "github"
