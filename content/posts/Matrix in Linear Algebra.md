@@ -402,21 +402,3 @@ All feed-forward layers are matrix multiplications, and the output of each trans
 The essential characteristics of a matrix in linear algebra include its size, the nature of its elements, and the operations defined upon it. The arrangement into rows and columns is not arbitrary; each element has a specific position identified by two indices, one for the row and one for the column. This positional structure allows the matrix to represent linear transformations, where applying the matrix to a vector produces another vector. Another characteristic is that matrices can be added only when they share the same size, and multiplication requires that the number of columns in the first matrix equals the number of rows in the second matrix. The set of all matrices of a given size forms a mathematical structure where addition is commutative and associative, and multiplication distributes over addition. Furthermore, some matrices have special patterns, such as symmetric matrices where $a_{ij} = a_{ji}$, diagonal matrices where nonzero entries appear only on the main diagonal, and identity matrices which act as the multiplicative neutral element. These characteristics collectively define how matrices behave as computational tools and as representations of linear relationships between sets of numbers.
 
 
-
-### Trial
-
-$$
-\text{Attention scores}\_{n \times n} = \text{Queries}\_{n \times d\_k} \cdot \text{Keys}^{\top}\_{d\_k \times n}
-$$
-
-$$
-= \begin{pmatrix}
-s_{11} & s_{12} & \dots & s_{1n} \cr
-s_{21} & s_{22} & \dots & s_{2n} \cr
-\vdots & \vdots & \ddots & \vdots \cr
-s_{n1} & s_{n2} & \dots & s_{nn}
-\end{pmatrix}.
-$$
-
-
-
