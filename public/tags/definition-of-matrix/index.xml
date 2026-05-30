@@ -2,87 +2,90 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Definition of Matrix on Essential Math for AI</title>
-    <link>http://localhost:1749/tags/definition-of-matrix/</link>
+    <link>http://localhost:1313/tags/definition-of-matrix/</link>
     <description>Recent content in Definition of Matrix on Essential Math for AI</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1749/tags/definition-of-matrix/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/definition-of-matrix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Accumulate Math Intuition</title>
-      <link>http://localhost:1749/posts/accumulate-math-intuition/</link>
+      <link>http://localhost:1313/posts/accumulate-math-intuition/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/accumulate-math-intuition/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/accumulate-math-intuition/</guid>
+      <description>&lt;p&gt;topic analytics: display the following content without content modifications, except for the paragraph with modification instructions within [] placeholders.&lt;/p&gt;
+&lt;p&gt;A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The size or dimension of a matrix is described by the number of rows followed by the number of columns. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Enhance Math Learning</title>
-      <link>http://localhost:1749/posts/enhance-math-learning/</link>
+      <link>http://localhost:1313/posts/enhance-math-learning/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/enhance-math-learning/</guid>
+      <guid>http://localhost:1313/posts/enhance-math-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Essential Components in Linear Algebra</title>
-      <link>http://localhost:1749/posts/essential-components-in-linear-algebra/</link>
+      <link>http://localhost:1313/posts/essential-components-in-linear-algebra/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/essential-components-in-linear-algebra/</guid>
+      <guid>http://localhost:1313/posts/essential-components-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Essential Operations in Linear Algebra</title>
-      <link>http://localhost:1749/posts/essential-operations-in-linear-algebra/</link>
+      <link>http://localhost:1313/posts/essential-operations-in-linear-algebra/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/essential-operations-in-linear-algebra/</guid>
+      <guid>http://localhost:1313/posts/essential-operations-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Essential Relations in Linear Algebra</title>
-      <link>http://localhost:1749/posts/essential-relations-in-linear-algebra/</link>
+      <link>http://localhost:1313/posts/essential-relations-in-linear-algebra/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/essential-relations-in-linear-algebra/</guid>
+      <guid>http://localhost:1313/posts/essential-relations-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Linear Algebra for Parameterized Models</title>
-      <link>http://localhost:1749/posts/linear-algebra-for-parameterized-models/</link>
+      <link>http://localhost:1313/posts/linear-algebra-for-parameterized-models/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/linear-algebra-for-parameterized-models/</guid>
+      <guid>http://localhost:1313/posts/linear-algebra-for-parameterized-models/</guid>
       <description></description>
     </item>
     <item>
       <title>Matrix in Linear Algebra</title>
-      <link>http://localhost:1749/posts/matrix-in-linear-algebra/</link>
+      <link>http://localhost:1313/posts/matrix-in-linear-algebra/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/matrix-in-linear-algebra/</guid>
-      <description>&lt;p&gt;A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The size or dimension of a matrix is described by the number of rows followed by the number of columns. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data. When two matrices are of compatible sizes, operations such as addition involve adding corresponding elements, while multiplication follows a specific rule where the element in the $i$-th row and $j$-th column of the product is formed by combining the $i$-th row of the first matrix with the $j$-th column of the second.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/matrix-in-linear-algebra/</guid>
+      <description>&lt;h3 id=&#34;definition-of-matrix&#34;&gt;Definition of Matrix&lt;/h3&gt;
+&lt;p&gt;A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data.&lt;/p&gt;
+&lt;p&gt;The size of a matrix is denoted as $m \times n$, where $m$ is the number of rows and $n$ is the number of columns.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix Variations in Linear Algebra</title>
-      <link>http://localhost:1749/posts/matrix-variations-in-linear-algebra/</link>
+      <link>http://localhost:1313/posts/matrix-variations-in-linear-algebra/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/matrix-variations-in-linear-algebra/</guid>
+      <guid>http://localhost:1313/posts/matrix-variations-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Prompt Math Questions</title>
-      <link>http://localhost:1749/posts/prompt-math-questions/</link>
+      <link>http://localhost:1313/posts/prompt-math-questions/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/prompt-math-questions/</guid>
+      <guid>http://localhost:1313/posts/prompt-math-questions/</guid>
       <description></description>
     </item>
     <item>
       <title>Vector in Linear Algebra</title>
-      <link>http://localhost:1749/posts/vector-in-linear-algebra/</link>
+      <link>http://localhost:1313/posts/vector-in-linear-algebra/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/vector-in-linear-algebra/</guid>
+      <guid>http://localhost:1313/posts/vector-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Vector Variations in Linear Algebra</title>
-      <link>http://localhost:1749/posts/vector-variations-in-linear-algebra/</link>
+      <link>http://localhost:1313/posts/vector-variations-in-linear-algebra/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1749/posts/vector-variations-in-linear-algebra/</guid>
+      <guid>http://localhost:1313/posts/vector-variations-in-linear-algebra/</guid>
       <description></description>
     </item>
   </channel>

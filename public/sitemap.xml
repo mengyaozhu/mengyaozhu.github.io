@@ -2,69 +2,88 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1749/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2026-05-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/projects/</loc>
+    <loc>http://localhost:1313/projects/</loc>
     <lastmod>2026-05-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/drafts/accumulate-math-intuition/</loc>
+    <loc>http://localhost:1313/posts/accumulate-math-intuition/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/definition-of-matrix/</loc>
+    <loc>http://localhost:1313/tags/definition-of-matrix/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/definition-of-reflection/</loc>
+    <loc>http://localhost:1313/tags/definition-of-reflection/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/drafts/</loc>
+    <loc>http://localhost:1313/tags/embeddings/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/embeddings/</loc>
+    <loc>http://localhost:1313/posts/enhance-math-learning/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/large-language-model/</loc>
+    <loc>http://localhost:1313/posts/essential-components-in-linear-algebra/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/math-for-ai/</loc>
+    <loc>http://localhost:1313/posts/essential-operations-in-linear-algebra/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/matrix-in-linear-algebra/</loc>
+    <loc>http://localhost:1313/posts/essential-relations-in-linear-algebra/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/posts/matrix-variation---reflection-matrix-in-linear-algebra/</loc>
+    <loc>http://localhost:1313/tags/large-language-model/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/posts/matrix-variations-in-linear-algebra/</loc>
+    <loc>http://localhost:1313/posts/linear-algebra-for-parameterized-models/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/neural-networks/</loc>
+    <loc>http://localhost:1313/tags/math-for-ai/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/posts/post-with-code-snippets/</loc>
+    <loc>http://localhost:1313/posts/matrix-in-linear-algebra/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/posts/</loc>
+    <loc>http://localhost:1313/tags/matrix-in-linear-algebra/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/drafts/prompt-math-questions/</loc>
+    <loc>http://localhost:1313/posts/matrix-variation---reflection-matrix-in-linear-algebra/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/reflection-in-linear-algebra/</loc>
+    <loc>http://localhost:1313/posts/matrix-variations-in-linear-algebra/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/similarity/</loc>
+    <loc>http://localhost:1313/tags/neural-networks/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/tags/</loc>
+    <loc>http://localhost:1313/posts/post-with-code-snippets/</loc>
     <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/about/</loc>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/archives/</loc>
+    <loc>http://localhost:1313/posts/prompt-math-questions/</loc>
+    <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/posts/matrix-in-linear-algebra/</loc>
+    <loc>http://localhost:1313/tags/reflection-in-linear-algebra/</loc>
+    <lastmod>2026-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1749/search/</loc>
+    <loc>http://localhost:1313/tags/similarity/</loc>
+    <lastmod>2026-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/vector-in-linear-algebra/</loc>
+    <lastmod>2026-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/vector-variations-in-linear-algebra/</loc>
+    <lastmod>2026-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
+  </url><url>
+    <loc>http://localhost:1313/archives/</loc>
+  </url><url>
+    <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>

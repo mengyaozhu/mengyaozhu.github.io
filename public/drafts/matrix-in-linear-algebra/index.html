@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Matrix in Linear Algebra | Essential Math for AI</title>
+<meta name="keywords" content="Math for AI, Matrix in Linear Algebra, Definition of Matrix">
+<meta name="description" content="Definition of Matrix
+A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data.
+The size of a matrix is denoted as $m \times n$, where $m$ is the number of rows and $n$ is the number of columns.">
+<meta name="author" content="Mengyao Zhu">
+<link rel="canonical" href="http://localhost:1313/drafts/matrix-in-linear-algebra/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.87846fa63f5dc320ce2b3db1794d020c9178b769383e7cafea59f42745e1b4e2.css" integrity="sha256-h4Rvpj9dwyDOKz2xeU0CDJF4t2k4Pnyv6ln0J0XhtOI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/drafts/matrix-in-linear-algebra/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+    document.querySelectorAll("mjx-container").forEach(function(x){
+      x.parentElement.classList += 'has-jax'
+    });
+  });
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Essential Math for AI (Alt + H)">Essential Math for AI</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/drafts/">Drafts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Matrix in Linear Algebra
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-05-24 00:00:00 +0000 UTC'>May 24, 2026</span>&nbsp;·&nbsp;<span>12 min</span>&nbsp;·&nbsp;<span>Mengyao Zhu</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul><ul>
+            <li>
+                <a href="#definition-of-matrix" aria-label="Definition of Matrix">Definition of Matrix</a></li>
+            <li>
+                <a href="#square-matrix" aria-label="Square Matrix">Square Matrix</a></li>
+            <li>
+                <a href="#non-square-matrix" aria-label="Non-Square Matrix">Non-Square Matrix</a><ul>
+                    
+            <li>
+                <a href="#tall-matrix-with-more-rows-than-columns" aria-label="Tall Matrix with More Rows than Columns">Tall Matrix with More Rows than Columns</a></li>
+            <li>
+                <a href="#a-wide-matrix-with-more-columns-than-rows" aria-label="A Wide Matrix with More Columns than Rows">A Wide Matrix with More Columns than Rows</a></li>
+            <li>
+                <a href="#column-vector-as-a-special-matrix" aria-label="Column Vector as a Special Matrix">Column Vector as a Special Matrix</a></li>
+            <li>
+                <a href="#row-vector-as-a-special-matrix" aria-label="Row Vector as a Special Matrix">Row Vector as a Special Matrix</a></li>
+            <li>
+                <a href="#scalar-as-a-special-matrix" aria-label="Scalar as a Special Matrix">Scalar as a Special Matrix</a></li></ul>
+            </li></ul>
+                
+            <li>
+                <a href="#matrix-of-different-sizes" aria-label="Matrix of Different Sizes">Matrix of Different Sizes</a><ul>
+                    
+            <li>
+                <a href="#square-matrix-1" aria-label="Square Matrix">Square Matrix</a><ul>
+                    
+            <li>
+                <a href="#square-matrix-with-variable-elements" aria-label="Square Matrix with Variable Elements">Square Matrix with Variable Elements</a></li></ul>
+            </li>
+            <li>
+                <a href="#square-matrix-with-numerical-elements" aria-label="Square Matrix with Numerical Elements">Square Matrix with Numerical Elements</a></li>
+            <li>
+                <a href="#square-matrix-with-expression-elements" aria-label="Square Matrix with Expression Elements">Square Matrix with Expression Elements</a></li></ul>
+            </li>
+            <li>
+                <a href="#tall-matrix" aria-label="Tall Matrix">Tall Matrix</a></li>
+            <li>
+                <a href="#wide-matrix" aria-label="Wide Matrix">Wide Matrix</a></li>
+            <li>
+                <a href="#matrix-in-neural-network-modeling" aria-label="Matrix in Neural Network Modeling">Matrix in Neural Network Modeling</a></li>
+            <li>
+                <a href="#essential-characteristics-of-matrix" aria-label="Essential Characteristics of Matrix">Essential Characteristics of Matrix</a><ul>
+                    
+            <li>
+                <a href="#trial" aria-label="Trial">Trial</a>
+            </li>
+        </ul>
+        </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><h3 id="definition-of-matrix">Definition of Matrix<a hidden class="anchor" aria-hidden="true" href="#definition-of-matrix">#</a></h3>
+<p>A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element. The primary purpose of this structure is to store multiple pieces of numerical information in a way that allows simultaneous manipulation of entire sets of data.</p>
+<p>The size of a matrix is denoted as $m \times n$, where $m$ is the number of rows and $n$ is the number of columns.</p>
+<h3 id="square-matrix">Square Matrix<a hidden class="anchor" aria-hidden="true" href="#square-matrix">#</a></h3>
+<p>A square matrix has the same number of rows and columns, which can be written as $A_{{n \times n}}$ or $A_{m \times n}$, where $m = n$, such as a $3\times 3$ square matrix has two rows and two columns, a $4 \times 4$ square matrix has five rows and five columns, and an $n \times n$ square matrix has n rows and $n$ columns, where $n$ can be any positive integer.</p>
+<p>$$
+A_{3 \times 3} = \begin{pmatrix} a_{11} &amp; a_{12} &amp; a_{13} \cr a_{21} &amp; a_{22} &amp; a_{23} \cr a_{31} &amp; a_{32} &amp; a_{33} \end{pmatrix}.
+$$</p>
+<p>$$
+\text{A square matrix with three rows and three columns}
+$$</p>
+<p>$$
+A_{4 \times 4} = \begin{pmatrix} a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \cr a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \cr a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \cr a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44} \end{pmatrix}.
+$$</p>
+<p>$$
+\text{A Square matrix with four rows and four columns}
+$$</p>
+<p>$$
+A_{n \times n} = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \cr
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \cr
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \cr
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}
+\end{pmatrix}.
+$$</p>
+<p>$$
+\text{A square matrix with } n \text{ rows and } n \text{ columns}
+$$</p>
+<h3 id="non-square-matrix">Non-Square Matrix<a hidden class="anchor" aria-hidden="true" href="#non-square-matrix">#</a></h3>
+<h4 id="tall-matrix-with-more-rows-than-columns">Tall Matrix with More Rows than Columns<a hidden class="anchor" aria-hidden="true" href="#tall-matrix-with-more-rows-than-columns">#</a></h4>
+<p>A tall matrix has more number of rows than that of the columns, which looks taller than the square matrix, such as a tall matrix $B_{6 \times 3}$ with four rows and two columns, or a tall matrix $B_{n \times 5}$ with $n$ rows and five columns.</p>
+<p>$$
+\begin{array}{cc}
+C_{6 \times 3}^{(\text{tall})} = \begin{pmatrix}
+c_{11} &amp; c_{12} &amp; c_{13} \cr
+c_{21} &amp; c_{22} &amp; c_{23} \cr
+c_{31} &amp; c_{32} &amp; c_{33} \cr
+c_{41} &amp; c_{42} &amp; c_{43} \cr
+c_{51} &amp; c_{52} &amp; c_{53} \cr
+c_{61} &amp; c_{62} &amp; c_{63}
+\end{pmatrix} &amp;
+\quad \text{vs.} \quad &amp;
+A_{3 \times 3}^{\text{(square)}} = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} \cr
+a_{21} &amp; a_{22} &amp; a_{23} \cr
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{pmatrix}
+\end{array}
+$$</p>
+<p>$$
+\text{A tall matrix (left side) looks taller than the square matrix (right side)}
+$$</p>
+<h4 id="a-wide-matrix-with-more-columns-than-rows">A Wide Matrix with More Columns than Rows<a hidden class="anchor" aria-hidden="true" href="#a-wide-matrix-with-more-columns-than-rows">#</a></h4>
+<p>A wide matrix has more number of columns than that of the rows, which looks wider than the square matrix, such as a wide matrix $C_{3 \times 6}$ with three rows and six columns, or a wide matrix $C_{5 \times n}$ with five rows and $n$ columns.</p>
+<p>$$
+\begin{array}{cc}
+C_{3 \times 6} = \begin{pmatrix}
+c_{11} &amp; c_{12} &amp; c_{13} &amp; c_{14} &amp; c_{15} &amp; c_{16} \cr
+c_{21} &amp; c_{22} &amp; c_{23} &amp; c_{24} &amp; c_{25} &amp; c_{26} \cr
+c_{31} &amp; c_{32} &amp; c_{33} &amp; c_{34} &amp; c_{35} &amp; c_{36}
+\end{pmatrix} &amp;
+\quad \text{vs.} \quad &amp;
+A_{3 \times 3} = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} \cr
+a_{21} &amp; a_{22} &amp; a_{23} \cr
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{pmatrix}
+\end{array}
+$$</p>
+<p>$$
+\text{A wide matrix (left side) looks wider than the square matrix (right side)}
+$$</p>
+<h4 id="column-vector-as-a-special-matrix">Column Vector as a Special Matrix<a hidden class="anchor" aria-hidden="true" href="#column-vector-as-a-special-matrix">#</a></h4>
+<p>A column vector is a special matrix with multiple rows but only one column, written as</p>
+<p>$$
+C_{3 \times 1} = \begin{pmatrix}
+c_{11} \cr
+c_{21} \cr
+c_{31}
+\end{pmatrix}.
+$$</p>
+<p>$$
+\text{A column vector with three rows and one column}
+$$</p>
+<p>$$
+C_{6 \times 1} = \begin{pmatrix}
+c_{11} \cr
+c_{21} \cr
+c_{31} \cr
+c_{41} \cr
+c_{51} \cr
+c_{61}
+\end{pmatrix}.
+$$</p>
+<p>$$
+\text{A column vector with six rows and one column}
+$$</p>
+<p>$$
+C_{n \times 1} = \begin{pmatrix}
+c_{11} \cr
+c_{21} \cr
+\vdots \cr
+c_{n1}
+\end{pmatrix}.
+$$</p>
+<p>$$
+\text{A column vector with } n \text{ rows and one column}
+$$</p>
+<p>column vector C
+row vector R
+tall matrix T
+wide matrix W
+square matrix S
+scalar vector N</p>
+<h4 id="row-vector-as-a-special-matrix">Row Vector as a Special Matrix<a hidden class="anchor" aria-hidden="true" href="#row-vector-as-a-special-matrix">#</a></h4>
+<p>$$
+W_{1 \times 3} = \begin{pmatrix} w_{11} &amp; w_{12} &amp; w_{13} \end{pmatrix}.
+$$</p>
+<p>$$
+\text{A row vector with one row and three columns}
+$$</p>
+<p>$$
+W_{1 \times 6} = \begin{pmatrix} w_{11} &amp; w_{12} &amp; w_{13} &amp; w_{14} &amp; w_{15} &amp; w_{16} \end{pmatrix}.
+$$</p>
+<p>$$
+\text{A row vector with one row and six columns}
+$$</p>
+<p>$$
+W_{1 \times n} = \begin{pmatrix} w_{11} &amp; w_{12} &amp; \cdots &amp; w_{1n} \end{pmatrix}.
+$$</p>
+<p>$$
+\text{A row vector with one row and } n \text{ columns}
+$$</p>
+<h4 id="scalar-as-a-special-matrix">Scalar as a Special Matrix<a hidden class="anchor" aria-hidden="true" href="#scalar-as-a-special-matrix">#</a></h4>
+<p>A tall matrix has $m &gt; n$, with more rows than columns, appearing vertically extended. A wide matrix has $m &lt; n$, with more columns than rows, appearing horizontally extended. A column vector is a special matrix with $n = 1$, written as $m \times 1$, containing only one column. A row vector is a special matrix with $m = 1$, written as $1 \times n$, containing only one row. A scalar is a special matrix with $m = n = 1$, representing a single number, which can be thought of as a $1 \times 1$ matrix.</p>
+<p>$$
+B_{4 \times 2} = \begin{pmatrix}
+b_{11} &amp; b_{12} \cr
+b_{21} &amp; b_{22} \cr
+b_{31} &amp; b_{32} \cr
+b_{41} &amp; b_{42}
+\end{pmatrix}.
+$$</p>
+<p>$$
+\text{A tall matrix with four rows and two columns}
+$$</p>
+<p>$$
+C_{6 \times 3} = \begin{pmatrix}
+c_{11} &amp; c_{12} &amp; c_{13} \cr
+c_{21} &amp; c_{22} &amp; c_{23} \cr
+c_{31} &amp; c_{32} &amp; c_{33} \cr
+c_{41} &amp; c_{42} &amp; c_{43} \cr
+c_{51} &amp; c_{52} &amp; c_{53} \cr
+c_{61} &amp; c_{62} &amp; c_{63}
+\end{pmatrix}.
+$$</p>
+<p>$$
+\text{A tall matrix with six rows and three columns}
+$$</p>
+<p>$$
+D_{n \times 4} = \begin{pmatrix}
+d_{11} &amp; d_{12} &amp; d_{13} &amp; d_{14} \cr
+d_{21} &amp; d_{22} &amp; d_{23} &amp; d_{24} \cr
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \cr
+d_{n1} &amp; d_{n2} &amp; d_{n3} &amp; d_{n4}
+\end{pmatrix}.
+$$</p>
+<p>$$
+\text{A tall matrix with } n \text{ rows and } 4 \text{ columns (where } n &gt; 4\text{)}
+$$</p>
+<p>The entries of a matrix can take various forms, including variables such as $a, b, x, y$ (representing unknown or symbolic quantities); numerical values such as integers ($1, -5, 42$), real numbers ($3.14, -0.001$), or complex numbers ($2+3i$); and mathematical expressions such as $x^2 + 1$, $\sin(\theta)$, $e^{t}$, or $\frac{a+b}{c}$, allowing the matrix to represent functional relationships or parameterized systems.</p>
+<h2 id="matrix-of-different-sizes">Matrix of Different Sizes<a hidden class="anchor" aria-hidden="true" href="#matrix-of-different-sizes">#</a></h2>
+<h3 id="square-matrix-1">Square Matrix<a hidden class="anchor" aria-hidden="true" href="#square-matrix-1">#</a></h3>
+<h4 id="square-matrix-with-variable-elements">Square Matrix with Variable Elements<a hidden class="anchor" aria-hidden="true" href="#square-matrix-with-variable-elements">#</a></h4>
+<p>Consider a square matrix of size $n \times n$, meaning it has the same number of rows and columns. For example, a $3 \times 3$ matrix with three rows and three columns can be written as:</p>
+<p>A $4 \times 4$ matrix with five rows and five columns can be written as:</p>
+<h3 id="square-matrix-with-numerical-elements">Square Matrix with Numerical Elements<a hidden class="anchor" aria-hidden="true" href="#square-matrix-with-numerical-elements">#</a></h3>
+<p>A $3 \times 3$ square matrix with numerical values, having three rows and three columns, is:
+$$
+N_{3 \times 3} = \begin{pmatrix} 1 &amp; 4 &amp; 7 \cr 2 &amp; 5 &amp; 8 \cr 3 &amp; 6 &amp; 9 \end{pmatrix}.
+$$
+A $4 \times 4$ square matrix with numerical values, having four rows and four columns, is:
+$$
+N_{4 \times 4} = \begin{pmatrix} 2 &amp; 5 &amp; 8 &amp; 11 \cr 3 &amp; 6 &amp; 9 &amp; 12 \cr 4 &amp; 7 &amp; 10 &amp; 13 \cr 5 &amp; 8 &amp; 11 &amp; 14 \end{pmatrix}.
+$$</p>
+<h3 id="square-matrix-with-expression-elements">Square Matrix with Expression Elements<a hidden class="anchor" aria-hidden="true" href="#square-matrix-with-expression-elements">#</a></h3>
+<p>A $3 \times 3$ square matrix with math expressions, having three rows and three columns, is:
+$$
+E_{3 \times 3} = \begin{pmatrix} x+1 &amp; 2y &amp; z-3 \cr 2x &amp; y+1 &amp; 3z \cr x-2 &amp; y+2 &amp; z+4 \end{pmatrix}.
+$$
+A $4 \times 4$ square matrix with simple expressions, having four rows and four columns, is:
+$$
+E_{4 \times 4} = \begin{pmatrix} x+1 &amp; 2y &amp; z-3 &amp; t+5 \cr 2x &amp; y+1 &amp; 3z &amp; t-1 \cr x-2 &amp; y+2 &amp; z+4 &amp; 2t \cr x+y &amp; y+z &amp; z+t &amp; t+x \end{pmatrix}.
+$$</p>
+<h2 id="tall-matrix">Tall Matrix<a hidden class="anchor" aria-hidden="true" href="#tall-matrix">#</a></h2>
+<p>A $4 \times 2$ tall matrix with symbols as elements, having four rows and two columns, is:
+$$
+T_{4 \times 2}^{(var)} = \begin{pmatrix} t_{11} &amp; t_{12} \cr t_{21} &amp; t_{22} \cr t_{31} &amp; t_{32} \cr t_{41} &amp; t_{42} \end{pmatrix}.
+$$
+A $4 \times 3$ tall matrix with symbols as elements, having four rows and three columns, is:
+$$
+T_{4 \times 3}^{(var)} = \begin{pmatrix} t_{11} &amp; t_{12} &amp; t_{13} \cr t_{21} &amp; t_{22} &amp; t_{23} \cr t_{31} &amp; t_{32} &amp; t_{33} \cr t_{41} &amp; t_{42} &amp; t_{43} \end{pmatrix}.
+$$</p>
+<p>A $4 \times 2$ tall matrix with numerical values as elements, having four rows and two columns, is:
+$$
+T_{4 \times 2}^{(num)} = \begin{pmatrix} 3 &amp; 8 \cr 5 &amp; 1 \cr 7 &amp; 4 \cr 2 &amp; 6 \end{pmatrix}.
+$$
+A $4 \times 3$ tall matrix with numerical values as elements, having four rows and three columns, is:
+$$
+T_{4 \times 3}^{(num)} = \begin{pmatrix} 1 &amp; 4 &amp; 7 \cr 2 &amp; 5 &amp; 8 \cr 3 &amp; 6 &amp; 9 \cr 4 &amp; 7 &amp; 10 \end{pmatrix}.
+$$</p>
+<p>A $4 \times 2$ tall matrix with simple expressions as elements, having four rows and two columns, is:
+$$
+T_{4 \times 2}^{(exp)} = \begin{pmatrix} x+1 &amp; 2y \cr z-3 &amp; t+5 \cr 2x &amp; y+1 \cr 3z &amp; t-1 \end{pmatrix}.
+$$
+A $4 \times 3$ tall matrix with simple expressions as elements, having four rows and three columns, is:
+$$
+T_{4 \times 3}^{(exp)} = \begin{pmatrix} x+1 &amp; 2y &amp; z-3 \cr t+5 &amp; 2x &amp; y+1 \cr 3z &amp; t-1 &amp; x-2 \cr y+2 &amp; z+4 &amp; 2t \end{pmatrix}.
+$$</p>
+<p>Next, a matrix with more rows than columns, denoted $m \times n$ where $m &gt; n$, appears taller than it is wide. For instance, a $4 \times 2$ matrix with four rows and two columns is:
+$$
+B_{4 \times 2} = \begin{pmatrix} b_{11} &amp; b_{12} \cr b_{21} &amp; b_{22} \cr b_{31} &amp; b_{32} \cr b_{41} &amp; b_{42} \end{pmatrix}.
+$$</p>
+<p>Additionally, a $5 \times 3$ tall matrix, having five rows and three columns, is written as:
+$$
+D_{5 \times 3} = \begin{pmatrix} d_{11} &amp; d_{12} &amp; d_{13} \cr d_{21} &amp; d_{22} &amp; d_{23} \cr d_{31} &amp; d_{32} &amp; d_{33} \cr d_{41} &amp; d_{42} &amp; d_{43} \cr d_{51} &amp; d_{52} &amp; d_{53} \end{pmatrix}.
+$$</p>
+<p>Such a matrix typically arises when there are more equations than unknown variables in a system.</p>
+<h2 id="wide-matrix">Wide Matrix<a hidden class="anchor" aria-hidden="true" href="#wide-matrix">#</a></h2>
+<p>Conversely, a matrix with more columns than rows, written $n \times m$ where $m &gt; n$, is wider than it is tall. A $2 \times 4$ matrix with 2 rows and 4 columns is:
+$$
+C_{2 \times 4} = \begin{pmatrix} c_{11} &amp; c_{12} &amp; c_{13} &amp; c_{14} \cr c_{21} &amp; c_{22} &amp; c_{23} &amp; c_{24} \end{pmatrix}.
+$$</p>
+<p>A $3 \times 5$ wide matrix, with three rows and five columns, is:
+$$
+E_{3 \times 5} = \begin{pmatrix} e_{11} &amp; e_{12} &amp; e_{13} &amp; e_{14} &amp; e_{15} \cr e_{21} &amp; e_{22} &amp; e_{23} &amp; e_{24} &amp; e_{25} \cr e_{31} &amp; e_{32} &amp; e_{33} &amp; e_{34} &amp; e_{35} \end{pmatrix}.
+$$</p>
+<p>This shape often appears when there are fewer equations than unknowns, leading to multiple possible solutions.</p>
+<h2 id="matrix-in-neural-network-modeling">Matrix in Neural Network Modeling<a hidden class="anchor" aria-hidden="true" href="#matrix-in-neural-network-modeling">#</a></h2>
+<p>In neural network modeling, particularly for Transformer-based models, matrices serve as the fundamental data structure for representing all learnable parameters and intermediate computations. Each token, obtained by splitting the raw input text into smaller units such as words or subwords during tokenization, is then embedded as a vector through an embedding lookup matrix. For example, a token embedding vector of size $1 \times d$ (or $d \times 1$) is:</p>
+<p>$$
+\text{Token vector}_{1 \times d} = \begin{pmatrix} v_1 &amp; v_2 &amp; \dots &amp; v_d \end{pmatrix} \quad \text{or} \quad \text{Token vector}_{d \times 1} = \begin{pmatrix} v_1 \cr v_2 \cr \vdots \cr v_d \end{pmatrix}.
+$$</p>
+<p>The entire sequence of $n$ tokens is packed into a matrix where rows correspond to tokens and columns to embedding dimensions:</p>
+<p>$$
+\text{Input matrix}_{n \times d} = \begin{pmatrix}
+\text{token}_1 \cr
+\text{token}_2 \cr
+\vdots \cr
+\text{token}_n
+\end{pmatrix}
+= \begin{pmatrix}
+v_{11} &amp; v_{12} &amp; \dots &amp; v_{1d} \cr
+v_{21} &amp; v_{22} &amp; \dots &amp; v_{2d} \cr
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \cr
+v_{n1} &amp; v_{n2} &amp; \dots &amp; v_{nd}
+\end{pmatrix}.
+$$</p>
+<p>The self-attention mechanism, the core of Transformers, computes three matrices from the input: queries, keys, and values, each obtained by multiplying the input matrix with distinct weight matrices:</p>
+<p>$$
+\text{Queries}_{n \times d_k} = \text{Input}_{n \times d} \cdot W^Q_{d \times d_k}.
+$$</p>
+<p>$$
+\text{Keys}_{n \times d_k} = \text{Input}_{n \times d} \cdot W^K_{d \times d_k}.
+$$</p>
+<p>$$
+\text{Values}_{n \times d_v} = \text{Input}_{n \times d} \cdot W^V_{d \times d_v}.
+$$</p>
+<p>The attention scores themselves form a square matrix of size sequence length times sequence length, capturing pairwise relationships between all tokens:</p>
+<p>$$
+\text{Attention scores}_{n \times n} = \text{Queries}_{n \times d_k} \cdot \text{Keys}^{\top}_{d_k \times n} = \begin{pmatrix}
+s_{11} &amp; s_{12} &amp; \dots &amp; s_{1n} \cr
+s_{21} &amp; s_{22} &amp; \dots &amp; s_{2n} \cr
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \cr
+s_{n1} &amp; s_{n2} &amp; \dots &amp; s_{nn}
+\end{pmatrix}.
+$$</p>
+<p>All feed-forward layers are matrix multiplications, and the output of each transformer block is again a matrix. Without matrices, parallel processing of sequences would be impossible, and the efficiency of training on graphics processing units, which are optimized for matrix operations, would collapse. Thus, the matrix is not merely a notational convenience but the computational backbone that enables Transformers to scale to billions of parameters and process long sequences.</p>
+<h2 id="essential-characteristics-of-matrix">Essential Characteristics of Matrix<a hidden class="anchor" aria-hidden="true" href="#essential-characteristics-of-matrix">#</a></h2>
+<p>The essential characteristics of a matrix in linear algebra include its size, the nature of its elements, and the operations defined upon it. The arrangement into rows and columns is not arbitrary; each element has a specific position identified by two indices, one for the row and one for the column. This positional structure allows the matrix to represent linear transformations, where applying the matrix to a vector produces another vector. Another characteristic is that matrices can be added only when they share the same size, and multiplication requires that the number of columns in the first matrix equals the number of rows in the second matrix. The set of all matrices of a given size forms a mathematical structure where addition is commutative and associative, and multiplication distributes over addition. Furthermore, some matrices have special patterns, such as symmetric matrices where $a_{ij} = a_{ji}$, diagonal matrices where nonzero entries appear only on the main diagonal, and identity matrices which act as the multiplicative neutral element. These characteristics collectively define how matrices behave as computational tools and as representations of linear relationships between sets of numbers.</p>
+<h3 id="trial">Trial<a hidden class="anchor" aria-hidden="true" href="#trial">#</a></h3>
+<p>$$
+\text{Attention scores}_{n \times n} = \text{Queries}_{n \times d_k} \cdot \text{Keys}^{\top}_{d_k \times n}
+$$</p>
+<p>$$
+= \begin{pmatrix}
+s_{11} &amp; s_{12} &amp; \dots &amp; s_{1n} \cr
+s_{21} &amp; s_{22} &amp; \dots &amp; s_{2n} \cr
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \cr
+s_{n1} &amp; s_{n2} &amp; \dots &amp; s_{nn}
+\end{pmatrix}.
+$$</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/math-for-ai/">Math for AI</a></li>
+      <li><a href="http://localhost:1313/tags/matrix-in-linear-algebra/">Matrix in Linear Algebra</a></li>
+      <li><a href="http://localhost:1313/tags/definition-of-matrix/">Definition of Matrix</a></li>
+    </ul>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Matrix in Linear Algebra on x"
+            href="https://x.com/intent/tweet/?text=Matrix%20in%20Linear%20Algebra&amp;url=http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f&amp;hashtags=MathforAI%2cMatrixinLinearAlgebra%2cDefinitionofMatrix">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Matrix in Linear Algebra on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f&amp;title=Matrix%20in%20Linear%20Algebra&amp;summary=Matrix%20in%20Linear%20Algebra&amp;source=http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Matrix in Linear Algebra on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f&title=Matrix%20in%20Linear%20Algebra">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Matrix in Linear Algebra on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Matrix in Linear Algebra on whatsapp"
+            href="https://api.whatsapp.com/send?text=Matrix%20in%20Linear%20Algebra%20-%20http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Matrix in Linear Algebra on telegram"
+            href="https://telegram.me/share/url?text=Matrix%20in%20Linear%20Algebra&amp;url=http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Matrix in Linear Algebra on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Matrix%20in%20Linear%20Algebra&u=http%3a%2f%2flocalhost%3a1313%2fdrafts%2fmatrix-in-linear-algebra%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Essential Math for AI</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
