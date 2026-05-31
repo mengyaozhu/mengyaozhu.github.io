@@ -30,45 +30,38 @@
       <description></description>
     </item>
     <item>
-      <title>Definition of Reflection</title>
-      <link>http://localhost:1313/tags/definition-of-reflection/</link>
+      <title>Matrix Applications in Linear Algebra</title>
+      <link>http://localhost:1313/tags/matrix-applications-in-linear-algebra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/definition-of-reflection/</guid>
+      <guid>http://localhost:1313/tags/matrix-applications-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
-      <title>Embeddings</title>
-      <link>http://localhost:1313/tags/embeddings/</link>
+      <title>Matrix Functions in Linear Algebra</title>
+      <link>http://localhost:1313/tags/matrix-functions-in-linear-algebra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/embeddings/</guid>
+      <guid>http://localhost:1313/tags/matrix-functions-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
-      <title>Large Language Model</title>
-      <link>http://localhost:1313/tags/large-language-model/</link>
+      <title>Matrix Interpretations</title>
+      <link>http://localhost:1313/tags/matrix-interpretations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/large-language-model/</guid>
+      <guid>http://localhost:1313/tags/matrix-interpretations/</guid>
       <description></description>
     </item>
     <item>
-      <title>Neural Networks</title>
-      <link>http://localhost:1313/tags/neural-networks/</link>
+      <title>Matrix Operations in Linear Algebra</title>
+      <link>http://localhost:1313/tags/matrix-operations-in-linear-algebra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/neural-networks/</guid>
+      <guid>http://localhost:1313/tags/matrix-operations-in-linear-algebra/</guid>
       <description></description>
     </item>
     <item>
-      <title>Reflection in Linear Algebra</title>
-      <link>http://localhost:1313/tags/reflection-in-linear-algebra/</link>
+      <title>Matrix Transformations in Linear Algebra</title>
+      <link>http://localhost:1313/tags/matrix-transformations-in-linear-algebra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/reflection-in-linear-algebra/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Similarity</title>
-      <link>http://localhost:1313/tags/similarity/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/similarity/</guid>
+      <guid>http://localhost:1313/tags/matrix-transformations-in-linear-algebra/</guid>
       <description></description>
     </item>
   </channel>

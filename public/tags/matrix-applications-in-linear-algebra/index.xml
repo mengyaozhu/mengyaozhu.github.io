@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Matrix Applications in Linear Algebra on Essential Math for AI</title>
+    <link>http://localhost:1313/tags/matrix-applications-in-linear-algebra/</link>
+    <description>Recent content in Matrix Applications in Linear Algebra on Essential Math for AI</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/matrix-applications-in-linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chapter 1 Section 2: Basic Mathematical Objects in Linear Algebra</title>
+      <link>http://localhost:1313/posts/basic-mathematical-ojbects-in-linear-algebra/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/basic-mathematical-ojbects-in-linear-algebra/</guid>
+      <description>&lt;h1 id=&#34;matrix-in-linear-algebra-and-ai&#34;&gt;Matrix in Linear Algebra and AI&lt;/h1&gt;
+&lt;h1 id=&#34;vector-in-linear-algebra-and-ai&#34;&gt;Vector in Linear Algebra and AI&lt;/h1&gt;
+&lt;h1 id=&#34;scalar-in-linear-algebra-and-ai&#34;&gt;Scalar in Linear Algebra and AI&lt;/h1&gt;
+&lt;h1 id=&#34;tensor-in-linear-algebra-and-ai&#34;&gt;Tensor in Linear Algebra and AI&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>Chapter 1 Section 6: Matrix Applications in Linear Algebra and AI</title>
+      <link>http://localhost:1313/posts/matrix-applications-in-linear-algebra-and-ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/matrix-applications-in-linear-algebra-and-ai/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

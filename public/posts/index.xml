@@ -6,6 +6,17 @@
     <description>Recent content in Posts on Essential Math for AI</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chapter 1 Section 1: Matrix in Linear Algebra and AI</title>
+      <link>http://localhost:1313/posts/matrix-in-linear-algebra-and-ai/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/matrix-in-linear-algebra-and-ai/</guid>
+      <description>&lt;hr&gt;
+&lt;h1 id=&#34;1-definition-of-matrix&#34;&gt;1. Definition of Matrix&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element (or entry). These elements are typically scalars from a field (such as real or complex numbers), but can also be symbolic expressions that evaluate to such scalars. The vertical stacks of elements are called column vectors, and the horizontal sequences are called row vectors. Together, these rows and columns give the matrix its shape: a matrix with $m$ rows and $n$ columns is said to be of size $m \times n$.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

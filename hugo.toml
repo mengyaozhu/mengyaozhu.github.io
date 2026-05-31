@@ -16,8 +16,8 @@ theme = "hugo-PaperMod"
   # disableThemeToggle = true
 
     [params.homeInfoParams]
-    Title = "In Science We Believe"
-    Content = "Welcome! This site covers essential mathematics for artificial intelligence."
+    Title = "In Math We Believe"
+    Content = "Welcome! This site covers essential linear algebra for artificial intelligence especially Transformer-based language models."
     # Content = "Welcome! This site covers the fundamental mathematics needed for artificial intelligence."
 
   # [[params.socialIcons]]
