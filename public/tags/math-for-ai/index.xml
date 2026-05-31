@@ -18,50 +18,5 @@
 &lt;hr&gt;
 &lt;p&gt;A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or expressions organized into rows and columns. Each individual entry within this arrangement is called an element (or entry). These elements are typically scalars from a field (such as real or complex numbers), but can also be symbolic expressions that evaluate to such scalars. The vertical stacks of elements are called column vectors, and the horizontal sequences are called row vectors. Together, these rows and columns give the matrix its shape: a matrix with $m$ rows and $n$ columns is said to be of size $m \times n$.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>Chapter 1 Section 2: Basic Mathematical Objects in Linear Algebra</title>
-      <link>http://localhost:1313/posts/basic-mathematical-ojbects-in-linear-algebra/</link>
-      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/basic-mathematical-ojbects-in-linear-algebra/</guid>
-      <description>&lt;h1 id=&#34;matrix-in-linear-algebra-and-ai&#34;&gt;Matrix in Linear Algebra and AI&lt;/h1&gt;
-&lt;h1 id=&#34;vector-in-linear-algebra-and-ai&#34;&gt;Vector in Linear Algebra and AI&lt;/h1&gt;
-&lt;h1 id=&#34;scalar-in-linear-algebra-and-ai&#34;&gt;Scalar in Linear Algebra and AI&lt;/h1&gt;
-&lt;h1 id=&#34;tensor-in-linear-algebra-and-ai&#34;&gt;Tensor in Linear Algebra and AI&lt;/h1&gt;</description>
-    </item>
-    <item>
-      <title>Chapter 1 Section 2: Matrix Operations in Linear Algebra and AI</title>
-      <link>http://localhost:1313/posts/matrix-operations-in-linear-algebra-and-ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/matrix-operations-in-linear-algebra-and-ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Chapter 1 Section 3: Matrix Transformations in Linear Algebra and AI</title>
-      <link>http://localhost:1313/posts/matrix-transformations-in-linear-algebra-and-ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/matrix-transformations-in-linear-algebra-and-ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Chapter 1 Section 4: Matrix Functions in Linear Algebra and AI</title>
-      <link>http://localhost:1313/posts/matrix-functions-in-linear-algebra-and-ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/matrix-functions-in-linear-algebra-and-ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Chapter 1 Section 5: Matrix Interpretations in Linear Algebra and AI</title>
-      <link>http://localhost:1313/posts/matrix-interpretations-in-linear-algebra-and-ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/matrix-interpretations-in-linear-algebra-and-ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Chapter 1 Section 6: Matrix Applications in Linear Algebra and AI</title>
-      <link>http://localhost:1313/posts/matrix-applications-in-linear-algebra-and-ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/matrix-applications-in-linear-algebra-and-ai/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>

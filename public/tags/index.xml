@@ -29,40 +29,5 @@
       <guid>http://localhost:1313/tags/matrix-in-linear-algebra/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Matrix Applications in Linear Algebra</title>
-      <link>http://localhost:1313/tags/matrix-applications-in-linear-algebra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/matrix-applications-in-linear-algebra/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Matrix Functions in Linear Algebra</title>
-      <link>http://localhost:1313/tags/matrix-functions-in-linear-algebra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/matrix-functions-in-linear-algebra/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Matrix Interpretations</title>
-      <link>http://localhost:1313/tags/matrix-interpretations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/matrix-interpretations/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Matrix Operations in Linear Algebra</title>
-      <link>http://localhost:1313/tags/matrix-operations-in-linear-algebra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/matrix-operations-in-linear-algebra/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Matrix Transformations in Linear Algebra</title>
-      <link>http://localhost:1313/tags/matrix-transformations-in-linear-algebra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/matrix-transformations-in-linear-algebra/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
