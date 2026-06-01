@@ -148,3 +148,171 @@ This shape often appears when there are fewer equations than unknowns, leading t
 
 
 
+$$
+D =
+\begin{pmatrix}
+30 & 50000 & 175 & 70 \cr
+25 & 45000 & 160 & 55 \cr
+45 & 80000 & 180 & 85
+\end{pmatrix}
+\begin{array}{l}
+\leftarrow \mathrm{Person\ 1\ (Row\ 1)} \cr
+\leftarrow \mathrm{Person\ 2\ (Row\ 2)} \cr
+\leftarrow \mathrm{Person\ 3\ (Row\ 3)}
+\end{array}
+$$
+
+
+$$
+D =
+\left(
+\begin{array}{c|c|c|c}
+30 & 50000 & 175 & 70 \cr
+25 & 45000 & 160 & 55 \cr
+45 & 80000 & 180 & 85 \cr
+\hline
+\downarrow & \downarrow & \downarrow & \downarrow \cr
+\mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
+(\mathrm{Age}) & (\mathrm{Salary}) & (\mathrm{Height}) & (\mathrm{Weight})
+\end{array}
+\right)
+$$
+
+
+
+### Next 
+
+
+$$
+C =
+\left(
+\begin{array}{c|c|c|c}
+120/80 & 72 & 36.8 & 190 \cr
+135/85 & 80 & 37.1 & 210 \cr
+110/70 & 65 & 36.5 & 180 \cr
+\hline
+\downarrow & \downarrow & \downarrow & \downarrow \cr
+\mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
+(\mathrm{Blood\ Pressure}) & (\mathrm{Heart\ Rate}) & (\mathrm{Temperature}) & (\mathrm{Cholesterol})
+\end{array}
+\right)
+$$
+
+
+
+### Matrix of System of Linear Equations 
+
+$$
+A =
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 8 \cr
+-3 & 2 & 2 & -11 \cr
+1 & 1 & -1 & 0 \cr
+\hline
+\downarrow & \downarrow & \downarrow & \downarrow \cr
+\mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
+(x_1) & (x_2) & (x_3) & (\mathrm{const})
+\end{array}
+\right)
+$$
+
+
+### System of Linear Equations with Annotations
+
+
+$$
+\begin{cases}
+2x_1 - x_2 + x_3 = 8 \cr
+-3x_1 + 2x_2 + 2x_3 = -11 \cr
+x_1 + x_2 - x_3 = 0
+\end{cases}
+\qquad 
+\begin{array}{l}
+\leftarrow \mathrm{Linear\ Equation\ 1} \cr
+\leftarrow \mathrm{Linear\ Equation\ 2} \cr
+\leftarrow \mathrm{Linear\ Equation\ 3}
+\end{array}
+$$
+
+
+
+### System of Linear Equations without Annotations 
+
+$$
+\begin{cases}
+2x_1 - x_2 + x_3 = 8 \cr 
+-3x_1 + 2x_2 + 2x_3 = -11 \cr 
+x_1 + x_2 - x_3 = 0
+\end{cases}
+$$
+
+
+
+### System of Linear Equations with Row and Column Annotations 
+
+
+$$
+A =
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 8 \cr
+-3 & 2 & 2 & -11 \cr
+1 & 1 & -1 & 0 \cr
+\hline
+\downarrow & \downarrow & \downarrow & \downarrow \cr
+\mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
+(x_1) & (x_2) & (x_3) & (\mathrm{const})
+\end{array}
+\right)
+\begin{array}{l}
+\leftarrow \mathrm{Row\ 1\ (Eq.\ 1:\ }2x_1-x_2+x_3=8\mathrm{)} \cr
+\leftarrow \mathrm{Row\ 2\ (Eq.\ 2:\ }-3x_1+2x_2+2x_3=-11\mathrm{)} \cr
+\leftarrow \mathrm{Row\ 3\ (Eq.\ 3:\ }x_1+x_2-x_3=0\mathrm{)} \cr
+\cr
+\cr
+\cr
+\end{array}
+$$
+
+
+
+
+### Numerical Values in System of Linear Equations in Bold 
+
+
+$$
+\begin{cases}
+\mathbf{2}x_1 - \mathbf{1}x_2 + \mathbf{1}x_3 = \mathbf{8} \cr
+-\mathbf{3}x_1 + \mathbf{2}x_2 + \mathbf{2}x_3 = \mathbf{-11} \cr
+\mathbf{1}x_1 + \mathbf{1}x_2 - \mathbf{1}x_3 = \mathbf{0}
+\end{cases}
+\qquad 
+\begin{array}{l}
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 1} \cr
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 2} \cr
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 3}
+\end{array}
+$$
+
+
+
+### System of Linear Equations 
+
+
+$$
+\begin{cases}
+2x_1 - 1x_2 + 1x_3 = 8 \cr
+-3x_1 + 2x_2 + 2x_3 = -11 \cr
+1x_1 + 1x_2 - 1x_3 = 0
+\end{cases}
+\qquad 
+\begin{array}{l}
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 1} \cr
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 2} \cr
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 3}
+\end{array}
+$$
+
+
+

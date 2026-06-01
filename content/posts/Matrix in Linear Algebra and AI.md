@@ -31,7 +31,7 @@ D = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-Above matrix with column annotations:
+In matrix form with row and column annotations:
 
 $$
 D =
@@ -46,7 +46,16 @@ D =
 (\mathrm{Age}) & (\mathrm{Salary}) & (\mathrm{Height}) & (\mathrm{Weight})
 \end{array}
 \right)
+\begin{array}{l}
+\leftarrow \mathrm{Row 1\ (Person\ 1)} \cr
+\leftarrow \mathrm{Row 2\ (Person\ 2)} \cr
+\leftarrow \mathrm{Row 3\ (Person\ 3)} \cr
+\cr
+\cr
+\cr
+\end{array}
 $$
+
 
 - **Rows** (3 rows): Each row corresponds to one person (Person 1, Person 2, Person 3).  
 - **Columns** (4 columns): Each column corresponds to a demographic feature (Column 1 = Age, Column 2 = Salary, Column 3 = Height, Column 4 = Weight).  
@@ -71,7 +80,7 @@ C = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-Above matrix with column annotations:
+In matrix form with row and column annotations:
 
 $$
 C =
@@ -86,7 +95,17 @@ C =
 (\mathrm{Blood\ Pressure}) & (\mathrm{Heart\ Rate}) & (\mathrm{Temperature}) & (\mathrm{Cholesterol})
 \end{array}
 \right)
+\begin{array}{l}
+\leftarrow \mathrm{Row\ 1\ (Patient\ 1)} \cr
+\leftarrow \mathrm{Row\ 2\ (Patient\ 2)} \cr
+\leftarrow \mathrm{Row\ 3\ (Patient\ 3)} \cr
+\cr
+\cr
+\cr
+\end{array}
 $$
+
+
 
 
 - **Rows** (3 rows): Each row corresponds to one patient (Patient 1, Patient 2, Patient 3).  
@@ -94,17 +113,40 @@ $$
 - **Entries:** Each entry is the clinical value for a specific patient (e.g., entry $c_{31} = 110/70$ means Patient 3 has blood pressure 110/70).
 
 
+
 **Example 3: System of Linear Equations**
 
 $$
 \begin{cases}
-2x_1 - x_2 + x_3 = 8 \cr 
--3x_1 + 2x_2 + 2x_3 = -11 \cr 
+2x_1 - x_2 + x_3 = 8 \cr
+-3x_1 + 2x_2 + 2x_3 = -11 \cr
 x_1 + x_2 - x_3 = 0
 \end{cases}
+\qquad 
+\begin{array}{l}
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 1} \cr
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 2} \cr
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 3}
+\end{array}
 $$
 
-In matrix form (Augmented Matrix):
+The above system is written in its conventional form, where coefficients equal to 1 are omitted. For matrix construction, the equivalent system below displays all coefficients explicitly. Note that the sign of each term, whether positive or negative, is an integral part of the corresponding coefficient and must be included when constructing the matrix.
+
+$$  
+\begin{cases}  
+\mathbf{2}x_1 + (\mathbf{-1})x_2 + \mathbf{1}x_3 = \mathbf{8} \cr  
+(\mathbf{-3})x_1 + \mathbf{2}x_2 + \mathbf{2}x_3 = \mathbf{-11} \cr  
+\mathbf{1}x_1 + \mathbf{1}x_2 + (\mathbf{-1})x_3 = \mathbf{0}  
+\end{cases}  
+\qquad  
+\begin{array}{l}  
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 1} \cr  
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 2} \cr  
+\leftarrow \mathrm{Linear\ Equation\ Eq.\ 3}  
+\end{array}  
+$$
+
+We can now construct the corresponding augmented matrix:
 
 $$
 A = \left(\begin{array}{ccc|c}
@@ -114,7 +156,7 @@ A = \left(\begin{array}{ccc|c}
 \end{array}\right)
 $$
 
-Above matrix with column annotations:
+The following annotations show how the rows and columns correspond to the equations, variables, and constants.
 
 $$
 A =
@@ -129,8 +171,15 @@ A =
 (x_1) & (x_2) & (x_3) & (\mathrm{const})
 \end{array}
 \right)
+\begin{array}{l}
+\leftarrow \mathrm{Row\ 1\ (Eq.\ 1:\ }2x_1-x_2+x_3=8\mathrm{)} \cr
+\leftarrow \mathrm{Row\ 2\ (Eq.\ 2:\ }-3x_1+2x_2+2x_3=-11\mathrm{)} \cr
+\leftarrow \mathrm{Row\ 3\ (Eq.\ 3:\ }x_1+x_2-x_3=0\mathrm{)} \cr
+\cr
+\cr
+\cr
+\end{array}
 $$
-
 
 
 
@@ -407,6 +456,52 @@ All feed-forward layers are matrix multiplications, and the output of each trans
 
 The essential characteristics of a matrix in linear algebra include its size, the nature of its elements, and the operations defined upon it. The arrangement into rows and columns is not arbitrary; each element has a specific position identified by two indices, one for the row and one for the column. This positional structure allows the matrix to represent linear transformations, where applying the matrix to a vector produces another vector. Another characteristic is that matrices can be added only when they share the same size, and multiplication requires that the number of columns in the first matrix equals the number of rows in the second matrix. The set of all matrices of a given size forms a mathematical structure where addition is commutative and associative, and multiplication distributes over addition. Furthermore, some matrices have special patterns, such as symmetric matrices where $a_{ij} = a_{ji}$, diagonal matrices where nonzero entries appear only on the main diagonal, and identity matrices which act as the multiplicative neutral element. These characteristics collectively define how matrices behave as computational tools and as representations of linear relationships between sets of numbers.
 
+
+
+### Trial 
+
+
+$$
+A =
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 8 \cr
+-3 & 2 & 2 & -11 \cr
+1 & 1 & -1 & 0
+\end{array}
+\right)
+\begin{array}{l}
+\leftarrow \mathrm{Row\ 1} \cr
+\leftarrow \mathrm{Row\ 2} \cr
+\leftarrow \mathrm{Row\ 3}
+\end{array}
+$$
+
+
+
+
+$$
+A =
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 8 \cr
+-3 & 2 & 2 & -11 \cr
+1 & 1 & -1 & 0 \cr
+\hline
+\downarrow & \downarrow & \downarrow & \downarrow \cr
+\mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
+(x_1) & (x_2) & (x_3) & (\mathrm{const})
+\end{array}
+\right)
+\begin{array}{l}
+\leftarrow \mathrm{Row\ 1} \cr
+\leftarrow \mathrm{Row\ 2} \cr
+\leftarrow \mathrm{Row\ 3} \cr
+\cr
+\cr
+\cr
+\end{array}
+$$
 
 
 

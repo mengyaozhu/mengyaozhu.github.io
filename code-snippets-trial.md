@@ -84,3 +84,12 @@ $$
 The key change is using `\left(\begin{array}{ccc|c} ... \end{array}\right)` instead of `\begin{pmatrix}`. This allows `\hline` to work because `array` supports horizontal lines, while `pmatrix` does not.
 
 This should now display correctly in your Hugo theme.
+
+
+
+
+
+gitsite -> themes -> hugo-PaperMod -> assets -> css -> common -> post-single.css
+
+
+
