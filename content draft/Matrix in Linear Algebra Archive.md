@@ -316,3 +316,53 @@ $$
 
 
 
+
+
+### Trial 
+
+
+$$
+A =
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 8 \cr
+-3 & 2 & 2 & -11 \cr
+1 & 1 & -1 & 0
+\end{array}
+\right)
+\begin{array}{l}
+\leftarrow \mathrm{Row\ 1} \cr
+\leftarrow \mathrm{Row\ 2} \cr
+\leftarrow \mathrm{Row\ 3}
+\end{array}
+$$
+
+
+
+
+$$
+A =
+\left(
+\begin{array}{ccc|c}
+2 & -1 & 1 & 8 \cr
+-3 & 2 & 2 & -11 \cr
+1 & 1 & -1 & 0 \cr
+\hline
+\downarrow & \downarrow & \downarrow & \downarrow \cr
+\mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
+(x_1) & (x_2) & (x_3) & (\mathrm{const})
+\end{array}
+\right)
+\begin{array}{l}
+\leftarrow \mathrm{Row\ 1} \cr
+\leftarrow \mathrm{Row\ 2} \cr
+\leftarrow \mathrm{Row\ 3} \cr
+\cr
+\cr
+\cr
+\end{array}
+$$
+
+
+
+\
