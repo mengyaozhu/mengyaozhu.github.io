@@ -1,5 +1,5 @@
 +++
-title = "Chapter 1 Section 1: Matrix in Linear Algebra and AI"
+title = "Matrix in Linear Algebra and AI"
 date = 2026-05-24
 math = true
 tags = ["Math for AI", "Matrix in Linear Algebra", "Definition of Matrix"]
@@ -132,7 +132,7 @@ $$
 
 The above system is written in its conventional form, where coefficients equal to 1 are omitted. For matrix construction, the equivalent system below displays all coefficients explicitly. Note that the sign of each term, whether positive or negative, is an integral part of the corresponding coefficient and must be included when constructing the matrix.
 
-$$  
+$$
 \begin{cases}  
 \mathbf{2}x_1 + (\mathbf{-1})x_2 + \mathbf{1}x_3 = \mathbf{8} \cr  
 (\mathbf{-3})x_1 + \mathbf{2}x_2 + \mathbf{2}x_3 = \mathbf{-11} \cr  
