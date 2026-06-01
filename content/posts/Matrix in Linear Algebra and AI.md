@@ -367,7 +367,7 @@ A row vector with one row and } n \text{ columns
 
 
 ---
-### 2.3.4. Entries of the Matrix
+## 2.4. Entries of the Matrix
 
 The entries of a matrix can take various forms, including variables such as $a, b, x, y$ (representing unknown or symbolic quantities); numerical values such as integers ($1, -5, 42$), real numbers ($3.14, -0.001$), or complex numbers ($2+3i$); and mathematical expressions such as $x^2 + 1$, $\sin(\theta)$, $e^{t}$, or $\frac{a+b}{c}$, allowing the matrix to represent functional relationships or parameterized systems.
 
@@ -392,7 +392,7 @@ $$
 
 
 
-## 2.4. Matrix in Neural Network Modeling
+## 2.5. Matrix in Neural Network Modeling
 
 In neural network modeling, particularly for Transformer-based models, matrices serve as the fundamental data structure for representing all learnable parameters and intermediate computations. Each token, obtained by splitting the raw input text into smaller units such as words or subwords during tokenization, is then embedded as a vector through an embedding lookup matrix. For example, a token embedding vector of size $1 \times d$ (or $d \times 1$) is:
 
@@ -452,7 +452,7 @@ All feed-forward layers are matrix multiplications, and the output of each trans
 
 
 
-## 2.5. Essential Characteristics of Matrix
+## 2.6. Essential Characteristics of Matrix
 
 The essential characteristics of a matrix in linear algebra include its size, the nature of its elements, and the operations defined upon it. The arrangement into rows and columns is not arbitrary; each element has a specific position identified by two indices, one for the row and one for the column. This positional structure allows the matrix to represent linear transformations, where applying the matrix to a vector produces another vector. Another characteristic is that matrices can be added only when they share the same size, and multiplication requires that the number of columns in the first matrix equals the number of rows in the second matrix. The set of all matrices of a given size forms a mathematical structure where addition is commutative and associative, and multiplication distributes over addition. Furthermore, some matrices have special patterns, such as symmetric matrices where $a_{ij} = a_{ji}$, diagonal matrices where nonzero entries appear only on the main diagonal, and identity matrices which act as the multiplicative neutral element. These characteristics collectively define how matrices behave as computational tools and as representations of linear relationships between sets of numbers.
 

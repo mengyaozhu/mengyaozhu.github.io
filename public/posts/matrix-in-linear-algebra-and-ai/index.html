@@ -189,14 +189,14 @@ A matrix in linear algebra is a rectangular arrangement of numbers, symbols, or 
             <li>
                 <a href="#232-row-vector-as-a-special-matrix" aria-label="2.3.2. Row Vector as a Special Matrix">2.3.2. Row Vector as a Special Matrix</a></li>
             <li>
-                <a href="#233-scalar-as-a-1-times-1-matrix" aria-label="2.3.3. Scalar as a $1 \times 1$ Matrix">2.3.3. Scalar as a $1 \times 1$ Matrix</a></li>
-            <li>
-                <a href="#234-entries-of-the-matrix" aria-label="2.3.4. Entries of the Matrix">2.3.4. Entries of the Matrix</a></li></ul>
+                <a href="#233-scalar-as-a-1-times-1-matrix" aria-label="2.3.3. Scalar as a $1 \times 1$ Matrix">2.3.3. Scalar as a $1 \times 1$ Matrix</a></li></ul>
             </li>
             <li>
-                <a href="#24-matrix-in-neural-network-modeling" aria-label="2.4. Matrix in Neural Network Modeling">2.4. Matrix in Neural Network Modeling</a></li>
+                <a href="#24-entries-of-the-matrix" aria-label="2.4. Entries of the Matrix">2.4. Entries of the Matrix</a></li>
             <li>
-                <a href="#25-essential-characteristics-of-matrix" aria-label="2.5. Essential Characteristics of Matrix">2.5. Essential Characteristics of Matrix</a>
+                <a href="#25-matrix-in-neural-network-modeling" aria-label="2.5. Matrix in Neural Network Modeling">2.5. Matrix in Neural Network Modeling</a></li>
+            <li>
+                <a href="#26-essential-characteristics-of-matrix" aria-label="2.6. Essential Characteristics of Matrix">2.6. Essential Characteristics of Matrix</a>
             </li>
         </ul>
         </li>
@@ -560,7 +560,7 @@ A row vector with one row and } n \text{ columns
 <h3 id="233-scalar-as-a-1-times-1-matrix">2.3.3. Scalar as a $1 \times 1$ Matrix<a hidden class="anchor" aria-hidden="true" href="#233-scalar-as-a-1-times-1-matrix">#</a></h3>
 <hr>
 <hr>
-<h3 id="234-entries-of-the-matrix">2.3.4. Entries of the Matrix<a hidden class="anchor" aria-hidden="true" href="#234-entries-of-the-matrix">#</a></h3>
+<h2 id="24-entries-of-the-matrix">2.4. Entries of the Matrix<a hidden class="anchor" aria-hidden="true" href="#24-entries-of-the-matrix">#</a></h2>
 <p>The entries of a matrix can take various forms, including variables such as $a, b, x, y$ (representing unknown or symbolic quantities); numerical values such as integers ($1, -5, 42$), real numbers ($3.14, -0.001$), or complex numbers ($2+3i$); and mathematical expressions such as $x^2 + 1$, $\sin(\theta)$, $e^{t}$, or $\frac{a+b}{c}$, allowing the matrix to represent functional relationships or parameterized systems.</p>
 <p>Consider a square matrix of size $n \times n$, meaning it has the same number of rows and columns. For example, a $3 \times 3$ matrix with three rows and three columns can be written as:</p>
 <p>A $3 \times 3$ square matrix with numerical values, having three rows and three columns, is:
@@ -579,7 +579,7 @@ A $4 \times 4$ square matrix with simple expressions, having four rows and four 
 $$
 E_{4 \times 4} = \begin{pmatrix} x+1 &amp; 2y &amp; z-3 &amp; t+5 \cr 2x &amp; y+1 &amp; 3z &amp; t-1 \cr x-2 &amp; y+2 &amp; z+4 &amp; 2t \cr x+y &amp; y+z &amp; z+t &amp; t+x \end{pmatrix}.
 $$</p>
-<h2 id="24-matrix-in-neural-network-modeling">2.4. Matrix in Neural Network Modeling<a hidden class="anchor" aria-hidden="true" href="#24-matrix-in-neural-network-modeling">#</a></h2>
+<h2 id="25-matrix-in-neural-network-modeling">2.5. Matrix in Neural Network Modeling<a hidden class="anchor" aria-hidden="true" href="#25-matrix-in-neural-network-modeling">#</a></h2>
 <p>In neural network modeling, particularly for Transformer-based models, matrices serve as the fundamental data structure for representing all learnable parameters and intermediate computations. Each token, obtained by splitting the raw input text into smaller units such as words or subwords during tokenization, is then embedded as a vector through an embedding lookup matrix. For example, a token embedding vector of size $1 \times d$ (or $d \times 1$) is:</p>
 <p>$$
 \text{Token vector}_{1 \times d} = \begin{pmatrix} v_1 &amp; v_2 &amp; \dots &amp; v_d \end{pmatrix} \quad \text{or} \quad \text{Token vector}_{d \times 1} = \begin{pmatrix} v_1 \cr v_2 \cr \vdots \cr v_d \end{pmatrix}.
@@ -619,7 +619,7 @@ s_{n1} &amp; s_{n2} &amp; \dots &amp; s_{nn}
 \end{pmatrix}.
 $$</p>
 <p>All feed-forward layers are matrix multiplications, and the output of each transformer block is again a matrix. Without matrices, parallel processing of sequences would be impossible, and the efficiency of training on graphics processing units, which are optimized for matrix operations, would collapse. Thus, the matrix is not merely a notational convenience but the computational backbone that enables Transformers to scale to billions of parameters and process long sequences.</p>
-<h2 id="25-essential-characteristics-of-matrix">2.5. Essential Characteristics of Matrix<a hidden class="anchor" aria-hidden="true" href="#25-essential-characteristics-of-matrix">#</a></h2>
+<h2 id="26-essential-characteristics-of-matrix">2.6. Essential Characteristics of Matrix<a hidden class="anchor" aria-hidden="true" href="#26-essential-characteristics-of-matrix">#</a></h2>
 <p>The essential characteristics of a matrix in linear algebra include its size, the nature of its elements, and the operations defined upon it. The arrangement into rows and columns is not arbitrary; each element has a specific position identified by two indices, one for the row and one for the column. This positional structure allows the matrix to represent linear transformations, where applying the matrix to a vector produces another vector. Another characteristic is that matrices can be added only when they share the same size, and multiplication requires that the number of columns in the first matrix equals the number of rows in the second matrix. The set of all matrices of a given size forms a mathematical structure where addition is commutative and associative, and multiplication distributes over addition. Furthermore, some matrices have special patterns, such as symmetric matrices where $a_{ij} = a_{ji}$, diagonal matrices where nonzero entries appear only on the main diagonal, and identity matrices which act as the multiplicative neutral element. These characteristics collectively define how matrices behave as computational tools and as representations of linear relationships between sets of numbers.</p>
 
 
