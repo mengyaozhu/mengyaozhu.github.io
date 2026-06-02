@@ -310,7 +310,7 @@ c_{31}
 $$
 
 <center>
-A column vector with three rows and one column
+A column vector with three rows and one column.
 </center>
 
 $$
@@ -324,7 +324,7 @@ c_{51}
 $$
 
 <center>
-A column vector with five rows and one column
+A column vector with five rows and one column.
 </center>
 
 $$
@@ -339,7 +339,7 @@ c_{n1}
 $$
 
 <center>
-A column vector with } n \text{ rows and one column
+A column vector with $n$ rows and one column.
 </center>
 
 

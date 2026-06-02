@@ -388,3 +388,33 @@ A =
 $$
 
 
+### Column Vector Variations
+
+$$
+\begin{array}{cc}
+C_{3 \times 1} = \begin{bmatrix} 
+c_{11} \cr 
+c_{21} \cr 
+c_{31} 
+\end{bmatrix}. &
+\quad &
+C_{6 \times 1} = \begin{bmatrix} 
+c_{11} \cr 
+c_{21} \cr 
+c_{31} \cr 
+c_{41} \cr 
+c_{51} 
+\end{bmatrix}. &
+\quad & 
+C_{n \times 1} = \begin{bmatrix} 
+c_{11} \cr 
+c_{21} \cr 
+c_{31} \cr
+\vdots \cr 
+\vdots \cr 
+c_{n1} 
+\end{bmatrix}.
+\end{array}
+$$
+
+
