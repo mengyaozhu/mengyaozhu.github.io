@@ -198,16 +198,15 @@ $$
 A square matrix has the same number of rows and columns, which can be written as $A_{{n \times n}}$ or $A_{m \times n}$, where $m = n$, such as a $3\times 3$ square matrix has three rows and three columns, a $4 \times 4$ square matrix has four rows and four columns, and an $n \times n$ square matrix has $n$ rows and $n$ columns, where $n$ can be any positive integer.
 
 $$
-S_{3 \times 3} = \begin{bmatrix} s_{11} & s_{12} & s_{13} \cr s_{21} & s_{22} & s_{23} \cr s_{31} & s_{32} & s_{33} \end{bmatrix} = \begin{bmatrix} 8 & 3 & 6 \cr 1 & 5 & 9 \cr 4 & 7 & 2 \end{bmatrix}.
+S_{3 \times 3} = \begin{bmatrix} s_{11} & s_{12} & s_{13} \cr s_{21} & s_{22} & s_{23} \cr s_{31} & s_{32} & s_{33} \end{bmatrix}.
 $$
 
 <center>
 A square matrix with three rows and three columns.
 </center>
 
-
 $$
-S_{4 \times 4} = \begin{bmatrix} s_{11} & s_{12} & s_{13} & s_{14} \cr s_{21} & s_{22} & s_{23} & s_{24} \cr s_{31} & s_{32} & s_{33} & s_{34} \cr s_{41} & s_{42} & s_{43} & s_{44} \end{bmatrix} = \begin{bmatrix} 5 & 9 & 2 & 7 \cr 3 & 8 & 1 & 6 \cr 4 & 0 & 9 & 3 \cr 2 & 5 & 7 & 4 \end{bmatrix}.
+S_{4 \times 4} = \begin{bmatrix} s_{11} & s_{12} & s_{13} & s_{14} \cr s_{21} & s_{22} & s_{23} & s_{24} \cr s_{31} & s_{32} & s_{33} & s_{34} \cr s_{41} & s_{42} & s_{43} & s_{44} \end{bmatrix}.
 $$
 
 <center>
@@ -220,11 +219,6 @@ s_{11} & s_{12} & \cdots & s_{1n} \cr
 s_{21} & s_{22} & \cdots & s_{2n} \cr 
 \vdots & \vdots & \ddots & \vdots \cr 
 s_{n1} & s_{n2} & \cdots & s_{nn} 
-\end{bmatrix} = \begin{bmatrix} 
-7 & 3 & \cdots & 9 \cr 
-4 & 9 & \cdots & 1 \cr 
-\vdots & \vdots & \ddots & \vdots \cr 
-8 & 2 & \cdots & 5 
 \end{bmatrix}.
 $$
 
@@ -335,7 +329,8 @@ C_{n \times 1} = \begin{bmatrix}
 c_{11} \cr 
 c_{21} \cr 
 c_{31} \cr
-\vdots \cr 
+c_{41} \cr 
+c_{51} \cr 
 \vdots \cr 
 c_{n1} 
 \end{bmatrix}.
@@ -344,7 +339,6 @@ $$
 <center>
 A column vector with $n$ rows and one column.
 </center>
-
 
 ---
 ### 2.3.2. Row Vector as a Special Matrix
