@@ -1,6 +1,6 @@
 +++
 title = "Matrix in Linear Algebra and AI"
-date = 2026-05-24
+date = 2026-06-02
 math = true
 tags = ["Math for AI", "Matrix in Linear Algebra", "Definition of Matrix"]
 author = ["Mengyao Zhu"]
