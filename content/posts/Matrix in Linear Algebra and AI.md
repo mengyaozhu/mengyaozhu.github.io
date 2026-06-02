@@ -214,20 +214,23 @@ $$
 A square matrix with four rows and four columns.
 </center>
 
-
 $$
 S_{n \times n} = \begin{bmatrix} 
 s_{11} & s_{12} & \cdots & s_{1n} \cr 
 s_{21} & s_{22} & \cdots & s_{2n} \cr 
 \vdots & \vdots & \ddots & \vdots \cr 
 s_{n1} & s_{n2} & \cdots & s_{nn} 
+\end{bmatrix} = \begin{bmatrix} 
+7 & 3 & \cdots & 9 \cr 
+4 & 9 & \cdots & 1 \cr 
+\vdots & \vdots & \ddots & \vdots \cr 
+8 & 2 & \cdots & 5 
 \end{bmatrix}.
 $$
 
 <center>
 A square matrix with $n$ rows and $n$ columns.
 </center>
-
 
 ---
 ## 2.2. Non-Square Matrix
