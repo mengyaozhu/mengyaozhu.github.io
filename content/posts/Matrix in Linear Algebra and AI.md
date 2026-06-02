@@ -15,27 +15,29 @@ This structure allows the matrix to serve different functions. For example, a ma
 
 **Example 1: Table of Demographic Data** 
 
-| | Age (Col 1) | Salary (Col 2) | Height (cm) (Col 3) | Weight (kg) (Col 4) |
-| :--- | :---: | :---: | :---: | :---: |
-| **Person 1 (Row 1)** | 30 | 50,000 | 175 | 70 |
-| **Person 2 (Row 2)** | 25 | 45,000 | 160 | 55 |
-| **Person 3 (Row 3)** | 45 | 80,000 | 180 | 85 |
+|                      | Age (Col 1) | Salary (Col 2) | Height (cm) (Col 3) | Weight (kg) (Col 4) |
+| :------------------- | :---------: | :------------: | :-----------------: | :-----------------: |
+| **Person 1 (Row 1)** |     30      |     50,000     |         175         |         70          |
+| **Person 2 (Row 2)** |     25      |     45,000     |         160         |         55          |
+| **Person 3 (Row 3)** |     45      |     80,000     |         180         |         85          |
 
 In matrix form: 
 
 $$
-D = \begin{pmatrix}
+D = \begin{bmatrix}
 30 & 50000 & 175 & 70 \cr 
 25 & 45000 & 160 & 55 \cr 
 45 & 80000 & 180 & 85
-\end{pmatrix}
+\end{bmatrix}
 $$
-
 In matrix form with row and column annotations:
+
+
+
 
 $$
 D =
-\left(
+\left[
 \begin{array}{c|c|c|c}
 30 & 50000 & 175 & 70 \cr
 25 & 45000 & 160 & 55 \cr
@@ -45,16 +47,17 @@ D =
 \mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
 (\mathrm{Age}) & (\mathrm{Salary}) & (\mathrm{Height}) & (\mathrm{Weight})
 \end{array}
-\right)
+\right]
 \begin{array}{l}
-\leftarrow \mathrm{Row 1\ (Person\ 1)} \cr
-\leftarrow \mathrm{Row 2\ (Person\ 2)} \cr
-\leftarrow \mathrm{Row 3\ (Person\ 3)} \cr
+\leftarrow \mathrm{Row\ 1\ (Person\ 1)} \cr
+\leftarrow \mathrm{Row\ 2\ (Person\ 2)} \cr
+\leftarrow \mathrm{Row\ 3\ (Person\ 3)} \cr
 \cr
 \cr
 \cr
 \end{array}
 $$
+
 
 
 - **Rows** (3 rows): Each row corresponds to one person (Person 1, Person 2, Person 3).  
@@ -73,18 +76,18 @@ $$
 In matrix form:
 
 $$
-C = \begin{pmatrix}
+C = \begin{bmatrix}
 120/80 & 72 & 36.8 & 190 \cr 
 135/85 & 80 & 37.1 & 210 \cr 
 110/70 & 65 & 36.5 & 180
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 In matrix form with row and column annotations:
 
 $$
 C =
-\left(
+\left[
 \begin{array}{c|c|c|c}
 120/80 & 72 & 36.8 & 190 \cr
 135/85 & 80 & 37.1 & 210 \cr
@@ -94,7 +97,7 @@ C =
 \mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
 (\mathrm{Blood\ Pressure}) & (\mathrm{Heart\ Rate}) & (\mathrm{Temperature}) & (\mathrm{Cholesterol})
 \end{array}
-\right)
+\right]
 \begin{array}{l}
 \leftarrow \mathrm{Row\ 1\ (Patient\ 1)} \cr
 \leftarrow \mathrm{Row\ 2\ (Patient\ 2)} \cr
@@ -104,9 +107,6 @@ C =
 \cr
 \end{array}
 $$
-
-
-
 
 - **Rows** (3 rows): Each row corresponds to one patient (Patient 1, Patient 2, Patient 3).  
 - **Columns** (4 columns): Each column corresponds to a clinical measurement (Column 1 = Blood Pressure, Column 2 = Heart Rate, Column 3 = Temperature, Column 4 = Cholesterol).  
@@ -149,18 +149,18 @@ $$
 We can now construct the corresponding augmented matrix:
 
 $$
-A = \left(\begin{array}{ccc|c}
-2 & -1 & 1 & 8 \cr 
--3 & 2 & 2 & -11 \cr  
+A = \left[\begin{array}{ccc|c}
+2 & -1 & 1 & 8 \cr
+-3 & 2 & 2 & -11 \cr
 1 & 1 & -1 & 0
-\end{array}\right)
+\end{array}\right]
 $$
 
 The following annotations show how the rows and columns correspond to the equations, variables, and constants.
 
 $$
 A =
-\left(
+\left[
 \begin{array}{ccc|c}
 2 & -1 & 1 & 8 \cr
 -3 & 2 & 2 & -11 \cr
@@ -170,7 +170,7 @@ A =
 \mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
 (x_1) & (x_2) & (x_3) & (\mathrm{const})
 \end{array}
-\right)
+\right]
 \begin{array}{l}
 \leftarrow \mathrm{Row\ 1\ (Eq.\ 1:\ }2x_1-x_2+x_3=8\mathrm{)} \cr
 \leftarrow \mathrm{Row\ 2\ (Eq.\ 2:\ }-3x_1+2x_2+2x_3=-11\mathrm{)} \cr
@@ -198,7 +198,7 @@ $$
 A square matrix has the same number of rows and columns, which can be written as $A_{{n \times n}}$ or $A_{m \times n}$, where $m = n$, such as a $3\times 3$ square matrix has three rows and three columns, a $4 \times 4$ square matrix has four rows and four columns, and an $n \times n$ square matrix has $n$ rows and $n$ columns, where $n$ can be any positive integer.
 
 $$
-S_{3 \times 3} = \begin{pmatrix} s_{11} & s_{12} & s_{13} \cr s_{21} & s_{22} & s_{23} \cr s_{31} & s_{32} & s_{33} \end{pmatrix} = \begin{pmatrix} 8 & 3 & 6 \cr 1 & 5 & 9 \cr 4 & 7 & 2 \end{pmatrix}.
+S_{3 \times 3} = \begin{bmatrix} s_{11} & s_{12} & s_{13} \cr s_{21} & s_{22} & s_{23} \cr s_{31} & s_{32} & s_{33} \end{bmatrix} = \begin{bmatrix} 8 & 3 & 6 \cr 1 & 5 & 9 \cr 4 & 7 & 2 \end{bmatrix}.
 $$
 
 <center>
@@ -207,7 +207,7 @@ A square matrix with three rows and three columns.
 
 
 $$
-S_{4 \times 4} = \begin{pmatrix} s_{11} & s_{12} & s_{13} & s_{14} \cr s_{21} & s_{22} & s_{23} & s_{24} \cr s_{31} & s_{32} & s_{33} & s_{34} \cr s_{41} & s_{42} & s_{43} & s_{44} \end{pmatrix} = \begin{pmatrix} 5 & 9 & 2 & 7 \cr 3 & 8 & 1 & 6 \cr 4 & 0 & 9 & 3 \cr 2 & 5 & 7 & 4 \end{pmatrix}.
+S_{4 \times 4} = \begin{bmatrix} s_{11} & s_{12} & s_{13} & s_{14} \cr s_{21} & s_{22} & s_{23} & s_{24} \cr s_{31} & s_{32} & s_{33} & s_{34} \cr s_{41} & s_{42} & s_{43} & s_{44} \end{bmatrix} = \begin{bmatrix} 5 & 9 & 2 & 7 \cr 3 & 8 & 1 & 6 \cr 4 & 0 & 9 & 3 \cr 2 & 5 & 7 & 4 \end{bmatrix}.
 $$
 
 <center>
@@ -216,12 +216,12 @@ A square matrix with four rows and four columns.
 
 
 $$
-S_{n \times n} = \begin{pmatrix} 
+S_{n \times n} = \begin{bmatrix} 
 s_{11} & s_{12} & \cdots & s_{1n} \cr 
 s_{21} & s_{22} & \cdots & s_{2n} \cr 
 \vdots & \vdots & \ddots & \vdots \cr 
 s_{n1} & s_{n2} & \cdots & s_{nn} 
-\end{pmatrix}.
+\end{bmatrix}.
 $$
 
 <center>
@@ -238,20 +238,20 @@ A tall matrix has more number of rows than that of the columns, which looks tall
 
 $$
 \begin{array}{cc}
-T_{6 \times 3}^{(\text{tall})} = \begin{pmatrix} 
+T_{6 \times 3}^{(\text{tall})} = \begin{bmatrix} 
 t_{11} & t_{12} & t_{13} \cr 
 t_{21} & t_{22} & t_{23} \cr 
 t_{31} & t_{32} & t_{33} \cr 
 t_{41} & t_{42} & t_{43} \cr 
 t_{51} & t_{52} & t_{53} \cr 
 t_{61} & t_{62} & t_{63} 
-\end{pmatrix} &
+\end{bmatrix} &
 \quad \text{vs.} \quad &
-S_{3 \times 3}^{\text{(square)}} = \begin{pmatrix} 
+S_{3 \times 3}^{\text{(square)}} = \begin{bmatrix} 
 s_{11} & s_{12} & s_{13} \cr 
 s_{21} & s_{22} & s_{23} \cr 
 s_{31} & s_{32} & s_{33} 
-\end{pmatrix}
+\end{bmatrix}
 \end{array}
 $$
 
@@ -266,23 +266,32 @@ A wide matrix has more number of columns than that of the rows, which looks wide
 
 $$
 \begin{array}{cc}
-C_{3 \times 6} = \begin{pmatrix} 
+C_{3 \times 6} = \begin{bmatrix} 
 c_{11} & c_{12} & c_{13} & c_{14} & c_{15} & c_{16} \cr 
 c_{21} & c_{22} & c_{23} & c_{24} & c_{25} & c_{26} \cr 
 c_{31} & c_{32} & c_{33} & c_{34} & c_{35} & c_{36} 
-\end{pmatrix} &
+\end{bmatrix} &
 \quad \text{vs.} \quad &
-A_{3 \times 3} = \begin{pmatrix} 
+A_{3 \times 3} = \begin{bmatrix} 
 a_{11} & a_{12} & a_{13} \cr 
 a_{21} & a_{22} & a_{23} \cr 
 a_{31} & a_{32} & a_{33} 
-\end{pmatrix}
+\end{bmatrix}
 \end{array}
 $$
 
 <center>
 A wide matrix (left side) looks wider than the square matrix (right side)
 </center>
+
+
+### 2.2.3. Submatrix
+
+### 2.2.4. Partioned Matrix
+
+
+
+
 
 
 ---
@@ -293,11 +302,11 @@ A wide matrix (left side) looks wider than the square matrix (right side)
 A column vector is a special matrix with multiple rows but only one column, written as 
 
 $$
-C_{3 \times 1} = \begin{pmatrix} 
+C_{3 \times 1} = \begin{bmatrix} 
 c_{11} \cr 
 c_{21} \cr 
 c_{31} 
-\end{pmatrix}.
+\end{bmatrix}.
 $$
 
 <center>
@@ -305,14 +314,14 @@ A column vector with three rows and one column
 </center>
 
 $$
-C_{6 \times 1} = \begin{pmatrix} 
+C_{6 \times 1} = \begin{bmatrix} 
 c_{11} \cr 
 c_{21} \cr 
 c_{31} \cr 
 c_{41} \cr 
 c_{51} \cr 
 c_{61} 
-\end{pmatrix}.
+\end{bmatrix}.
 $$
 
 <center>
@@ -320,12 +329,12 @@ A column vector with six rows and one column
 </center>
 
 $$
-C_{n \times 1} = \begin{pmatrix} 
+C_{n \times 1} = \begin{bmatrix} 
 c_{11} \cr 
 c_{21} \cr 
 \vdots \cr 
 c_{n1} 
-\end{pmatrix}.
+\end{bmatrix}.
 $$
 
 <center>
@@ -338,7 +347,7 @@ A column vector with } n \text{ rows and one column
 ---
 Below are some examples of row vectors with different number of entries. We can call a row vector with three entries as a 3-dimensional (row) vector, a row vector with six entries as a 6-dimensional (row) vector, and a row vector with $n$ entries as a n-dimensional (row) vector.
 $$
-W_{1 \times 3} = \begin{pmatrix} w_{11} & w_{12} & w_{13} \end{pmatrix}.
+W_{1 \times 3} = \begin{bmatrix} w_{11} & w_{12} & w_{13} \end{bmatrix}.
 $$
 
 <center>
@@ -346,7 +355,7 @@ A row vector with one row and three columns
 </center>
 
 $$
-W_{1 \times 6} = \begin{pmatrix} w_{11} & w_{12} & w_{13} & w_{14} & w_{15} & w_{16} \end{pmatrix}.
+W_{1 \times 6} = \begin{bmatrix} w_{11} & w_{12} & w_{13} & w_{14} & w_{15} & w_{16} \end{bmatrix}.
 $$
 
 <center>
@@ -354,7 +363,7 @@ A row vector with one row and six columns
 </center>
 
 $$
-W_{1 \times n} = \begin{pmatrix} w_{11} & w_{12} & \cdots & w_{1n} \end{pmatrix}.
+W_{1 \times n} = \begin{bmatrix} w_{11} & w_{12} & \cdots & w_{1n} \end{bmatrix}.
 $$
 
 <center>
@@ -375,46 +384,46 @@ Consider a square matrix of size $n \times n$, meaning it has the same number of
 
 A $3 \times 3$ square matrix with numerical values, having three rows and three columns, is:
 $$
-N_{3 \times 3} = \begin{pmatrix} 1 & 4 & 7 \cr 2 & 5 & 8 \cr 3 & 6 & 9 \end{pmatrix}.
+N_{3 \times 3} = \begin{bmatrix} 1 & 4 & 7 \cr 2 & 5 & 8 \cr 3 & 6 & 9 \end{bmatrix}.
 $$
 A $4 \times 4$ square matrix with numerical values, having four rows and four columns, is:
 $$
-N_{4 \times 4} = \begin{pmatrix} 2 & 5 & 8 & 11 \cr 3 & 6 & 9 & 12 \cr 4 & 7 & 10 & 13 \cr 5 & 8 & 11 & 14 \end{pmatrix}.
+N_{4 \times 4} = \begin{bmatrix} 2 & 5 & 8 & 11 \cr 3 & 6 & 9 & 12 \cr 4 & 7 & 10 & 13 \cr 5 & 8 & 11 & 14 \end{bmatrix}.
 $$
 A $3 \times 3$ square matrix with math expressions, having three rows and three columns, is:
 $$
-E_{3 \times 3} = \begin{pmatrix} x+1 & 2y & z-3 \cr 2x & y+1 & 3z \cr x-2 & y+2 & z+4 \end{pmatrix}.
+E_{3 \times 3} = \begin{bmatrix} x+1 & 2y & z-3 \cr 2x & y+1 & 3z \cr x-2 & y+2 & z+4 \end{bmatrix}.
 $$
 A $4 \times 4$ square matrix with simple expressions, having four rows and four columns, is:
 $$
-E_{4 \times 4} = \begin{pmatrix} x+1 & 2y & z-3 & t+5 \cr 2x & y+1 & 3z & t-1 \cr x-2 & y+2 & z+4 & 2t \cr x+y & y+z & z+t & t+x \end{pmatrix}.
+E_{4 \times 4} = \begin{bmatrix} x+1 & 2y & z-3 & t+5 \cr 2x & y+1 & 3z & t-1 \cr x-2 & y+2 & z+4 & 2t \cr x+y & y+z & z+t & t+x \end{bmatrix}.
 $$
 
 
-
+---
 ## 2.5. Matrix in Neural Network Modeling
-
+---
 In neural network modeling, particularly for Transformer-based models, matrices serve as the fundamental data structure for representing all learnable parameters and intermediate computations. Each token, obtained by splitting the raw input text into smaller units such as words or subwords during tokenization, is then embedded as a vector through an embedding lookup matrix. For example, a token embedding vector of size $1 \times d$ (or $d \times 1$) is:
 
 $$
-\text{Token vector}\_{1 \times d} = \begin{pmatrix} v\_1 & v_2 & \dots & v_d \end{pmatrix} \quad \text{or} \quad \text{Token vector}\_{d \times 1} = \begin{pmatrix} v\_1 \cr v\_2 \cr \vdots \cr v\_d \end{pmatrix}.
+\text{Token vector}\_{1 \times d} = \begin{bmatrix} v\_1 & v_2 & \dots & v_d \end{bmatrix} \quad \text{or} \quad \text{Token vector}\_{d \times 1} = \begin{bmatrix} v\_1 \cr v\_2 \cr \vdots \cr v\_d \end{bmatrix}.
 $$
 
 The entire sequence of $n$ tokens is packed into a matrix where rows correspond to tokens and columns to embedding dimensions:
 
 $$
-\text{Input matrix}\_{n \times d} = \begin{pmatrix} 
+\text{Input matrix}\_{n \times d} = \begin{bmatrix} 
 \text{token}\_1 \cr 
 \text{token}\_2 \cr 
 \vdots \cr 
 \text{token}\_n 
-\end{pmatrix}
-= \begin{pmatrix}
+\end{bmatrix}
+= \begin{bmatrix}
 v\_{11} & v\_{12} & \dots & v\_{1d} \cr
 v\_{21} & v\_{22} & \dots & v\_{2d} \cr
 \vdots & \vdots & \ddots & \vdots \cr
 v\_{n1} & v\_{n2} & \dots & v\_{nd}
-\end{pmatrix}.
+\end{bmatrix}.
 $$
 
 The self-attention mechanism, the core of Transformers, computes three matrices from the input: queries, keys, and values, each obtained by multiplying the input matrix with distinct weight matrices:
@@ -437,22 +446,21 @@ $$
 The attention scores themselves form a square matrix of size sequence length times sequence length, capturing pairwise relationships between all tokens:
 
 $$
-\text{Attention scores}\_{n \times n} = \text{Queries}\_{n \times d\_k} \cdot \text{Keys}^{\top}\_{d\_k \times n} = \begin{pmatrix}
+\text{Attention scores}\_{n \times n} = \text{Queries}\_{n \times d\_k} \cdot \text{Keys}^{\top}\_{d\_k \times n} = \begin{bmatrix}
 s\_{11} & s\_{12} & \dots & s\_{1n} \cr
 s\_{21} & s\_{22} & \dots & s\_{2n} \cr
 \vdots & \vdots & \ddots & \vdots \cr
 s\_{n1} & s\_{n2} & \dots & s\_{nn}
-\end{pmatrix}.
+\end{bmatrix}.
 $$
-
-
 
 
 All feed-forward layers are matrix multiplications, and the output of each transformer block is again a matrix. Without matrices, parallel processing of sequences would be impossible, and the efficiency of training on graphics processing units, which are optimized for matrix operations, would collapse. Thus, the matrix is not merely a notational convenience but the computational backbone that enables Transformers to scale to billions of parameters and process long sequences.
 
 
 
+---
 ## 2.6. Essential Characteristics of Matrix
-
+---
 The essential characteristics of a matrix in linear algebra include its size, the nature of its elements, and the operations defined upon it. The arrangement into rows and columns is not arbitrary; each element has a specific position identified by two indices, one for the row and one for the column. This positional structure allows the matrix to represent linear transformations, where applying the matrix to a vector produces another vector. Another characteristic is that matrices can be added only when they share the same size, and multiplication requires that the number of columns in the first matrix equals the number of rows in the second matrix. The set of all matrices of a given size forms a mathematical structure where addition is commutative and associative, and multiplication distributes over addition. Furthermore, some matrices have special patterns, such as symmetric matrices where $a_{ij} = a_{ji}$, diagonal matrices where nonzero entries appear only on the main diagonal, and identity matrices which act as the multiplicative neutral element. These characteristics collectively define how matrices behave as computational tools and as representations of linear relationships between sets of numbers.
 

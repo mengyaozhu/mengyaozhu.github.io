@@ -1,5 +1,5 @@
 +++
-title = "Matrix in Linear Algebra Archive"
+title = "Matrix in Linear Algebra and AI Archive"
 # date = 2026-05-24
 math = true
 tags = ["Math for AI", "Matrix in Linear Algebra", "Definition of Matrix"]
@@ -316,6 +316,30 @@ $$
 
 
 
+### Matrix Displayed with Parentheses
+
+$$
+D =
+\left(
+\begin{array}{c|c|c|c}
+30 & 50000 & 175 & 70 \cr
+25 & 45000 & 160 & 55 \cr
+45 & 80000 & 180 & 85 \cr
+\hline
+\downarrow & \downarrow & \downarrow & \downarrow \cr
+\mathrm{Col\ 1} & \mathrm{Col\ 2} & \mathrm{Col\ 3} & \mathrm{Col\ 4} \cr
+(\mathrm{Age}) & (\mathrm{Salary}) & (\mathrm{Height}) & (\mathrm{Weight})
+\end{array}
+\right)
+\begin{array}{l}
+\leftarrow \mathrm{Row 1\ (Person\ 1)} \cr
+\leftarrow \mathrm{Row 2\ (Person\ 2)} \cr
+\leftarrow \mathrm{Row 3\ (Person\ 3)} \cr
+\cr
+\cr
+\cr
+\end{array}
+$$
 
 
 ### Trial 
@@ -364,5 +388,3 @@ A =
 $$
 
 
-
-\
