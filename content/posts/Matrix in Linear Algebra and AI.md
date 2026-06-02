@@ -319,19 +319,20 @@ c_{11} \cr
 c_{21} \cr 
 c_{31} \cr 
 c_{41} \cr 
-c_{51} \cr 
-c_{61} 
+c_{51} 
 \end{bmatrix}.
 $$
 
 <center>
-A column vector with six rows and one column
+A column vector with five rows and one column
 </center>
 
 $$
 C_{n \times 1} = \begin{bmatrix} 
 c_{11} \cr 
 c_{21} \cr 
+c_{31} \cr
+\vdots \cr 
 \vdots \cr 
 c_{n1} 
 \end{bmatrix}.
@@ -380,25 +381,35 @@ A row vector with one row and } n \text{ columns
 
 The entries of a matrix can take various forms, including variables such as $a, b, x, y$ (representing unknown or symbolic quantities); numerical values such as integers ($1, -5, 42$), real numbers ($3.14, -0.001$), or complex numbers ($2+3i$); and mathematical expressions such as $x^2 + 1$, $\sin(\theta)$, $e^{t}$, or $\frac{a+b}{c}$, allowing the matrix to represent functional relationships or parameterized systems.
 
-Consider a square matrix of size $n \times n$, meaning it has the same number of rows and columns. For example, a $3 \times 3$ matrix with three rows and three columns can be written as:
+A $3 \times 3$ matrix and a $4 \times 4$ matrix with variable entries, denoted by lowercase letters, each representing an independent scalar (real or complex, unless otherwise specified):
 
-A $3 \times 3$ square matrix with numerical values, having three rows and three columns, is:
 $$
-N_{3 \times 3} = \begin{bmatrix} 1 & 4 & 7 \cr 2 & 5 & 8 \cr 3 & 6 & 9 \end{bmatrix}.
+\begin{array}{cc}
+V_{3 \times 3} = \begin{bmatrix} a & b & c \cr d & e & f \cr g & h & i \end{bmatrix} &
+\quad &
+V_{4 \times 4} = \begin{bmatrix} a & b & c & d \cr e & f & g & h \cr i & j & k & l \cr m & n & o & p \end{bmatrix}.
+\end{array}
 $$
-A $4 \times 4$ square matrix with numerical values, having four rows and four columns, is:
+
+A $3 \times 3$ and a $4 \times 4$ square matrix with numerical values:
+
 $$
+\begin{array}{cc}
+N_{3 \times 3} = \begin{bmatrix} 1 & 4 & 7 \cr 2 & 5 & 8 \cr 3 & 6 & 9 \end{bmatrix}
+\quad &
 N_{4 \times 4} = \begin{bmatrix} 2 & 5 & 8 & 11 \cr 3 & 6 & 9 & 12 \cr 4 & 7 & 10 & 13 \cr 5 & 8 & 11 & 14 \end{bmatrix}.
-$$
-A $3 \times 3$ square matrix with math expressions, having three rows and three columns, is:
-$$
-E_{3 \times 3} = \begin{bmatrix} x+1 & 2y & z-3 \cr 2x & y+1 & 3z \cr x-2 & y+2 & z+4 \end{bmatrix}.
-$$
-A $4 \times 4$ square matrix with simple expressions, having four rows and four columns, is:
-$$
-E_{4 \times 4} = \begin{bmatrix} x+1 & 2y & z-3 & t+5 \cr 2x & y+1 & 3z & t-1 \cr x-2 & y+2 & z+4 & 2t \cr x+y & y+z & z+t & t+x \end{bmatrix}.
+\end{array}
 $$
 
+Two square matrices with math expressions as entries.
+
+$$
+\begin{array}{cc}
+E_{3 \times 3} = \begin{bmatrix} x+1 & 2y & z-3 \cr 2x & y+1 & 3z \cr x-2 & y+2 & z+4 \end{bmatrix}
+\quad &
+E_{4 \times 4} = \begin{bmatrix} x+1 & 2y & z-3 & t+5 \cr 2x & y+1 & 3z & t-1 \cr x-2 & y+2 & z+4 & 2t \cr x+y & y+z & z+t & t+x \end{bmatrix}.
+\end{array}
+$$
 
 ---
 ## 2.5. Matrix in Neural Network Modeling
