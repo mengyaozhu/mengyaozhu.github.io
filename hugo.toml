@@ -30,36 +30,36 @@ theme = "hugo-PaperMod"
   #   url = "https://linkedin.com/in/yourusername"
 
 [menu]
-  [[menu.main]]
-    identifier = "archives"
-    name = "Archive"
-    url = "/archives/"
-    weight = 10
-  [[menu.main]]
-    identifier = "search"
-    name = "Search"
-    url = "/search/"
-    weight = 20
-  [[menu.main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags/"
-    weight = 30
-  [[menu.main]]
-    identifier = "academic-reading"
-    name = "Reading and Writing"
-    url = "/tags/academic-reading/"
-    weight = 40
-  [[menu.main]]
-    identifier = "math"
-    name = "Math for AI"
-    url = "/tags/math/"
-    weight = 60
+  # [[menu.main]]
+  #  identifier = "archives"
+  #  name = "Archive"
+  #  url = "/archives/"
+  #  weight = 10
   [[menu.main]]
     identifier = "agent-skills"
     name = "Agent Skills"
     url = "/tags/agent-skills/"
-    weight = 70
+    weight = 10
+  [[menu.main]]
+    identifier = "academic-reading"
+    name = "Reading and Writing"
+    url = "/tags/academic-reading/"
+    weight = 20
+  [[menu.main]]
+    identifier = "math"
+    name = "Math for AI"
+    url = "/tags/math/"
+    weight = 30
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 40
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 50
   # [[menu.main]]
   #  identifier = "about"
   #  name = "About"
