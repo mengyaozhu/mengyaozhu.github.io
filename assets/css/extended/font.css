@@ -1,0 +1,4 @@
+/* Override PaperMod's default font (reset.css) with Georgia */
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+}
