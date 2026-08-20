@@ -47,17 +47,12 @@ theme = "hugo-PaperMod"
     weight = 30
   [[menu.main]]
     identifier = "academic-reading"
-    name = "Academic Reading"
+    name = "Reading and Writing"
     url = "/tags/academic-reading/"
     weight = 40
   [[menu.main]]
-    identifier = "academic-writing"
-    name = "Academic Writing"
-    url = "/tags/academic-writing/"
-    weight = 50
-  [[menu.main]]
     identifier = "math"
-    name = "Math"
+    name = "Math for AI"
     url = "/tags/math/"
     weight = 60
   [[menu.main]]
