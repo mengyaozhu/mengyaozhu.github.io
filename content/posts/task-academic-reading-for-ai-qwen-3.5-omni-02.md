@@ -1,3 +1,11 @@
++++
+title = "Academic Reading for AI: Qwen 3.5 Omni"
+date = 2026-08-20
+math = true
+tags = ["Academic Reading for AI", "Large Language Model", "Qwen LLM"]
+author = ["Mengyao Zhu"]
++++
+
 # 1. Qwen 3.5 Omni: Architecture, Training, Evaluation, and Omnimodal Capabilities
 
 ## 1.1. Overview of Qwen 3.5 Omni
