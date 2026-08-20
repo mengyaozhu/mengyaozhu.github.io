@@ -15,9 +15,9 @@ theme = "hugo-PaperMod"
   ShowRelatedPosts = true 
   # disableThemeToggle = true
 
-    [params.homeInfoParams]
-    Title = "In AI We Believe"
-    Content = "Welcome! This site covers academic reading, academic writing, agent skills and math."
+    # [params.homeInfoParams]
+    # Title = "In AI We Believe"
+    # Content = "Welcome! This site covers academic reading, academic writing, agent skills and math."
 
   # [[params.socialIcons]]
   #   name = "github"
