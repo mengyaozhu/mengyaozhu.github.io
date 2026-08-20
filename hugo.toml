@@ -45,6 +45,11 @@ theme = "hugo-PaperMod"
     name = "Tags"
     url = "/tags/"
     weight = 30
+  [[menu.main]]
+    identifier = "academic-reading"
+    name = "Academic Reading"
+    url = "/tags/academic-reading/"
+    weight = 40
   # [[menu.main]]
   #  identifier = "about"
   #  name = "About"
