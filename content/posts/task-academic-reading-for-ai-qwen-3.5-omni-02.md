@@ -1,5 +1,5 @@
 +++
-title = "Academic Reading for AI: Qwen 3.5 Omni"
+title = "Academic Reading for AI: Qwen 3.5 Omni Technical Report"
 date = 2026-08-20
 math = true
 tags = ["Academic Reading for AI", "Large Language Model", "Qwen LLM"]
