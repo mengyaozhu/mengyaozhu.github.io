@@ -50,6 +50,21 @@ theme = "hugo-PaperMod"
     name = "Academic Reading"
     url = "/tags/academic-reading/"
     weight = 40
+  [[menu.main]]
+    identifier = "academic-writing"
+    name = "Academic Writing"
+    url = "/tags/academic-writing/"
+    weight = 50
+  [[menu.main]]
+    identifier = "math"
+    name = "Math"
+    url = "/tags/math/"
+    weight = 60
+  [[menu.main]]
+    identifier = "agent-skills"
+    name = "Agent Skills"
+    url = "/tags/agent-skills/"
+    weight = 70
   # [[menu.main]]
   #  identifier = "about"
   #  name = "About"
