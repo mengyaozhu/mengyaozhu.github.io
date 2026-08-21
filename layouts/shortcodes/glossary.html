@@ -65,8 +65,11 @@
         function update() {
             var line = readLine();
 
-            // Hide the panel once the reader has scrolled past the last term.
-            var pastEnd = lastTerm ? lastTerm.getBoundingClientRect().bottom < line : false;
+            // Hide the panel once the reader has scrolled well past the last
+            // term. Subtracting half a viewport from the reading line moves the
+            // hide point further down the page, so the box lingers for a few
+            // more lines instead of disappearing right away.
+            var pastEnd = lastTerm ? lastTerm.getBoundingClientRect().bottom < line - window.innerHeight * 0.5 : false;
             if (pastEnd) {
                 if (panel.style.display !== 'none') panel.style.display = 'none';
             } else {
