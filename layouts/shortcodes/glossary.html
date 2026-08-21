@@ -56,16 +56,19 @@
         // The reading line: 55% down the viewport
         var readLine = function () { return window.innerHeight * 0.55; };
 
-        // Active term = the one whose top edge is nearest the reading line
+        // Active term = the last term whose top edge is at or above the reading line.
+        // This is the term the reader has most recently reached, so the definition
+        // stays aligned with the phrase actually being read.
         function update() {
             var line = readLine();
             var active = null;
             var activeNode = null;
-            var best = Infinity;
             terms.forEach(function (t) {
                 var top = t.getBoundingClientRect().top;
-                var dist = Math.abs(top - line);
-                if (dist < best) { best = dist; active = t.getAttribute('data-gid'); activeNode = t; }
+                if (top <= line) {
+                    active = t.getAttribute('data-gid');
+                    activeNode = t;
+                }
             });
             if (active && byTag[active]) setActive(active, activeNode.getBoundingClientRect().top);
         }
