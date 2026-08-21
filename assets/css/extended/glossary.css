@@ -6,7 +6,7 @@
 /* Reserve space on the right so the fixed panel doesn't cover the text */
 @media (min-width: 1200px) {
     .post-content {
-        padding-right: 150px;
+        padding-right: 125px;
     }
 }
 
