@@ -76,24 +76,40 @@
                 if (panel.style.display === 'none') panel.style.display = '';
             }
 
-            // Advance through adjacent terms one at a time: the active term is
-            // the one whose vertical midpoint is the nearest to the reading
-            // line. Each term has a unique midpoint, so even tightly-packed
-            // phrases get shown sequentially as the reader scrolls, instead of
-            // jumping straight to the last one or showing several at once.
+            // Advance through adjacent terms one at a time. Because tightly
+            // packed phrases can share a scroll region, a "nearest to the line"
+            // rule can skip the middle of a cluster. Instead, give each term a
+            // dedicated, non-overlapping scroll zone anchored to its midpoint,
+            // and show whichever term owns the current reading-line position.
+            // This guarantees every sequential term (including middle ones)
+            // gets its own interval along the way.
             var scrollY = window.scrollY;
+            var readLinePos = scrollY + line;
+            // Half the zone size each side of a term's midpoint.
+            var halfZone = Math.max(8, (window.innerHeight * 0.05));
             var active = null;
             var activeNode = null;
-            var closestDelta = Infinity;
+            var previousMid = -Infinity;
             terms.forEach(function (t) {
                 var mid = t.getBoundingClientRect().top + scrollY + t.offsetHeight / 2;
-                var delta = Math.abs(mid - (scrollY + line));
-                if (delta < closestDelta) {
-                    closestDelta = delta;
+                if (readLinePos >= mid - halfZone && readLinePos <= mid + halfZone) {
                     active = t.getAttribute('data-gid');
                     activeNode = t;
                 }
+                previousMid = mid;
             });
+            if (!active && terms.length) {
+                // Reading position is outside every zone (e.g. between terms):
+                // fall back to the last term that has already been passed, so
+                // an earlier definition stays visible rather than going empty.
+                terms.forEach(function (t) {
+                    var mid = t.getBoundingClientRect().top + scrollY + t.offsetHeight / 2;
+                    if (mid <= readLinePos) {
+                        active = t.getAttribute('data-gid');
+                        activeNode = t;
+                    }
+                });
+            }
             if (active && byTag[active] && activeNode) {
                 setActive(active, activeNode.getBoundingClientRect().top);
             }
