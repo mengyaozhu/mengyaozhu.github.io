@@ -62,6 +62,13 @@
         // through the remaining sections (Explore the Concepts, References).
         var lastTerm = terms.length ? terms[terms.length - 1] : null;
 
+        // Hold each definition for a fixed amount of scroll before switching to
+        // the next one. ~120px is roughly three arrow-key presses, so a term's
+        // definition stays on the right for about three presses.
+        var STEP = 120;
+        var lockedIndex = -1; // index of the currently held term (-1 = none)
+        var lastSwitchY = 0;  // scroll position when the current term was locked
+
         function update() {
             var line = readLine();
 
@@ -81,19 +88,38 @@
             // line. Each term has a unique midpoint, so even tightly-packed
             // phrases get shown sequentially as the reader scrolls, instead of
             // jumping straight to the last one or showing several at once.
+            // The current definition is held until at least STEP px of scroll
+            // has passed, so same-line terms each get a visible interval.
             var scrollY = window.scrollY;
-            var active = null;
-            var activeNode = null;
             var closestDelta = Infinity;
-            terms.forEach(function (t) {
+            var candidate = -1;
+            var candidateNode = null;
+            terms.forEach(function (t, i) {
                 var mid = t.getBoundingClientRect().top + scrollY + t.offsetHeight / 2;
                 var delta = Math.abs(mid - (scrollY + line));
                 if (delta < closestDelta) {
                     closestDelta = delta;
-                    active = t.getAttribute('data-gid');
-                    activeNode = t;
+                    candidate = i;
+                    candidateNode = t;
                 }
             });
+            // Hold the current definition until enough scroll has passed, then
+            // switch to the newly-nearest term.
+            if (lockedIndex >= 0 && lockedIndex < terms.length &&
+                scrollY - lastSwitchY < STEP) {
+                candidate = lockedIndex;
+                candidateNode = terms[lockedIndex];
+            } else if (candidate !== lockedIndex) {
+                lockedIndex = candidate;
+                lastSwitchY = scrollY;
+            }
+
+            var active = null;
+            var activeNode = null;
+            if (candidate >= 0 && candidateNode && byTag[terms[candidate].getAttribute('data-gid')]) {
+                active = terms[candidate].getAttribute('data-gid');
+                activeNode = candidateNode;
+            }
             if (active && byTag[active] && activeNode) {
                 setActive(active, activeNode.getBoundingClientRect().top);
             }
