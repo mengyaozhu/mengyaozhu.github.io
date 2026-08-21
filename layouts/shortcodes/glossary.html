@@ -2,58 +2,63 @@
 <aside class="glossary-panel" id="glossary-panel"></aside>
 <script>
 (function () {
-    var post = document.querySelector('.post-content') || document;
-    var panel = document.getElementById('glossary-panel');
-    if (!panel) return;
+    // Run after the full post is in the DOM so .glossary-term spans exist
+    function init() {
+        var post = document.querySelector('.post-content') || document;
+        var panel = document.getElementById('glossary-panel');
+        if (!panel) return;
 
-    var terms = post.querySelectorAll('.glossary-term');
-    var entries = [];
-    var byId = {};
+        var terms = post.querySelectorAll('.glossary-term');
+        var entries = [];
+        var seen = {};
 
-    // Build entries from every marked-up term
-    terms.forEach(function (t) {
-        var id = t.getAttribute('data-gid');
-        var def = t.getAttribute('data-def') || '';
-        if (!id || !def || byId[id]) return;
-        byId[id] = true;
-        var name = t.textContent.trim();
-        entries.push({ id: id, name: name, def: def });
-    });
-
-    if (!entries.length) { panel.style.display = 'none'; return; }
-
-    var html = '';
-    entries.forEach(function (e) {
-        html += '<div class="glossary-entry" data-gid="' + e.id + '"><strong>' + e.name +
-                '</strong><div>' + e.def + '</div></div>';
-    });
-    panel.innerHTML = html;
-
-    var entryEls = {};
-    panel.querySelectorAll('.glossary-entry').forEach(function (el) {
-        entryEls[el.getAttribute('data-gid')] = el;
-    });
-
-    // Highlight the term currently in (or nearest above) the viewport
-    function update() {
-        var active = null;
-        var vh = window.innerHeight;
-        var best = -1;
         terms.forEach(function (t) {
-            var r = t.getBoundingClientRect();
-            if (r.top < vh * 0.6) {
-                var score = r.top;
-                if (best === -1 || score > best) { best = score; active = t.getAttribute('data-gid'); }
-            }
+            var id = t.getAttribute('data-gid');
+            var def = t.getAttribute('data-def') || '';
+            if (!id || !def || seen[id]) return;
+            seen[id] = true;
+            entries.push({ id: id, name: t.textContent.trim(), def: def });
         });
-        panel.querySelectorAll('.glossary-entry.glossary-at').forEach(function (el) {
-            el.classList.remove('glossary-at');
+
+        if (!entries.length) { panel.style.display = 'none'; return; }
+
+        var html = '';
+        entries.forEach(function (e) {
+            html += '<div class="glossary-entry" data-gid="' + e.id + '"><strong>' + e.name +
+                    '</strong><div>' + e.def + '</div></div>';
         });
-        if (active && entryEls[active]) entryEls[active].classList.add('glossary-at');
+        panel.innerHTML = html;
+
+        var entryEls = {};
+        panel.querySelectorAll('.glossary-entry').forEach(function (el) {
+            entryEls[el.getAttribute('data-gid')] = el;
+        });
+
+        function update() {
+            var vh = window.innerHeight;
+            var active = null;
+            var best = -1;
+            terms.forEach(function (t) {
+                var r = t.getBoundingClientRect();
+                if (r.top < vh * 0.6) {
+                    if (r.top > best) { best = r.top; active = t.getAttribute('data-gid'); }
+                }
+            });
+            panel.querySelectorAll('.glossary-entry.glossary-at').forEach(function (el) {
+                el.classList.remove('glossary-at');
+            });
+            if (active && entryEls[active]) entryEls[active].classList.add('glossary-at');
+        }
+
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
     }
 
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 </script>
