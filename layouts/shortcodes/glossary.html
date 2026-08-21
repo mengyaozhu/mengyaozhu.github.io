@@ -76,19 +76,30 @@
                 if (panel.style.display === 'none') panel.style.display = '';
             }
 
+            // Advance through adjacent terms one at a time: the active term is
+            // the one whose vertical midpoint is the nearest to the reading
+            // line. Each term has a unique midpoint, so even tightly-packed
+            // phrases get shown sequentially as the reader scrolls, instead of
+            // jumping straight to the last one or showing several at once.
+            var scrollY = window.scrollY;
             var active = null;
             var activeNode = null;
+            var closestDelta = Infinity;
             terms.forEach(function (t) {
-                var top = t.getBoundingClientRect().top;
-                if (top <= line) {
+                var mid = t.getBoundingClientRect().top + scrollY + t.offsetHeight / 2;
+                var delta = Math.abs(mid - (scrollY + line));
+                if (delta < closestDelta) {
+                    closestDelta = delta;
                     active = t.getAttribute('data-gid');
                     activeNode = t;
                 }
             });
-            if (active && byTag[active]) setActive(active, activeNode.getBoundingClientRect().top);
-            // Nothing has crossed the reading line yet (e.g. on initial load):
-            // fall back to the first term so the panel is not empty.
-            else if (byTag[terms[0].getAttribute('data-gid')]) {
+            if (active && byTag[active] && activeNode) {
+                setActive(active, activeNode.getBoundingClientRect().top);
+            }
+            // Nothing found (e.g. no terms): fall back to the first term so the
+            // panel is not empty.
+            else if (terms.length && byTag[terms[0].getAttribute('data-gid')]) {
                 setActive(terms[0].getAttribute('data-gid'), terms[0].getBoundingClientRect().top);
             }
         }
