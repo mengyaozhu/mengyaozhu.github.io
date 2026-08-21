@@ -56,11 +56,23 @@
         // The reading line: 55% down the viewport
         var readLine = function () { return window.innerHeight * 0.55; };
 
-        // Active term = the last term whose top edge is at or above the reading line.
-        // This is the term the reader has most recently reached, so the definition
-        // stays aligned with the phrase actually being read.
+        // Bottom edge of the last glossed term. Once the reading line moves
+        // past this, the panel no longer matches any on-screen definition, so
+        // it is hidden instead of lingering on the right as the reader scrolls
+        // through the remaining sections (Explore the Concepts, References).
+        var lastTerm = terms.length ? terms[terms.length - 1] : null;
+
         function update() {
             var line = readLine();
+
+            // Hide the panel once the reader has scrolled past the last term.
+            var pastEnd = lastTerm ? lastTerm.getBoundingClientRect().bottom < line : false;
+            if (pastEnd) {
+                if (panel.style.display !== 'none') panel.style.display = 'none';
+            } else {
+                if (panel.style.display === 'none') panel.style.display = '';
+            }
+
             var active = null;
             var activeNode = null;
             terms.forEach(function (t) {
