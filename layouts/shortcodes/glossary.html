@@ -62,13 +62,6 @@
         // through the remaining sections (Explore the Concepts, References).
         var lastTerm = terms.length ? terms[terms.length - 1] : null;
 
-        // Hold each definition for a minimum amount of scroll before switching
-        // to the next one, so phrases that sit on the same line still each get
-        // a visible turn on the right. ~120px is roughly three arrow-key presses.
-        var STEP = 120;
-        var heldIndex = -1; // index of the currently displayed term (-1 = none)
-        var lockScrollY = 0; // scroll position where the current term was locked
-
         function update() {
             var line = readLine();
 
@@ -83,39 +76,24 @@
                 if (panel.style.display === 'none') panel.style.display = '';
             }
 
-            // Determine which term is "targeted" by the reading line: the one
-            // whose vertical midpoint is nearest to the line.
+            // Advance through adjacent terms one at a time: the active term is
+            // the one whose vertical midpoint is the nearest to the reading
+            // line. Each term has a unique midpoint, so even tightly-packed
+            // phrases get shown sequentially as the reader scrolls, instead of
+            // jumping straight to the last one or showing several at once.
             var scrollY = window.scrollY;
-            var targetIndex = -1;
+            var active = null;
+            var activeNode = null;
             var closestDelta = Infinity;
-            terms.forEach(function (t, i) {
+            terms.forEach(function (t) {
                 var mid = t.getBoundingClientRect().top + scrollY + t.offsetHeight / 2;
                 var delta = Math.abs(mid - (scrollY + line));
                 if (delta < closestDelta) {
                     closestDelta = delta;
-                    targetIndex = i;
+                    active = t.getAttribute('data-gid');
+                    activeNode = t;
                 }
             });
-
-            // Show the targeted term, but only switch to it once enough scroll
-            // (~STEP px) has passed since the previous switch. Until then, keep
-            // the currently displayed definition so each phrase gets a visible
-            // turn even when several sit on the same line.
-            var shownIndex = targetIndex;
-            if (heldIndex >= 0 && heldIndex < terms.length &&
-                scrollY - lockScrollY < STEP) {
-                shownIndex = heldIndex;
-            } else if (shownIndex !== heldIndex) {
-                heldIndex = shownIndex;
-                lockScrollY = scrollY;
-            }
-
-            var active = null;
-            var activeNode = null;
-            if (shownIndex >= 0 && shownIndex < terms.length) {
-                active = terms[shownIndex].getAttribute('data-gid');
-                activeNode = terms[shownIndex];
-            }
             if (active && byTag[active] && activeNode) {
                 setActive(active, activeNode.getBoundingClientRect().top);
             }
