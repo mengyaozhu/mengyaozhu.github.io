@@ -36,17 +36,20 @@
             entryEls[el.getAttribute('data-gid')] = el;
         });
 
-        // Place the definition at the exact on-screen height of the phrase,
-        // so they are horizontally on the same line.
-        function setActive(id, phraseTop) {
-            panel.querySelectorAll('.glossary-entry').forEach(function (el) {
-                if (el === entryEls[id]) { el.classList.add('glossary-at'); }
-                else { el.classList.remove('glossary-at'); }
+        function setActive(id, targetTop) {
+            panel.querySelectorAll('.glossary-entry.glossary-at').forEach(function (el) {
+                el.classList.remove('glossary-at');
             });
-            var el = id && entryEls[id];
-            if (el && phraseTop !== undefined) {
-                var panelTop = panel.getBoundingClientRect().top;
-                el.style.top = (phraseTop - panelTop) + 'px';
+            if (id && entryEls[id]) {
+                entryEls[id].classList.add('glossary-at');
+                // Vertically align the definition with the phrase: scroll the panel
+                // so the entry's top sits at the requested viewport line.
+                if (targetTop !== undefined) {
+                    var panelTop = panel.getBoundingClientRect().top;
+                    var target = targetTop - panelTop - 2;
+                    target = Math.max(0, Math.min(target, panel.scrollHeight - panel.clientHeight));
+                    panel.scrollTop = target;
+                }
             }
         }
 
