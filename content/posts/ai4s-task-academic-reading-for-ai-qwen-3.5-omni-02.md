@@ -136,3 +136,9 @@ The ability to generate structured and adjustable descriptions of content that j
 
 The ability of a model to participate in ongoing multimodal communication with sufficiently immediate processing and generation for interactive use. In Qwen3.5-Omni, this includes capabilities such as semantic interruption, turn-taking intent recognition, and end-to-end control over properties of generated speech.
 
+# 3. References
+
+Qwen Team. (2026). Qwen3.5-Omni Technical Report. In _arXiv [cs.CL]_. arXiv. https://doi.org/10.48550/arXiv.2604.15804
+
+
+
