@@ -76,20 +76,19 @@
                 if (panel.style.display === 'none') panel.style.display = '';
             }
 
-            // Advance through adjacent terms one at a time: the active term is
-            // the one whose vertical midpoint is the nearest to the reading
-            // line. Each term has a unique midpoint, so even tightly-packed
-            // phrases get shown sequentially as the reader scrolls, instead of
-            // jumping straight to the last one or showing several at once.
+            // Advance through adjacent terms one at a time by picking the term
+            // with the greatest midpoint that is still at or above the reading
+            // line — i.e. the one the line most recently passed. Because it
+            // always takes the greatest passed midpoint, same-line terms are
+            // walked through in document order instead of only one winning.
             var scrollY = window.scrollY;
             var active = null;
             var activeNode = null;
-            var closestDelta = Infinity;
+            var bestMid = -Infinity;
             terms.forEach(function (t) {
                 var mid = t.getBoundingClientRect().top + scrollY + t.offsetHeight / 2;
-                var delta = Math.abs(mid - (scrollY + line));
-                if (delta < closestDelta) {
-                    closestDelta = delta;
+                if (mid <= scrollY + line && mid > bestMid) {
+                    bestMid = mid;
                     active = t.getAttribute('data-gid');
                     activeNode = t;
                 }
