@@ -88,7 +88,7 @@
             terms.forEach(function (t) {
                 var mid = t.getBoundingClientRect().top + scrollY + t.offsetHeight / 2;
                 var delta = Math.abs(mid - (scrollY + line));
-                if (delta < closestDelta) {
+                if (delta <= closestDelta) {
                     closestDelta = delta;
                     active = t.getAttribute('data-gid');
                     activeNode = t;
