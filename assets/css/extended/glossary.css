@@ -1,20 +1,10 @@
 /* Right-hand glossary panel for term definitions */
-.post-content {
-    position: relative;
-    box-sizing: border-box; /* padding is taken out of the max-width */
-}
-
-/* Reserve space on the right so the fixed panel doesn't cover the text */
-@media (min-width: 1200px) {
-    .post-content {
-        padding-right: 300px;
-    }
-}
+/* Text stays at the normal site width; the panel sits just right of it. */
 
 .glossary-panel {
     position: fixed;
     top: calc(var(--header-height, 60px) + var(--gap, 24px));
-    right: calc((100vw - (var(--main-width) - var(--gap) * 2)) / 2);
+    right: max(12px, calc((100vw - (var(--main-width) - var(--gap) * 2)) / 2 - 302px));
     width: 290px;
     max-height: calc(100vh - var(--header-height, 60px) - var(--gap, 24px) * 2 - 16px);
     overflow: hidden; /* clip the absolute entry to the panel box */
@@ -61,9 +51,6 @@
 
 /* Mobile/tablet: collapse the panel into a stacked block below the content */
 @media (max-width: 1199px) {
-    .post-content {
-        padding-right: 0;
-    }
     .glossary-panel {
         position: static;
         width: auto;
