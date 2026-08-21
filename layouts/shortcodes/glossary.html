@@ -65,11 +65,11 @@
         function update() {
             var line = readLine();
 
-            // Hide the panel once the reader has scrolled well past the last
-            // term. Subtracting half a viewport from the reading line moves the
-            // hide point further down the page, so the box lingers for a few
-            // more lines instead of disappearing right away.
-            var pastEnd = lastTerm ? lastTerm.getBoundingClientRect().bottom < line - window.innerHeight * 0.5 : false;
+            // Hide the panel once the reader has scrolled a bit past the last
+            // term. Subtracting a fraction of a viewport from the reading line
+            // moves the hide point somewhat earlier than the half-viewport
+            // setting, while still letting the box linger briefly.
+            var pastEnd = lastTerm ? lastTerm.getBoundingClientRect().bottom < line - window.innerHeight * 0.2 : false;
             if (pastEnd) {
                 if (panel.style.display !== 'none') panel.style.display = 'none';
             } else {
