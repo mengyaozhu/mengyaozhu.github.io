@@ -1,18 +1,23 @@
-/* Right-hand sticky glossary panel for term definitions */
+/* Right-hand glossary panel for term definitions */
 .post-content {
     position: relative;
+}
+
+/* Reserve space on the right so the fixed panel doesn't cover the text */
+@media (min-width: 1200px) {
+    .post-content {
+        padding-right: 300px;
+    }
 }
 
 .glossary-panel {
     position: fixed;
     top: calc(var(--header-height, 60px) + var(--gap, 24px));
-    right: max(0px, calc((100vw - var(--main-width) - var(--gap) * 2) / 2));
-    margin-top: var(--gap, 24px);
-    width: 300px;
-    max-height: calc(100vh - var(--header-height, 60px) - var(--gap, 24px) * 2);
-    overflow-y: auto;
+    right: max(16px, calc((100vw - var(--main-width) - var(--gap) * 2) / 2 - 320px));
+    width: 290px;
+    max-height: calc(100vh - var(--header-height, 60px) - var(--gap, 24px) * 2 - 16px);
+    overflow: hidden; /* clip the absolute entry to the panel box */
     padding: 16px;
-    border-left: 1px solid var(--border);
     background: var(--theme);
     font-size: 14px;
     line-height: 1.5;
@@ -20,18 +25,27 @@
 }
 
 .glossary-panel .glossary-entry {
-    display: none; /* hidden until a term targets it */
-    margin-bottom: 16px;
+    display: none;          /* only the active entry is shown */
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 0;                 /* set by JS to match the phrase's height */
 }
 
 .glossary-panel .glossary-entry.glossary-at {
     display: block;
+    animation: glossary-fade 0.2s ease;
 }
 
 .glossary-panel .glossary-entry strong {
     color: var(--primary);
     display: block;
     margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.glossary-panel .glossary-entry > div {
+    color: var(--content);
 }
 
 .glossary-term {
@@ -39,14 +53,27 @@
     border-bottom: 1px dotted var(--primary);
 }
 
-/* Mobile: collapse the panel below the content */
-@media (max-width: 1100px) {
+@keyframes glossary-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Mobile/tablet: collapse the panel into a stacked block below the content */
+@media (max-width: 1199px) {
+    .post-content {
+        padding-right: 0;
+    }
     .glossary-panel {
         position: static;
         width: auto;
         max-height: none;
-        border-left: none;
-        border-top: 1px solid var(--border);
-        margin-top: var(--gap);
+        overflow: visible;
+    }
+    .glossary-panel .glossary-entry {
+        position: static;
+        left: auto;
+        right: auto;
+        padding: 0;
+        margin-bottom: 16px;
     }
 }

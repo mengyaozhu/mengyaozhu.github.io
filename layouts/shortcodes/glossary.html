@@ -2,58 +2,88 @@
 <aside class="glossary-panel" id="glossary-panel"></aside>
 <script>
 (function () {
-    var post = document.querySelector('.post-content') || document;
-    var panel = document.getElementById('glossary-panel');
-    if (!panel) return;
+    function init() {
+        var post = document.querySelector('.post-content') || document;
+        var panel = document.getElementById('glossary-panel');
+        if (!panel) return;
 
-    var terms = post.querySelectorAll('.glossary-term');
-    var entries = [];
-    var byId = {};
+        var terms = Array.prototype.slice.call(post.querySelectorAll('.glossary-term'));
+        var entryEls = {};
+        var byTag = {};
 
-    // Build entries from every marked-up term
-    terms.forEach(function (t) {
-        var id = t.getAttribute('data-gid');
-        var def = t.getAttribute('data-def') || '';
-        if (!id || !def || byId[id]) return;
-        byId[id] = true;
-        var name = t.textContent.trim();
-        entries.push({ id: id, name: name, def: def });
-    });
-
-    if (!entries.length) { panel.style.display = 'none'; return; }
-
-    var html = '';
-    entries.forEach(function (e) {
-        html += '<div class="glossary-entry" data-gid="' + e.id + '"><strong>' + e.name +
-                '</strong><div>' + e.def + '</div></div>';
-    });
-    panel.innerHTML = html;
-
-    var entryEls = {};
-    panel.querySelectorAll('.glossary-entry').forEach(function (el) {
-        entryEls[el.getAttribute('data-gid')] = el;
-    });
-
-    // Highlight the term currently in (or nearest above) the viewport
-    function update() {
-        var active = null;
-        var vh = window.innerHeight;
-        var best = -1;
+        // Build one panel entry per unique term (first occurrence wins)
+        var seen = {};
         terms.forEach(function (t) {
-            var r = t.getBoundingClientRect();
-            if (r.top < vh * 0.6) {
-                var score = r.top;
-                if (best === -1 || score > best) { best = score; active = t.getAttribute('data-gid'); }
+            var id = t.getAttribute('data-gid');
+            if (!id || seen[id]) return;
+            var def = t.getAttribute('data-def') || '';
+            if (!def) return;
+            seen[id] = true;
+            byTag[id] = { node: t, name: t.textContent.trim(), def: def };
+        });
+
+        var ids = Object.keys(byTag);
+        if (!ids.length) { panel.style.display = 'none'; return; }
+
+        var html = '';
+        ids.forEach(function (id) {
+            html += '<div class="glossary-entry" data-gid="' + id + '"><strong>' + byTag[id].name +
+                    '</strong><div>' + byTag[id].def + '</div></div>';
+        });
+        panel.innerHTML = html;
+
+        panel.querySelectorAll('.glossary-entry').forEach(function (el) {
+            entryEls[el.getAttribute('data-gid')] = el;
+        });
+
+        // Place the definition at the exact on-screen height of the phrase,
+        // so they are horizontally on the same line.
+        function setActive(id, phraseTop) {
+            panel.querySelectorAll('.glossary-entry').forEach(function (el) {
+                if (el === entryEls[id]) { el.classList.add('glossary-at'); }
+                else { el.classList.remove('glossary-at'); }
+            });
+            var el = id && entryEls[id];
+            if (el && phraseTop !== undefined) {
+                var panelTop = panel.getBoundingClientRect().top;
+                el.style.top = (phraseTop - panelTop) + 'px';
             }
+        }
+
+        // The reading line: 55% down the viewport
+        var readLine = function () { return window.innerHeight * 0.55; };
+
+        // Active term = the one whose top edge is nearest the reading line
+        function update() {
+            var line = readLine();
+            var active = null;
+            var activeNode = null;
+            var best = Infinity;
+            terms.forEach(function (t) {
+                var top = t.getBoundingClientRect().top;
+                var dist = Math.abs(top - line);
+                if (dist < best) { best = dist; active = t.getAttribute('data-gid'); activeNode = t; }
+            });
+            if (active && byTag[active]) setActive(active, activeNode.getBoundingClientRect().top);
+        }
+
+        // Click a term to show its definition, aligned to the phrase
+        terms.forEach(function (t) {
+            t.addEventListener('click', function () {
+                var id = t.getAttribute('data-gid');
+                setActive(id, t.getBoundingClientRect().top);
+            });
         });
-        panel.querySelectorAll('.glossary-entry.glossary-at').forEach(function (el) {
-            el.classList.remove('glossary-at');
-        });
-        if (active && entryEls[active]) entryEls[active].classList.add('glossary-at');
+
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
     }
 
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 </script>
