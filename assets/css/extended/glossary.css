@@ -1,0 +1,52 @@
+/* Right-hand sticky glossary panel for term definitions */
+.post-content {
+    position: relative;
+}
+
+.glossary-panel {
+    position: fixed;
+    top: calc(var(--header-height, 60px) + var(--gap, 24px));
+    right: max(0px, calc((100vw - var(--main-width) - var(--gap) * 2) / 2));
+    margin-top: var(--gap, 24px);
+    width: 300px;
+    max-height: calc(100vh - var(--header-height, 60px) - var(--gap, 24px) * 2);
+    overflow-y: auto;
+    padding: 16px;
+    border-left: 1px solid var(--border);
+    background: var(--theme);
+    font-size: 14px;
+    line-height: 1.5;
+    z-index: 10;
+}
+
+.glossary-panel .glossary-entry {
+    display: none; /* hidden until a term targets it */
+    margin-bottom: 16px;
+}
+
+.glossary-panel .glossary-entry.glossary-at {
+    display: block;
+}
+
+.glossary-panel .glossary-entry strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.glossary-term {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--primary);
+}
+
+/* Mobile: collapse the panel below the content */
+@media (max-width: 1100px) {
+    .glossary-panel {
+        position: static;
+        width: auto;
+        max-height: none;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        margin-top: var(--gap);
+    }
+}
