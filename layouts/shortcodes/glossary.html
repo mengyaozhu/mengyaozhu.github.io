@@ -71,6 +71,11 @@
                 }
             });
             if (active && byTag[active]) setActive(active, activeNode.getBoundingClientRect().top);
+            // Nothing has crossed the reading line yet (e.g. on initial load):
+            // fall back to the first term so the panel is not empty.
+            else if (byTag[terms[0].getAttribute('data-gid')]) {
+                setActive(terms[0].getAttribute('data-gid'), terms[0].getBoundingClientRect().top);
+            }
         }
 
         // Click a term to show its definition, aligned to the phrase
