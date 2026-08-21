@@ -13,7 +13,7 @@
 .glossary-panel {
     position: fixed;
     top: calc(var(--header-height, 60px) + var(--gap, 24px));
-    right: max(0px, calc((100vw - var(--main-width) - var(--gap) * 2) / 2));
+    right: max(16px, calc((100vw - var(--main-width) - var(--gap) * 2) / 2 - 320px));
     width: 290px;
     max-height: calc(100vh - var(--header-height, 60px) - var(--gap, 24px) * 2 - 16px);
     overflow: hidden; /* clip the absolute entry to the panel box */
