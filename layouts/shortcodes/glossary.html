@@ -88,6 +88,16 @@
 
         window.addEventListener('scroll', update, { passive: true });
         window.addEventListener('resize', update);
+
+        // Vertically align the fixed panel with the top of the article content
+        // (below the post title / meta / TOC), instead of a fixed viewport offset.
+        function alignPanelTop() {
+            var contentTop = post.getBoundingClientRect().top + window.scrollY;
+            panel.style.top = (contentTop + 16) + 'px';
+        }
+        window.addEventListener('resize', alignPanelTop);
+        alignPanelTop();
+
         update();
     }
 
