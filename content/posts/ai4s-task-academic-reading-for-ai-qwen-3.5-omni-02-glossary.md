@@ -1,5 +1,5 @@
 +++
-title = "Academic Reading for AI: Qwen 3.5 Omni Technical Report"
+title = "New Academic Reading for AI: Qwen 3.5 Omni Technical Report"
 date = 2026-08-20
 math = true
 tags = ["Academic Reading for AI", "Large Language Model", "Qwen LLM", "Academic Reading"]
@@ -141,5 +141,4 @@ The ability of a model to participate in ongoing multimodal communication with s
 # 3. References
 
 Qwen Team. (2026). Qwen3.5-Omni Technical Report. In _arXiv [cs.CL]_. arXiv. https://doi.org/10.48550/arXiv.2604.15804
-
 
