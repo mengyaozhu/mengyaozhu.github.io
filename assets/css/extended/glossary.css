@@ -4,10 +4,17 @@
     box-sizing: border-box; /* padding is taken out of the max-width */
 }
 
+/* Reserve space on the right so the fixed panel doesn't cover the text */
+@media (min-width: 1200px) {
+    .post-content {
+        padding-right: 300px;
+    }
+}
+
 .glossary-panel {
     position: fixed;
     top: calc(var(--header-height, 60px) + var(--gap, 24px));
-    right: calc((100vw - (var(--main-width) - var(--gap) * 2)) / 2 + 302px);
+    right: calc((100vw - (var(--main-width) - var(--gap) * 2)) / 2);
     width: 290px;
     max-height: calc(100vh - var(--header-height, 60px) - var(--gap, 24px) * 2 - 16px);
     overflow: hidden; /* clip the absolute entry to the panel box */
@@ -54,6 +61,9 @@
 
 /* Mobile/tablet: collapse the panel into a stacked block below the content */
 @media (max-width: 1199px) {
+    .post-content {
+        padding-right: 0;
+    }
     .glossary-panel {
         position: static;
         width: auto;
