@@ -6,7 +6,7 @@
 /* Reserve space on the right so the fixed panel doesn't cover the text */
 @media (min-width: 1200px) {
     .post-content {
-        padding-right: 100px;
+        padding-right: 150px;
     }
 }
 
@@ -20,7 +20,7 @@
     padding: 16px;
     border-left: 1px solid var(--border);
     background: var(--theme);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
     z-index: 10;
 }
