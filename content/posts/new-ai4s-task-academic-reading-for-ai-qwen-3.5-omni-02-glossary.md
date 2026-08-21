@@ -1,9 +1,10 @@
 +++
-title = "New Academic Reading for AI: Qwen 3.5 Omni Technical Report"
+title = "Academic Reading for AI: Qwen 3.5 Omni Technical Report"
 date = 2026-08-20
 math = true
-tags = ["Academic Reading for AI", "Large Language Model", "Qwen LLM", "Academic Reading"]
+tags = ["Academic Reading for AI", "Large Language Model", "Qwen LLM", "Academic Reading", "Academic Research"]
 author = ["Mengyao Zhu"]
+
 +++
 
 {{< glossary >}}

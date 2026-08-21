@@ -47,14 +47,9 @@ theme = "hugo-PaperMod"
     weight = 20
   [[menu.main]]
     identifier = "academic-reading"
-    name = "Academic Reading"
+    name = "Academic Research"
     url = "/tags/academic-reading/"
     weight = 30
-  [[menu.main]]
-    identifier = "academic-writing"
-    name = "Academic Writing"
-    url = "/tags/academic-writing/"
-    weight = 40
   [[menu.main]]
     identifier = "search"
     name = "Search"
