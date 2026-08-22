@@ -1,0 +1,13 @@
+# Hugo build output
+/public/
+
+# Hugo transient build lock file
+.hugo_build.lock
+
+# Local-only draft content (not synced)
+/content draft/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
