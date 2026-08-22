@@ -1,6 +1,9 @@
 # Hugo build output
 /public/
 
+# Hugo transient build lock file
+.hugo_build.lock
+
 # OS files
 .DS_Store
 Thumbs.db
