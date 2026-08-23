@@ -43,13 +43,13 @@ theme = "hugo-PaperMod"
     weight = 10
   [[menu.main]]
     identifier = "math"
-    name = "Math for AI"
-    url = "/tags/math-for-ai/"
+    name = "Math · AI"
+    url = "/tags/math-and-ai/"
     weight = 20
   [[menu.main]]
-    identifier = "research-for-ai"
+    identifier = "Science · AI"
     name = "Research for AI"
-    url = "/tags/research-for-ai/"
+    url = "/tags/science-and-ai/"
     weight = 30
   [[menu.main]]
     identifier = "search"
