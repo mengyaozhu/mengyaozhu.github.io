@@ -48,7 +48,7 @@ theme = "hugo-PaperMod"
     weight = 20
   [[menu.main]]
     identifier = "math-and-research"
-    name = "Math and Research"
+    name = "Math · Research"
     url = "/tags/math-and-research/"
     weight = 30
   [[menu.main]]
