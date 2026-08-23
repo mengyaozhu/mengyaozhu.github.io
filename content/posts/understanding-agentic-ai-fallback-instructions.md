@@ -26,7 +26,7 @@ Primary instructions and fallback instructions are both essential components of 
 
 Input:
   Downstream Task T
-  Triggered Agentic Skill(s) S
+  Agentic Skill(s) S
   AI Agent A
   Supporting LLM(s) M
 
