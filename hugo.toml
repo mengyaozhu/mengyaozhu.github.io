@@ -37,9 +37,9 @@ theme = "hugo-PaperMod"
   #  url = "/archives/"
   #  weight = 10
   [[menu.main]]
-    identifier = "agent-skills"
-    name = "Agent Skills"
-    url = "/tags/agent-skills/"
+    identifier = "agentic-skills"
+    name = "Agentic Skills"
+    url = "/tags/agentic-skills/"
     weight = 10
   [[menu.main]]
     identifier = "math"
