@@ -43,12 +43,12 @@ theme = "hugo-PaperMod"
     weight = 10
   [[menu.main]]
     identifier = "math"
-    name = "Math and AI"
+    name = "Math · AI"
     url = "/tags/math-and-ai/"
     weight = 20
   [[menu.main]]
     identifier = "Science · AI"
-    name = "Science and AI"
+    name = "Science · AI"
     url = "/tags/science-and-ai/"
     weight = 30
   [[menu.main]]
