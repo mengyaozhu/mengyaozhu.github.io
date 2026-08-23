@@ -28,9 +28,9 @@ Input:
   Downstream Task T
   Triggered Agentic Skill(s) S
   AI Agent A
-  Supporting LLM M
+  Supporting LLM(s) M
 
-1. Apply the applicable skill(s) S to perform T with agent A supported by LLM M.
+1. Apply the applicable skill(s) S to perform T with agent A supported by LLM(s) M.
 2. Execute the Primary Instructions defined for T.
 3. Evaluate whether the primary execution succeeds according to the predefined requirements.
 
