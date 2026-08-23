@@ -47,9 +47,9 @@ theme = "hugo-PaperMod"
     url = "/tags/math-for-ai/"
     weight = 20
   [[menu.main]]
-    identifier = "academic-reading"
-    name = "Academic Research"
-    url = "/tags/academic-research/"
+    identifier = "research-for-ai"
+    name = "Research for AI"
+    url = "/tags/research-for-ai/"
     weight = 30
   [[menu.main]]
     identifier = "search"
