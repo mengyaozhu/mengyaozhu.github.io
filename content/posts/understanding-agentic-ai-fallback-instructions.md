@@ -48,29 +48,22 @@ Can the Primary Instructions Be Successfully Performed?
 ```
 
 
+```mermaid
+flowchart TD
+    A[Task Objective] --> B[Primary Instructions]
+    B --> C[Execute Primary Workflow]
+    C --> D{Primary Instructions Successfully Performed?}
 
-Task
-  ↓
-Primary Instructions
-  ↓
-Execute the Preferred Workflow
-  ↓
-Can the Primary Instructions Be Successfully Performed?
-  ├── Yes → Continue Primary Execution
-  │           ↓
-  │       Expected Result Achieved?
-  │           ├── Yes → Task Completed
-  │           └── No  → Continue Execution / Evaluation
-  │
-  └── No  → Identify Fallback Condition
-              ↓
-          Trigger Fallback Instructions
-              ↓
-          Execute Alternative Workflow
-              ↓
-          Expected Result Achieved?
-              ├── Yes → Task Completed
-              └── No  → Further Fallback / Evaluation
+    D -->|Yes| E[Expected Result]
+    D -->|No| F[Fallback Condition Triggered]
+
+    F --> G[Fallback Instructions]
+    G --> H[Execute Alternative Workflow]
+    H --> I{Expected Result Achieved?}
+
+    I -->|Yes| E
+    I -->|No| J[Further Fallback or Evaluation]
+```
 
 
 ## Explore the Relevant Concepts 
