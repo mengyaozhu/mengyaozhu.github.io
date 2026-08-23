@@ -2,7 +2,7 @@
 title = "Math for AI: Matrix in Linear Algebra"
 date = 2026-06-02
 math = true
-tags = ["Math for AI", "Matrix in Linear Algebra", "Definition of Matrix", "Math and Science", "Math and AI"]
+tags = ["Math for AI", "Matrix in Linear Algebra", "Definition of Matrix", "Math and Science", "Math and AI", "Math and Research"]
 author = ["Mengyao Zhu"]
 
 +++
