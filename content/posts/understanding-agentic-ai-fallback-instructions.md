@@ -50,6 +50,39 @@ Input:
       → Otherwise, return the best valid result or report the unresolved limitation.
 ```
 
+
+<div style="font-size: 18px; line-height: 1.7; font-family: monospace; white-space: pre-wrap;">
+<strong>Pseudo-Algorithm: Primary–Fallback Execution for a Downstream Task</strong>
+
+Input:
+  Downstream Task T
+  Triggered Agentic Skill(s) S
+  AI Agent A
+  Supporting LLM M
+
+1. Apply the applicable skill(s) S to perform T with agent A supported by LLM M.
+2. Execute the Primary Instructions defined for T.
+3. Evaluate whether the primary execution succeeds according to the predefined requirements.
+
+4. If successful:
+      → Return the Expected Result for T.
+
+5. If unsuccessful:
+      Check whether a predefined Fallback Condition holds
+      → If so, trigger the corresponding Fallback Instructions
+      → Execute the Alternative Path for T
+      → Evaluate the Result
+
+6. If the fallback execution succeeds:
+      → Return the Expected Result for T.
+   Else:
+      → Trigger another defined fallback, if available
+      → Otherwise, return the best valid result or report the unresolved limitation.
+</div>
+
+
+
+
 ## Explore the Relevant Concepts 
 
 **AI Agent**
