@@ -24,38 +24,6 @@ Primary instructions and fallback instructions are both essential components of 
 ```markdown
 # Pseudo-Algorithm: Primary–Fallback Execution for a Downstream Task
 
-```text
-Input:
-  Downstream Task T
-  Triggered Agentic Skill(s) S
-  AI Agent A
-  Supporting LLM M
-
-1. Apply the applicable skill(s) S to perform T with agent A supported by LLM M.
-2. Execute the Primary Instructions defined for T.
-3. Evaluate whether the primary execution succeeds according to the predefined requirements.
-
-4. If successful:
-      → Return the Expected Result for T.
-
-5. If unsuccessful:
-      Check whether a predefined Fallback Condition holds
-      → If so, trigger the corresponding Fallback Instructions
-      → Execute the Alternative Path for T
-      → Evaluate the Result
-
-6. If the fallback execution succeeds:
-      → Return the Expected Result for T.
-   Else:
-      → Trigger another defined fallback, if available
-      → Otherwise, return the best valid result or report the unresolved limitation.
-```
-
-
-```text
-# Pseudo-Algorithm: Primary–Fallback Execution for a Downstream Task
-
-```text
 Input:
   Downstream Task T
   Triggered Agentic Skill(s) S
