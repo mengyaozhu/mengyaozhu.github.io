@@ -49,7 +49,7 @@ theme = "hugo-PaperMod"
   [[menu.main]]
     identifier = "Math and Science"
     name = "Math · Science"
-    url = "/tags/science-and-ai/"
+    url = "/tags/math-and-science/"
     weight = 30
   [[menu.main]]
     identifier = "search"
