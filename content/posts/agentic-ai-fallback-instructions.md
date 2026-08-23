@@ -9,7 +9,7 @@ author = ["Mengyao Zhu"]
 
 # Fallback Instructions in Agentic AI
 ---
-## Fallback Instructions
+## Definition of Fallback Instructions
 
 Fallback instructions in the context of agentic AI are predefined alternative instructions that specify how an AI agent should proceed when its primary instructions, preferred method, or intended workflow cannot be successfully performed. They provide the agent with an alternative path toward the same task objective rather than allowing the process to stop unnecessarily when the preferred approach encounters a limitation or failure. The fallback instructions may simplify the original procedure, relax nonessential requirements, use a different available tool or information source, substitute an alternative method, or produce a more limited but still useful result. For example, if the primary instructions require an agent to retrieve information from a specialized external tool that is unavailable, fallback instructions might direct the agent to use another approved information source or complete only the parts of the task that can be reliably performed. Fallback instructions therefore serve as a form of predefined contingency guidance: the primary instructions describe how the task should preferably be performed, while the fallback instructions describe an acceptable alternative when that preferred approach is not feasible. Importantly, fallback instructions do not necessarily represent an inferior method; they represent a secondary method selected because the conditions required for the primary method are not satisfied.
 
