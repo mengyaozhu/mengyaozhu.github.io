@@ -1,7 +1,7 @@
 # baseURL = "https://example.com/"
 baseURL = "https://mengyaozhu.github.io/"
 # languageCode = "en-us"
-title = "AI · Math · Science"
+title = "AI · Math · Research"
 theme = "hugo-PaperMod"
 
 [params]
@@ -47,9 +47,14 @@ theme = "hugo-PaperMod"
     url = "/tags/agentic-ai/"
     weight = 20
   [[menu.main]]
-    identifier = "math-and-science"
-    name = "Math · Science"
-    url = "/tags/math-and-science/"
+    identifier = "math"
+    name = "Math"
+    url = "/tags/math-for-ai/"
+    weight = 30
+  [[menu.main]]
+    identifier = "research-for-ai"
+    name = "Research"
+    url = "/tags/research-for-ai/"
     weight = 30
   [[menu.main]]
     identifier = "search"
