@@ -21,9 +21,19 @@ Fallback instructions should take effect only when predefined conditions indicat
 
 Primary instructions and fallback instructions are both essential components of robust agentic skill engineering because they jointly define how an agent should perform a task under both intended and alternative execution conditions. The primary instructions should be attempted first because they represent the preferred workflow designed to achieve the expected result. If these instructions cannot be successfully performed because of tool unavailability, missing information, execution failure, capability limitations, environmental constraints, or other predefined conditions, the corresponding fallback instructions can then be triggered to provide an alternative execution path. This conditional transition allows the predefined workflow to continue progressing toward the expected result rather than terminating immediately when a particular step or method becomes infeasible. From this perspective, the inclusion of fallback instructions can be regarded as part of a dynamic continuity mechanism within an agentic skill: although the fallback instructions themselves are predefined, their activation occurs dynamically in response to conditions encountered during execution. By enabling the agent to move from a preferred execution path to an alternative viable path when necessary, this mechanism can improve workflow continuity, robustness, and adaptability while reducing avoidable abrupt interruptions before the expected result has been achieved.
 
+$$
+\begin{aligned}
+&\textbf{Input:} \\
+&T &&= \text{Downstream Task},\\
+&S=\{S_1,\ldots,S_n\},\; n\ge1
+   &&= \text{Applicable Agentic Skill(s)},\\
+&A &&= \text{Agent},\\
+&M &&= \text{Supporting LLM}.
+\end{aligned}
+$$
 
 
-\[
+$$
 \begin{aligned}
 &\textbf{Input:}\quad
 T,\; S=\{S_1,\ldots,S_n\},\; A,\; M \\[4pt]
@@ -44,7 +54,7 @@ T,\; S=\{S_1,\ldots,S_n\},\; A,\; M \\[4pt]
 &\qquad \rightarrow \text{Otherwise return the best valid result}\\
 &\qquad\phantom{\rightarrow}\text{or report the unresolved limitation.}
 \end{aligned}
-\]
+$$
 
 
 
