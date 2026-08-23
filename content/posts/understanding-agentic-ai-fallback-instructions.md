@@ -48,6 +48,7 @@ Input:
    Else:
       → Trigger another defined fallback, if available
       → Otherwise, return the best valid result or report the unresolved limitation.
+      
 ```
 
 ## Explore the Relevant Concepts 
