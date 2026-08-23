@@ -42,12 +42,12 @@ theme = "hugo-PaperMod"
     url = "/tags/agentic-skills/"
     weight = 10
   [[menu.main]]
-    identifier = "math"
-    name = "Math · AI"
-    url = "/tags/math-and-ai/"
+    identifier = "Agentic AI"
+    name = "Agentic AI"
+    url = "/tags/agentic-ai/"
     weight = 20
   [[menu.main]]
-    identifier = "Science · AI"
+    identifier = "Math and Science"
     name = "Science · AI"
     url = "/tags/science-and-ai/"
     weight = 30
