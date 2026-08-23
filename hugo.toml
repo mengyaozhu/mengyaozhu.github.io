@@ -1,7 +1,7 @@
 # baseURL = "https://example.com/"
 baseURL = "https://mengyaozhu.github.io/"
 # languageCode = "en-us"
-title = "AIMR Lab | AI · Math · Research"
+title = "AI · Math · Research"
 theme = "hugo-PaperMod"
 
 [params]
