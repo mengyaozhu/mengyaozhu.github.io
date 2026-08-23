@@ -51,7 +51,7 @@ Input:
 ```
 
 
-<div style="font-size: 18px; line-height: 1.7; font-family: monospace; white-space: pre-wrap;">
+<div style="font-size: 16px; line-height: 1.7; font-family: monospace; white-space: pre-wrap;">
 <strong>Pseudo-Algorithm: Primary–Fallback Execution for a Downstream Task</strong>
 
 Input:
