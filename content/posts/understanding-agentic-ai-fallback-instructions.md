@@ -57,6 +57,80 @@ Input:
 
 An AI agent is LLM-supported software designed to interpret and follow dynamic instructions to perform different downstream tasks. For a particular task, the agent may operate under predefined default requirements while also determining newly specified or detected requirements from the user’s task instructions, provided context, intermediate results, and conditions encountered during execution. These requirements can correspondingly give rise to predefined default subtasks and newly detected subtasks, which are dynamically combined to form the complete task to be performed. Newly detected requirements and subtasks can be determined through multiple methods, including explicit instruction parsing, rule-based identification, contextual inference, classification, and semantic matching. Semantic matching can be particularly effective because it makes direct use of the LLM’s language-understanding capabilities to determine whether different expressions represent the same, overlapping, related, or distinct requirements and subtasks, rather than relying only on identical wording or fixed keywords. Based on task-specific and user-defined standards, this analysis can be conducted at different levels of granularity, from identifying broad task requirements and major subtasks to distinguishing finer-grained requirements, constraints, conditions, and individual operations. The practical capabilities of an AI agent can improve as its supporting LLM becomes more capable of language understanding, reasoning, tool use, and result evaluation; as human-designed workflows are progressively refined and optimized; and as more relevant, accurate, and sufficiently detailed contextual information is provided for the agent to comprehend and perform the task. The effectiveness of an AI agent therefore depends on the combined quality of its supporting LLM, instructions, requirement and subtask identification methods, workflow design, available tools and resources, contextual information, and mechanisms for dynamically adapting execution to the specific task and user requirements.
 
+
+```markdown
+# Pseudo-Algorithm: LLM-Supported AI Agent Execution for a Downstream Task
+
+Input:
+  Downstream Task T
+  User Task Instructions I
+  Provided Context C
+  Predefined Default Requirements R_default
+  Predefined Default Subtasks U_default
+  Agentic Skill(s) S
+  Available Tool(s) and Resource(s) G
+  AI Agent A
+  Supporting LLM(s) M
+  Evaluation Criteria E
+
+1. Initialize the task execution for T using A supported by M.
+
+2. Analyze I and C to identify the requirements for T:
+      → Retain applicable predefined default requirements R_default
+      → Identify newly specified or detected requirements R_new
+      → Identify constraints, conditions, dependencies, and expected outputs
+      → Resolve overlapping, equivalent, related, or conflicting requirements where necessary
+
+3. Construct the complete requirement set:
+      R = Combine(R_default, R_new)
+
+4. Determine the subtasks required to satisfy R:
+      → Retain applicable predefined default subtasks U_default
+      → Derive newly required subtasks U_new from R, I, C, and task conditions
+      → Remove redundant or semantically equivalent subtasks
+      → Identify dependencies and required execution order
+
+5. Construct the complete task structure:
+      U = Organize(U_default, U_new)
+
+6. Determine the execution method for each subtask:
+      → Select and apply relevant Agentic Skill(s) S
+      → Select appropriate Tool(s) and Resource(s) G where required
+      → Use M for language understanding, reasoning, generation, tool-use decisions,
+        semantic matching, and result evaluation as appropriate
+
+7. Execute the subtasks in the required order.
+
+8. During execution:
+      → Observe intermediate results and encountered conditions
+      → Detect newly emerging requirements, constraints, or subtasks
+      → If material changes are detected:
+            Update R
+            Update U
+            Adjust the remaining execution path
+
+9. Evaluate intermediate and final results against E and the complete requirement set R.
+
+10. If the result satisfies the required criteria:
+       → Return the completed result for T.
+
+11. If the result does not satisfy the required criteria:
+       → Identify the unsatisfied requirement(s) or failed subtask(s)
+       → Determine whether execution can be revised, retried, or redirected
+       → Apply an alternative method, skill, tool, or fallback path where available
+       → Re-execute the affected subtask(s)
+       → Re-evaluate the result
+
+12. If further valid execution paths remain:
+       → Continue Steps 7–11 as required.
+
+13. Otherwise:
+       → Return the best valid result obtainable
+       → Report any unresolved requirement, limitation, or execution failure.
+```
+
+
+
 **Primary Instructions**
 
 Primary instructions are the principal set of instructions that define how an AI agent should perform an entire task, including the task objective, its constituent components or subtasks, their relationships and execution requirements, and the preferred execution path through which the expected result should be pursued. Their natural counterpart is **fallback instructions**, or more generally **alternative instructions**, which provide other execution paths when the primary path cannot be successfully followed or when multiple approaches are intentionally being explored. In established agentic skills, primary instructions may represent a preferred or widely verified method whose effectiveness in producing the expected type of result has already been demonstrated, while fallback instructions provide alternative methods for maintaining task execution when the primary method becomes infeasible or unsuccessful. However, primary instructions do not necessarily imply that the corresponding method has already been established as the best method. For tasks in which the final result, optimal procedure, or relative effectiveness of different approaches is not known in advance, an agentic skill may instead support dynamic exploration of multiple predefined or dynamically constructed execution paths. These paths can be assessed using predefined evaluation metrics or success criteria, allowing the agent to compare their outcomes and identify a more effective method through execution and evaluation. In such cases, the primary instructions may initially represent one preferred or candidate method among several possible approaches rather than a permanently established procedure, and the agentic skill can progressively determine which execution path is most effective for achieving the task objective.
