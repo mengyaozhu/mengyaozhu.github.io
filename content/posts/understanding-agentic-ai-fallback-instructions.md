@@ -21,6 +21,21 @@ Fallback instructions should take effect only when predefined conditions indicat
 
 Primary instructions and fallback instructions are both essential components of robust agentic skill engineering because they jointly define how an agent should perform a task under both intended and alternative execution conditions. The primary instructions should be attempted first because they represent the preferred workflow designed to achieve the expected result. If these instructions cannot be successfully performed because of tool unavailability, missing information, execution failure, capability limitations, environmental constraints, or other predefined conditions, the corresponding fallback instructions can then be triggered to provide an alternative execution path. This conditional transition allows the predefined workflow to continue progressing toward the expected result rather than terminating immediately when a particular step or method becomes infeasible. From this perspective, the inclusion of fallback instructions can be regarded as part of a dynamic continuity mechanism within an agentic skill: although the fallback instructions themselves are predefined, their activation occurs dynamically in response to conditions encountered during execution. By enabling the agent to move from a preferred execution path to an alternative viable path when necessary, this mechanism can improve workflow continuity, robustness, and adaptability while reducing avoidable abrupt interruptions before the expected result has been achieved.
 
+$$
+\text{Task}  
+\xrightarrow{\text{Primary Instructions}}  
+\text{Primary Execution}  
+\xrightarrow{\text{Evaluation}}  
+\begin{cases}  
+\text{Expected Result}, & \text{if successful},\[4pt]  
+\text{Fallback Instructions}  
+\rightarrow  
+\text{Alternative Execution}  
+\rightarrow  
+\text{Expected Result}, & \text{if unsuccessful}.  
+\end{cases}
+$$
+
 
 ## Explore the Relevant Concepts 
 
