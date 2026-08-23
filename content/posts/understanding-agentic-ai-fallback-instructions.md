@@ -31,7 +31,8 @@ Input:
 
 1. Apply S to perform T with agent M.
 2. Execute the Primary Instructions defined for T.
-3. Evaluate whether the primary execution can continue and whether its result satisfies the predefined requirements.
+3. Evaluate whether the primary execution can continue 
+and whether its result satisfies the predefined requirements.
 
 4. If successful:
       Continue the Primary Execution Path
@@ -48,16 +49,6 @@ Input:
    Else:
       Trigger another defined fallback, if available
       → Otherwise return the best valid result or report the unresolved limitation.
-```
-
-```text
-Task
-  ↓
-Primary Instructions
-  ↓
-Execute
-  ├── Success → Expected Result
-  └── Failure → Fallback Instructions → Execute → Expected Result
 ```
 
 ## Explore the Relevant Concepts 
