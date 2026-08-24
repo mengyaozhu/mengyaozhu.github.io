@@ -29,3 +29,13 @@ An instruction space $I$ can be considered to hold for an AI agent when its cons
 
 
 
+## Explore Instruction Space Relevant Concepts
+
+
+### Unit Instruction
+
+A **unit instruction** is an individual instruction within an instruction space $I$ that expresses a distinct direction, requirement, constraint, preference, condition, or other guidance for an AI agent when performing a task. For a user task $\tau$, the user’s task instruction at step $t$ can be represented as $I^{U}*{\tau,t} = I^{E}*{\tau,t} \cup I^{I}*{\tau,t} = {i_1, i_2, \ldots, i*{n_t}}$, where each $i_j$ is a unit instruction, $I^{E}*{\tau,t}$ contains **explicit unit instructions** directly stated by the user, and $I^{I}*{\tau,t}$ contains **implicit unit instructions** indirectly expressed by the user and identified through instruction detection, such as semantic matching or contextual interpretation. A unit instruction does not need to correspond to a separate sentence or command; it represents a distinct instructional meaning that can be identified as part of the user’s broader task instruction. Because additional instructions or instructional meanings may arise or become identifiable as the task proceeds, the user’s task instruction can change over time, so $I^{U}_{\tau,t+1}$ may include new unit instructions that were not included or identified at an earlier step.
+
+
+
+
