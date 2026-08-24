@@ -8,7 +8,6 @@ author = ["Mengyao Zhu"]
 +++
 
 
-# Understanding Instruction Space in Agentic AI
 
 ## Instruction Space
 
