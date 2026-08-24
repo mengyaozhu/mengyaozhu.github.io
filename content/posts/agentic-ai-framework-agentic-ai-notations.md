@@ -1,5 +1,5 @@
 +++
-title = "Understanding Agentic AI: Agentic AI Notations"
+title = "Agentic AI Framework: Agentic AI Notations"
 date = 2026-08-24
 weight = -1
 math = true
@@ -7,6 +7,10 @@ tags = ["Agentic AI", "Mathematical Notations", "Agentic AI Notations"]
 author = ["Mengyao Zhu"]
 +++
 
+
+# Agentic AI Framework: Agentic AI Notations
+
+## Core Agentic AI Entities
 
 
 | **Title**             | **Notation**                     | **Convention**                                                                                                                                                                                                                                                     |
