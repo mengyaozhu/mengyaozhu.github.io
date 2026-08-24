@@ -37,15 +37,15 @@ theme = "hugo-PaperMod"
   #  url = "/archives/"
   #  weight = 10
   [[menu.main]]
-    identifier = "agentic-skills"
-    name = "Agentic Skills"
-    url = "/tags/agentic-skills/"
-    weight = 10
-  [[menu.main]]
     identifier = "agentic-ai"
     name = "Agentic AI"
     url = "/tags/agentic-ai/"
     weight = 20
+    [[menu.main]]
+    identifier = "agentic-skills"
+    name = "Agentic Skills"
+    url = "/tags/agentic-skills/"
+    weight = 10
   # [[menu.main]]
     # identifier = "math-and-research"
     # name = "Math · Research"
