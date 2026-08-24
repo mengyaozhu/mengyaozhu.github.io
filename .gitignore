@@ -5,7 +5,8 @@
 .hugo_build.lock
 
 # Local-only draft content (not synced)
-/content draft/
+/draft-content/
+/draft-files/
 
 # Content archetypes (not synced)
 /archetypes/
