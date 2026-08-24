@@ -37,7 +37,7 @@ A **unit instruction** is an individual instruction within an instruction space 
 $\tau$
 $\tau,t$
 
-
+$I^{U}_{\tau,t} = I^{E}_{\tau,t} \cup I^{I}_{\tau,t} = \{i_1, i_2, \ldots, i_{n_t}\}$
 
 ${I}^{U}_{\tau,t}={I}^{E}_{\tau,t}\cup{I}^{I}_{\tau,t}={i_1,i_2,\ldots,i_{n_t}}$
 
