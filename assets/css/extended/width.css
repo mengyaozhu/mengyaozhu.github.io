@@ -5,5 +5,5 @@
 }
 
 .post-content {
-    max-width: calc(var(--main-width) - var(--gap) * 4) !important;
+    max-width: calc(var(--main-width) - var(--gap) * 0) !important;
 }
