@@ -1,7 +1,7 @@
 :root {
     --main-width: 1080px;      /* Wider main container */
     --nav-width: 1080px;       /* match header to content width for alignment */
-    --gap: 0px;               /* consistent side padding */
+    --gap: 24px;               /* consistent side padding */
 }
 
 .post-content {
