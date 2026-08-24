@@ -46,11 +46,11 @@ theme = "hugo-PaperMod"
     name = "Agentic AI"
     url = "/tags/agentic-ai/"
     weight = 20
-  [[menu.main]]
-    identifier = "math-and-research"
-    name = "Math · Research"
-    url = "/tags/math-and-research/"
-    weight = 30
+  # [[menu.main]]
+    # identifier = "math-and-research"
+    # name = "Math · Research"
+    # url = "/tags/math-and-research/"
+    # weight = 30
   [[menu.main]]
     identifier = "search"
     name = "Search"
