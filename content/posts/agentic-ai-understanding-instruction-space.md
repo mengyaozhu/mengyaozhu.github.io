@@ -38,4 +38,38 @@ A **unit instruction** is an individual instruction within an instruction space 
 
 
 
+### Unit Instruction
 
+A **unit instruction** is an individual instruction within an instruction space (\mathcal{I}) that expresses a distinct direction, requirement, constraint, preference, condition, or other guidance for an AI agent when performing a task. For a user task (\tau), the user’s task instruction at step (t) can be represented as
+
+[
+\mathcal{I}^{U}_{\tau,t}
+========================
+
+\mathcal{I}^{E}*{\tau,t}
+\cup
+\mathcal{I}^{I}*{\tau,t}
+========================
+
+{i_1,i_2,\ldots,i_{n_t}},
+]
+
+where each (i_j) is a unit instruction, (\mathcal{I}^{E}*{\tau,t}) contains **explicit unit instructions** directly stated by the user, and (\mathcal{I}^{I}*{\tau,t}) contains **implicit unit instructions** indirectly expressed by the user and identified through instruction detection, such as semantic matching or contextual interpretation. A unit instruction does not need to correspond to a separate sentence or command; it represents a distinct instructional meaning that can be identified as part of the user’s broader task instruction. Because additional instructions or instructional meanings may arise or become identifiable as the task proceeds, the user’s task instruction can change over time, so
+
+[
+\mathcal{I}^{U}*{\tau,t+1}
+\supseteq
+\mathcal{I}^{U}*{\tau,t}
+]
+
+when new unit instructions are added or newly identified at step (t+1). More generally, if previously identified instructions can also be modified, disabled, or reinterpreted during task execution, the safer formulation is simply
+
+[
+\mathcal{I}^{U}*{\tau,t+1}
+\neq
+\mathcal{I}^{U}*{\tau,t},
+]
+
+indicating that the active user-task instruction set may evolve over time.
+
+A **unit instruction** is an individual instruction within an instruction space (\mathcal{I}) that expresses a distinct direction, requirement, constraint, preference, condition, or other guidance for an AI agent when performing a task. For a user task (\tau), the user’s task instruction at step (t) can be represented as (\mathcal{I}^{U}*{\tau,t}=\mathcal{I}^{E}*{\tau,t}\cup\mathcal{I}^{I}*{\tau,t}={i_1,i_2,\ldots,i*{n_t}}), where each (i_j) is a unit instruction, (\mathcal{I}^{E}*{\tau,t}) contains **explicit unit instructions** directly stated by the user, and (\mathcal{I}^{I}*{\tau,t}) contains **implicit unit instructions** indirectly expressed by the user and identified through instruction detection, such as semantic matching or contextual interpretation. A unit instruction does not need to correspond to a separate sentence or command; it represents a distinct instructional meaning that can be identified as part of the user’s broader task instruction. Because additional instructions or instructional meanings may arise or become identifiable as the task proceeds, the user’s task instruction can change over time, so (\mathcal{I}^{U}_{\tau,t+1}) may include new unit instructions that were not included or identified at an earlier step.
