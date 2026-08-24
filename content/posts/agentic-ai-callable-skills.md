@@ -6,7 +6,6 @@ tags = ["Agentic AI", "Callable Skills", "Agentic Skills"]
 author = ["Mengyao Zhu"]
 +++
 
-
 # **Callable Skills in Agentic AI**
 
 ## **Definition of Callable Skills**
