@@ -8,8 +8,6 @@ author = ["Mengyao Zhu"]
 +++
 
 
-# Agentic AI Framework: Agentic AI Notations
-
 ## Core Agentic AI Entities
 
 
