@@ -20,7 +20,7 @@ A **dynamically engineered skill holds** when a required subtask $t_i$ has been 
 
 The need to engineer a new reusable skill can be identified through a **skill filtering and compatibility assessment** that compares the requirements of the target subtask $t_i$ against the existing skills in $\mathcal{S}$. The agent can first obtain the relevant metadata $M(s_j)$ (**skill metadata**) of each existing skill $s_j$, which may include its name, description, intended function, applicable task or subtask types, expected inputs and outputs, required tools, constraints, dependencies, and other information useful for determining its applicability. Different filtering methods can then be applied individually or in combination. **Semantic matching** can use the language-understanding capability of the supporting LLM to determine whether the meaning and requirements of $t_i$ correspond sufficiently closely to the capabilities represented by $M(s_j)$, even when different terminology or expressions are used. **Metadata search** can retrieve candidate skills whose names, descriptions, tags, capabilities, input-output specifications, or other metadata correspond to characteristics of the subtask. Additional rule-based filtering, constraint checking, capability matching, ranking, or evaluation methods can further eliminate incompatible candidates and identify the most appropriate remaining skills. This process can be represented simply as the following pseudo-algorithm:
 
-```text
+```markdown
 Algorithm: Identify or Dynamically Engineer a Reusable Skill
 
 Input:
