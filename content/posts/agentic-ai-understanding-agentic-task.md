@@ -11,31 +11,7 @@ author = ["Mengyao Zhu"]
 
 ## Definition of Agentic Task 
 
-An **agentic task** is a composite task performed by an AI agent through a structured combination of multiple subtasks, where each subtask represents a distinct part of what needs to be accomplished and is fulfilled by an appropriate reusable skill. An agentic task can be represented as $\tau=({T}\_{\tau},{S}\_{\tau},{R}\_{\tau},{M}\_{\tau})$, where $\tau$ (**agentic task**) denotes the complete task to be performed, ${T}\_{\tau}={t_1,t_2,\ldots,t_n}$ (**subtask set**) contains the subtasks that collectively constitute the task, ${S}\_{\tau}={s_1,s_2,\ldots,s_m}$ (**skill set**) contains the reusable skills available for fulfilling those subtasks, ${R}\_{\tau}$ (**execution relations**) specifies how the subtasks and their corresponding skills are organized and performed sequentially, iteratively, recursively, or through an appropriate combination of these patterns, and ${M}\_{\tau}$ (**evaluation metrics**) contains the task-specific measures used to determine whether intermediate results and the overall task outcome satisfy the expected requirements. For each subtask $t_i$ (**subtask**), an appropriate skill $s_j$ (**reusable skill**) may be selected from predefined skills or dynamically engineered during task execution when an existing skill does not adequately address the subtask. This organization can be summarized by the following simple workflow:
-
-$$
-\boxed{  
-\begin{array}{c}  
-\tau;(\text{Agentic Task})\\
-\downarrow\\
-t_i;(\text{Subtask})\\
-\downarrow\\
-s_j;(\text{Reusable Skill})\\
-\downarrow\\
-o_i;(\text{Subtask Output})\\
-\downarrow\\
-{M}\_{\tau};(\text{Evaluation Metrics})\\
-\downarrow\\
-\begin{cases}  
-t\_{i+1};(\text{Next Subtask}), & \text{if requirements are satisfied}\\
-t_i\ \text{or}\ t_k;(\text{Repeated or Related Subtask}), & \text{if further execution is required}  
-\end{cases}  
-\end{array}  
-}
-$$
-
-Here, $o_i$ (**subtask output**) denotes the result produced by performing subtask $t_i$, while $t\_{i+1}$ (**next subtask**) denotes a subsequent subtask and $t_k$ (**related subtask**) denotes another subtask that may need to be performed or revisited according to the evaluation result. The workflow therefore does not require every subtask to be executed only once or in a fixed linear order: subtasks may be performed sequentially when one result provides the basis for the next, iteratively when a subtask needs to be repeated and refined according to evaluation results, or recursively when performing a subtask gives rise to further subtasks that are handled through the same task–subtask–skill structure. Through these execution patterns, intermediate outputs can be evaluated against ${M}\_{\tau}$ and used to determine subsequent execution until the combined results of the subtasks allow the overall agentic task $\tau$ to satisfy its specified requirements and expected evaluation criteria.
-
+An **agentic task** is a composite task performed by an AI agent through a structured combination of multiple subtasks, where each subtask represents a distinct part of what needs to be accomplished and is fulfilled by an appropriate reusable skill. An agentic task can be represented as $\tau=({T}\_{\tau},{S}\_{\tau},{R}\_{\tau},{M}\_{\tau})$, where $\tau$ (**agentic task**) denotes the complete task to be performed, ${T}\_{\tau}={t_1,t_2,\ldots,t_n}$ (**subtask set**) contains the subtasks that collectively constitute the task, ${S}\_{\tau}={s_1,s_2,\ldots,s_m}$ (**skill set**) contains the reusable skills available for fulfilling those subtasks, ${R}\_{\tau}$ (**execution relations**) specifies how the subtasks and their corresponding skills are organized and performed sequentially, iteratively, recursively, or through an appropriate combination of these patterns, and ${M}\_{\tau}$ (**evaluation metrics**) contains the task-specific measures used to determine whether intermediate results and the overall task outcome satisfy the expected requirements. For each subtask $t_i$ (**subtask**), an appropriate skill $s_j$ (**reusable skill**) may be selected from predefined skills or dynamically engineered during task execution when an existing skill does not adequately address the subtask. 
 
 ## Conditions for an Agentic Task to Hold
 
