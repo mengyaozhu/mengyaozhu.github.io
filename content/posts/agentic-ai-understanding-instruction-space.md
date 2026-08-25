@@ -15,19 +15,6 @@ An **instruction space** is the organized set of instructions that may govern, c
 
 An instruction space $I$ can be considered to hold for an AI agent when its constituent instructions are available to, accessible by, or otherwise represented within the agent’s operative instructional environment and are capable of being considered under the applicable authority, scope, and runtime conditions. This does not require every $i_j \in I$ to be active simultaneously; rather, the space may contain both currently applicable and conditionally applicable instructions. Let $\alpha(i_j, \tau, z_t, E_t) \in \{0,1\}$ denote whether instruction $i_j$ is applicable to task $\tau$ under agent state $z_t$ and runtime environment $E_t$, and let $\lambda(i_j, I)$ represent the effect of instruction priority, authorization, conflict resolution, overriding, or disabling rules. The operative instruction set may then be expressed abstractly as $I^{*}_{\tau,t} = \{i_j \in I \mid \alpha(i_j, \tau, z_t, E_t) = 1 \land \lambda(i_j, I) = 1\}$. Accordingly, the instruction space continues to hold even when some instructions are inactive, provided that the space itself remains defined and available; what changes with the task and runtime conditions is the subset of instructions that actually governs, constrains, or guides the agent’s current behavior.
 
-
-## Notations for Instruction Space with Relevant Terms
-
-| **Title**                  | **Notation**                                                    | **Convention**                                                                                                                                                                        |
-| -------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Instruction Space          | $\mathcal{I}$                                                   | General set of instructions that may govern, constrain, or guide the behavior of an Ai Agent.                                                                                                |
-| System Instructions        | $\mathcal{I}^{S}\subseteq\mathcal{I}$                           | Higher-level instructions that establish persistent task procedures, default behaviors, constraints, and interpretation rules.                                                        |
-| User Instructions          | $\mathcal{I}^{U}\subseteq\mathcal{I}$                           | Instructions dynamically supplied by the user for a particular interaction or downstream task.                                                                                        |
-| Task-Specific Instructions | $\mathcal{I}_{\tau}\subseteq\mathcal{I}^{U}\cup\mathcal{I}^{S}$ | Instructions specifically relevant to downstream task $\tau$.                                                                                                                         |
-| Effective Instructions     | $\mathcal{I}^{*}_{\tau}$                                        | Instructions that remain operative for task $\tau$ after instruction precedence, modifications, replacements, disabling operations, and other applicability rules have been resolved. |
-
-
-
 ## Explore Instruction Space Relevant Concepts
 
 ### Unit Instruction
