@@ -4,6 +4,9 @@ baseURL = "https://mengyaozhu.github.io/"
 title = "AI · Math · Research"
 theme = "hugo-PaperMod"
 
+[pagination]
+  pagerSize = 5
+
 [params]
   math = true
   ShowShareButtons = true
