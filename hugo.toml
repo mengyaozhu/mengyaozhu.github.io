@@ -5,7 +5,6 @@ title = "AI · Math · Research"
 theme = "hugo-PaperMod"
 
 [params]
-  googleAnalytics = "G-LVXL8SN3ZM"
   math = true
   ShowShareButtons = true
   ShowReadingTime = true 

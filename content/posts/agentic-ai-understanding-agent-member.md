@@ -16,14 +16,3 @@ For an **agent member** $(A\_i)$ to be considered a valid member of an agent tea
 
 
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LVXL8SN3ZM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LVXL8SN3ZM');
-</script>
-
-
