@@ -1,6 +1,6 @@
 :root {
-    --main-width: 960px;      /* Wider main container */
-    --nav-width: 960px;       /* match header to content width for alignment */
+    --main-width: 840px;      /* Wider main container */
+    --nav-width: 840px;       /* match header to content width for alignment */
     --gap: 24px;               /* consistent side padding */
 }
 
