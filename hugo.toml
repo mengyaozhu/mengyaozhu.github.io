@@ -5,7 +5,7 @@ title = "AI · Math · Research"
 theme = "hugo-PaperMod"
 
 [pagination]
-  pagerSize = 8
+  pagerSize = 6
 
 [params]
   math = true
