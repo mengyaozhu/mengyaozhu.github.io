@@ -2,7 +2,7 @@
 title = "Understanding Agentic AI: Agent Network"
 date = 2026-08-26
 math = true
-tags = ["Agentic AI", "Agent Team"]
+tags = ["Agentic AI", "Agent Network", "Understanding Agentic AI"]
 author = ["Mengyao Zhu"]
 +++
 
