@@ -13,3 +13,17 @@ An **agent member** $(A\_i)$ is an individual agent instance that belongs to an 
 ### Fundamental Characteristics of a Valid Agent Member
 
 For an **agent member** $(A\_i)$ to be considered a valid member of an agent team $(\mathcal{A}\_{\tau})$ or agent network $(\mathcal{N})$, it should exist as an identifiable agent instance with a meaningful functional relationship to the task, project, or multi-agent organization in which it participates. It should have an assigned, selected, or dynamically determined scope of participation through one or more subtasks, tasks, roles, responsibilities, actions, or project-level functions, and its activities should meaningfully contribute to the execution, coordination, evaluation, refinement, or completion of the relevant work. The agent member should be capable of taking actions $(a\_{i,t})$ within its available capabilities, permissions, tools, information, and execution environment, while adapting its actions when its assigned work, role, responsibilities, task state, or surrounding context changes. Where collaboration is required, it should also be capable of participating in the relevant interactions with other agent members rather than operating as an entirely disconnected instance. An agent instance does not become an agent member merely because it exists or is technically available; membership requires that it be incorporated into the relevant agent team or agent network with an actual or intended functional role, responsibility, task participation, interaction relationship, or other meaningful contribution toward the shared task or project objective.
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LVXL8SN3ZM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LVXL8SN3ZM');
+</script>
+
+
