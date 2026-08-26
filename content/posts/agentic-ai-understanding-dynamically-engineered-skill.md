@@ -6,8 +6,6 @@ tags = ["Agentic AI", "Dynamically Engineering Skill", "Understanding Agent AI",
 author = ["Mengyao Zhu"]
 +++
 
-# Dynamically Engineered Skill
-
 ## Definition of Dynamically Engineered Skill
 
 A **dynamically engineered skill** is a new reusable skill constructed during the execution or preparation of an agentic task when a required subtask cannot be adequately fulfilled by any compatible reusable skill already available in the agent’s skill database. For an agentic task $\tau$ with a subtask $t_i$, let $\mathcal{S}={s_1,s_2,\ldots,s_m}$ denote the **existing skill database**, where each $s_j$ (**existing reusable skill**) represents an available skill that can potentially be applied to different tasks and subtasks. Before engineering a new skill, the agent determines whether at least one $s_j\in\mathcal{S}$ is sufficiently compatible with the requirements of $t_i$. This compatibility does not require the skill and subtask to use identical wording; rather, the skill should provide the capabilities, instructions, procedures, tools, input-output handling, and other relevant characteristics needed to perform the subtask as expected. If no existing skill satisfies the required compatibility conditions, a new skill $s_{\mathrm{new}}$ (**dynamically engineered skill**) can be constructed specifically to fulfill $t_i$. Although $s_{\mathrm{new}}$ originates from the requirements of a particular subtask, it should, where appropriate, be defined at a sufficiently general and modular level so that it can subsequently be stored in the skill database and reused for compatible subtasks in other agentic tasks rather than being unnecessarily reconstructed each time a similar requirement occurs.

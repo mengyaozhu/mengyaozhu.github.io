@@ -6,7 +6,6 @@ tags = ["Agentic AI", "Skill Repository"]
 author = ["Mengyao Zhu"]
 +++
 
-# Skill Repository
 
 ## Definition of Skill Repository
 

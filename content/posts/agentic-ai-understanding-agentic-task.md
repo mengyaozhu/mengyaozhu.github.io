@@ -6,9 +6,6 @@ tags = ["Agentic AI", "Agentic Task"]
 author = ["Mengyao Zhu"]
 +++
 
-
-# Agentic Task
-
 ## Definition of Agentic Task 
 
 An **agentic task** is a composite task performed by an AI agent through a structured combination of multiple subtasks, where each subtask represents a distinct part of what needs to be accomplished and is fulfilled by an appropriate reusable skill. An agentic task can be represented as $\tau=({T}\_{\tau},{S}\_{\tau},{R}\_{\tau},{M}\_{\tau})$, where $\tau$ (**agentic task**) denotes the complete task to be performed, ${T}\_{\tau}={t_1,t_2,\ldots,t_n}$ (**subtask set**) contains the subtasks that collectively constitute the task, ${S}\_{\tau}={s_1,s_2,\ldots,s_m}$ (**skill set**) contains the reusable skills available for fulfilling those subtasks, ${R}\_{\tau}$ (**execution relations**) specifies how the subtasks and their corresponding skills are organized and performed sequentially, iteratively, recursively, or through an appropriate combination of these patterns, and ${M}\_{\tau}$ (**evaluation metrics**) contains the task-specific measures used to determine whether intermediate results and the overall task outcome satisfy the expected requirements. For each subtask $t_i$ (**subtask**), an appropriate skill $s_j$ (**reusable skill**) may be selected from predefined skills or dynamically engineered during task execution when an existing skill does not adequately address the subtask. 

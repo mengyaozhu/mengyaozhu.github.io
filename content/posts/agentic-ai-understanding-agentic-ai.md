@@ -6,8 +6,6 @@ tags = ["Agentic AI"]
 author = ["Mengyao Zhu"]
 +++
 
-# Agentic AI
-
 ## Definition of Agentic AI
 
 Agentic AI refers to an approach to artificial intelligence in which an AI system is designed not only to generate responses but also to pursue defined objectives by determining and performing actions within an operational environment. An agentic AI system may interpret a task, reason about what needs to be accomplished, plan or select appropriate actions, use available tools and information sources, execute individual steps, evaluate intermediate results, and determine subsequent actions according to the current state of the task. Depending on its design, these activities may include searching for information, analyzing data, interacting with software, generating or modifying files, calling external tools, coordinating multiple operations, or requesting additional information when necessary. The defining characteristic of agentic AI is therefore not simply the use of a large language model, but the organization of AI capabilities into a goal-directed process in which reasoning and action can be connected across multiple steps. The degree of autonomy can vary substantially: some agentic AI systems operate within tightly predefined workflows, while others are given greater flexibility to determine how an objective should be achieved.
