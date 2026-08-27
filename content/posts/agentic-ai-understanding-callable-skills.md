@@ -2,7 +2,7 @@
 title = "Understanding Agentic AI: Callable Skills"
 date = 2026-08-24
 math = true
-tags = ["Agentic AI", "Callable Skills", "Agentic Skills"]
+tags = ["Agentic AI", "Callable Skills"]
 author = ["Mengyao Zhu"]
 +++
 

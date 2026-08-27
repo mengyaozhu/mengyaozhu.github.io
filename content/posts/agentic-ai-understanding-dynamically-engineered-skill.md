@@ -2,7 +2,7 @@
 title = "Understanding Agentic AI: Dynamically Engineered Skill"
 date = 2026-08-25
 math = true
-tags = ["Agentic AI", "Dynamically Engineering Skill", "Agentic Skills", "Understanding Agent AI", "Understanding Agentic AI"]
+tags = ["Agentic AI", "Dynamically Engineering Skill", "Understanding Agent AI", "Understanding Agentic AI"]
 author = ["Mengyao Zhu"]
 +++
 
