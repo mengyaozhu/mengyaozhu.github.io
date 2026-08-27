@@ -44,9 +44,9 @@ theme = "hugo-PaperMod"
     url = "/tags/agentic-ai/"
     weight = 10
     [[menu.main]]
-    identifier = "agentic-skills"
-    name = "Agentic Skills"
-    url = "/tags/agentic-skills/"
+    identifier = "agentic-tasks"
+    name = "Agentic Tasks"
+    url = "/tags/agentic-tasks/"
     weight = 20
   # [[menu.main]]
     # identifier = "math-and-research"
