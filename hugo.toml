@@ -43,11 +43,18 @@ theme = "hugo-PaperMod"
     name = "Agentic AI"
     url = "/tags/agentic-ai/"
     weight = 10
-    [[menu.main]]
+  [[menu.main]]
+    identifier = "agentic-skills"
+    name = "Agentic Skills"
+    url = "/tags/agentic-skills/"
+    parent = "agentic-ai"
+    weight = 11
+  [[menu.main]]
     identifier = "agentic-tasks"
     name = "Agentic Tasks"
     url = "/tags/agentic-tasks/"
-    weight = 20
+    parent = "agentic-ai"
+    weight = 12
   # [[menu.main]]
     # identifier = "math-and-research"
     # name = "Math · Research"
@@ -57,12 +64,12 @@ theme = "hugo-PaperMod"
     identifier = "search"
     name = "Search"
     url = "/search/"
-    weight = 30
+    weight = 20
   [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
-    weight = 40
+    weight = 30
   # [[menu.main]]
   #  identifier = "about"
   #  name = "About"

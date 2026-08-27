@@ -1,0 +1,49 @@
+/* Hover dropdown for menu items with children (e.g. "Agentic AI").
+   The parent stays a normal clickable link; the nested .submenu appears on hover. */
+.menu li.has-submenu {
+    position: relative;
+}
+
+.menu > li > a {
+    display: block;
+}
+
+.menu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    min-width: max-content;
+    margin: 0;
+    padding: 0.4rem 0;
+    list-style: none;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+}
+
+.menu .submenu a {
+    display: block;
+    padding: 0.25rem 1.1rem;
+    font-size: 15px;
+}
+
+.menu .submenu a:hover {
+    background: var(--tertiary);
+}
+
+.menu li.has-submenu:hover > .submenu {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .menu .submenu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 1rem;
+    }
+}

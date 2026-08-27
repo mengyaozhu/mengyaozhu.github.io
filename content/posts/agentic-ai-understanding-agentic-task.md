@@ -2,7 +2,7 @@
 title = "Understanding Agentic AI: Agentic Task"
 date = 2026-08-24
 math = true
-tags = ["Agentic AI", "Agentic Task"]
+tags = ["Agentic AI", "Agentic Task", "Agentic Tasks"]
 author = ["Mengyao Zhu"]
 +++
 
