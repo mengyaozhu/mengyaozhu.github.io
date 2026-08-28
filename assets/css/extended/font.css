@@ -1,41 +1,5 @@
-/*
- * Roboto webfont, self-hosted so every visitor (any OS/device) sees genuine
- * Roboto instead of a local fallback. Single variable file covers 100-900.
- */
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url("/fonts/Roboto-latin.woff2") format("woff2");
-}
-
-/* Override PaperMod's default font (reset.css) with Roboto */
+/* Override PaperMod's default font (reset.css) with Georgia */
 body {
-    font-family: Roboto, 'Segoe UI', Arial, sans-serif;
-}
-
-/*
- * Post main content uses Roboto (inherited from body above).
- * Georgia for everything that is NOT the article body: site heading, menu,
- * post title, tags, breadcrumbs/meta, and in-post subheadings.
- */
-.logo a,
-.menu a,
-.menu .active,
-.post-title,
-.page-header h1,
-.post-header h1,
-.post-meta,
-.breadcrumbs,
-.post-tags a,
-.md-content h1,
-.md-content h2,
-.md-content h3,
-.md-content h4,
-.md-content h5,
-.md-content h6,
-.home-info {
     font-family: Georgia, 'Times New Roman', serif;
 }
 
