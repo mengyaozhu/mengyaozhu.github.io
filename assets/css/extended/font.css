@@ -1,6 +1,6 @@
 /* Override PaperMod's default font (reset.css) with Georgia */
 body {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: Roboto, 'Times New Roman', serif;
 }
 
 /* === Disable post-preview hover/click effect (PaperMod's post-entry.css) ===
