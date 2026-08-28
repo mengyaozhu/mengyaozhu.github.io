@@ -1,8 +1,8 @@
 +++
 title = "Understanding Agentic AI: Training Environment Scaling for End-to-End Expert Work"
-date = 2026-08-26
+date = 2026-08-28
 math = true
-tags = ["Agentic AI", "Agent Member", "Understanding Agentic AI"]
+tags = ["Agentic AI", "Training Environment Scaling", "Understanding Agentic AI"]
 author = ["Mengyao Zhu"]
 +++
 
