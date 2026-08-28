@@ -1,0 +1,18 @@
++++
+title = "Understanding Agentic AI: Long-Horizon Tasks"
+date = 2026-08-28
+math = true
+tags = ["Agentic AI", "Training Environment Scaling", "Understanding Agentic AI"]
+author = ["Mengyao Zhu"]
++++
+
+
+## Definition of Long-Horizon Tasks 
+
+A long-horizon task $\tau_H$ for agentic AI $A$ is a task whose successful completion requires an AI agent to sustain goal-directed reasoning and action across an extended execution trajectory $H_{\tau}=\{a_1,a_2,\ldots,a_T\}$, where each action $a_t$ represents an operation performed at execution step $t$, and where intermediate actions, results, and decisions can influence subsequent parts of the task. Rather than being completed through a single model response or a small number of largely independent operations, $\tau_H$ typically involves multiple interdependent subtasks $S_{\tau}=\{s_1,s_2,\ldots,s_n\}$ that may require planning, information gathering, reasoning, tool use, execution, intermediate evaluation, revision, and integration of partial results. During execution, the agent maintains a task state $x_t$ representing relevant information about progress at step $t$, including completed work, intermediate outputs, available information, unresolved requirements, environmental conditions, and other context needed to determine subsequent actions. The execution trajectory may be sequential, parallel, conditional, iterative, or recursive and may change as new information, intermediate results, errors, or environmental conditions emerge. Examples include developing and testing a substantial software system, conducting a multi-stage research project, analyzing and integrating information from many sources, or completing a professional workflow involving multiple tools and intermediate deliverables. The defining characteristic of $\tau_H$ is therefore the requirement for sustained and coherent agentic execution across an extended sequence of interdependent states and actions, placing continuing demands on goal maintenance, planning, contextual continuity, state management, tool use, intermediate evaluation, adaptation, and error recovery.
+
+## Conditions for a Long-Horizon Task to Hold
+
+For a task to qualify as a long-horizon task $\tau_H$ for agentic AI $A$, achieving its task objective $g_{\tau}$ should depend on maintaining meaningful continuity across a sufficiently extended execution trajectory $H_{\tau}$, with dependencies connecting multiple subtasks $S_{\tau}$, actions $a_t$, intermediate results, and task states $x_t$. Earlier actions or results should meaningfully inform, constrain, enable, or alter later actions, requiring the agent to preserve relevant information and continuously relate its current state to $g_{\tau}$. The agent should be required to make or revise decisions during execution rather than follow only a fixed sequence of independent operations, and the trajectory may require responses to intermediate successes, failures, newly discovered information, changing conditions, or unexpected outcomes. Successful completion should consequently depend on capabilities such as maintaining the overall objective, tracking task progress, managing dependencies, selecting and using appropriate tools, evaluating intermediate outcomes, adapting plans, recovering from errors, and integrating distributed intermediate work into a coherent final result. The duration of $\tau_H$, number of generated tokens, or computational cost alone does not determine whether the task is long-horizon; the essential condition is that successful completion depends on sustained, coherent, and adaptive agentic execution across an extended and meaningfully interdependent task trajectory.
+
+
