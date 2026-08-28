@@ -1,6 +1,18 @@
-/* Override PaperMod's default font (reset.css) with Georgia */
+/*
+ * Roboto webfont, self-hosted so every visitor (any OS/device) sees genuine
+ * Roboto instead of a local fallback. Single variable file covers 100-900.
+ */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/Roboto-latin.woff2") format("woff2");
+}
+
+/* Override PaperMod's default font (reset.css) with Roboto */
 body {
-    font-family: Roboto, 'Times New Roman', serif;
+    font-family: Roboto, 'Segoe UI', Arial, sans-serif;
 }
 
 /* === Disable post-preview hover/click effect (PaperMod's post-entry.css) ===
