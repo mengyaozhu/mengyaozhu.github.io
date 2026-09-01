@@ -1,5 +1,6 @@
 +++
-title = "Textual Features Alone Are Not Reliable Indicators of LLM-Based Authorship"
+# title = "Textual Features Alone Are Not Reliable Indicators of LLM-Based Authorship"
+title = "Textual Features Alone Are Not Reliable Indicators of AI or Human Authorship"
 date = 2026-08-26
 math = true
 tags = ["AI Insights", "Authorship Detection", "Authorship Inference" ]
