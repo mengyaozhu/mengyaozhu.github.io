@@ -2,7 +2,7 @@
 baseURL = "https://mengyaozhu.github.io/"
 # languageCode = "en-us"
 # title = "AI · Math · Research"
-title = "zhumengyao.com | In Science We Believe"
+title = "In AI I Believe"
 theme = "hugo-PaperMod"
 
 [pagination]
