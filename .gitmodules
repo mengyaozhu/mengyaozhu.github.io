@@ -1,0 +1,3 @@
+[submodule "themes/scidraft"]
+	path = themes/scidraft
+	url = https://github.com/mengyaozhu/scidraft.git
