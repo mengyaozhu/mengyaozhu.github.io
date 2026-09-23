@@ -1,0 +1,69 @@
+/* Styles for the TEXTUAL promo only ({{< promotion-textual >}}): the tinted
+   card, its subtitle, and the pill button. Shared rules (title size, the
+   Sponsored badge) live in promotion-shared.css and load before this file. */
+
+.textual-promotion {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.2em 2.4em;
+    margin: 1.6em 0;
+    color: var(--primary);
+}
+
+.textual-promotion .textual-promotion-subtitle {
+    margin: 0.9em 0 1.6em;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--secondary);
+    max-width: 46em;
+}
+
+.textual-promotion-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.textual-promotion-button {
+    display: inline-block;
+    background: #3a3f45;
+    color: #fff !important;
+    border-radius: 999px;
+    padding: 0.75em 1.9em;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none !important;
+    line-height: 1;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.textual-promotion-button:hover {
+    background: #24282c;
+    transform: translateY(-1px);
+}
+
+.textual-promotion--center {
+    text-align: center;
+}
+
+.textual-promotion--center .textual-promotion-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textual-promotion--center .textual-promotion-actions {
+    justify-content: center;
+}
+
+@media (max-width: 680px) {
+    .textual-promotion {
+        padding: 1.6em 1.4em;
+    }
+
+    .textual-promotion-button {
+        width: 100%;
+        text-align: center;
+    }
+}

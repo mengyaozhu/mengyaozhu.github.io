@@ -1,0 +1,182 @@
+.header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    margin: auto;
+    line-height: var(--header-height);
+    padding: 0 var(--gap);
+    column-gap: var(--gap);
+}
+
+.header-nav a {
+    display: block;
+}
+
+.logo,
+.menu {
+    display: flex;
+}
+
+.logo {
+    align-items: center;
+    column-gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    column-gap: 0.55rem;
+}
+
+.logo a img,
+.logo a svg {
+    pointer-events: none;
+    border-radius: 6px;
+}
+
+.theme-toggle {
+    padding: 0 0.4rem;
+}
+
+[data-theme="dark"] .moon {
+    display: none;
+}
+
+[data-theme="light"] .sun {
+    display: none;
+}
+
+.logo-switches {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: inherit;
+    min-height: stretch;
+    flex-wrap: inherit;
+}
+
+.logo-switches>* {
+    min-height: inherit;
+    align-items: center;
+    display: inline-flex;
+}
+
+.nav-sep {
+    color: var(--secondary);
+}
+
+.lang-menu * {
+    display: inherit;
+    min-height: inherit;
+    align-items: inherit;
+}
+
+.lang-menu a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0 0.4rem;
+    display: inline-flex
+}
+
+.menu {
+    list-style: none;
+    word-break: keep-all;
+    overflow-x: auto;
+    white-space: nowrap;
+    column-gap: var(--gap);
+}
+
+.menu a {
+    font-size: 16px;
+}
+
+/* The active menu item's appearance is owned by menu.css (one setting, one
+   home) so this rule is not duplicated here. */
+
+/* Hybrid header: on narrow screens the heading (with its theme toggle) and
+   the menu stack into two centered rows instead of wrapping left-aligned.
+   Wide screens keep the single-line split layout. */
+@media (max-width: 767px) {
+    .header-nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 4px;
+        /* the 60px line-height meant for the single-line header inflates
+           each stacked row; a normal line keeps the two rows compact */
+        line-height: 1.4;
+    }
+    .header-nav .logo {
+        /* keep the title's original breathing room above it on mobile:
+           the title centers inside its 60px row as on desktop */
+        line-height: var(--header-height);
+        /* anchor the theme toggle to the centered title: the toggle hangs
+           off the text's right edge and follows it automatically */
+        position: relative;
+    }
+    .header-nav .logo-switches {
+        position: absolute;
+        left: calc(100% + 8px);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .header-nav .menu {
+        flex: 0 0 auto;
+        justify-content: center;
+    }
+    .header-nav .menu a {
+        font-size: 0.92rem;
+        padding: 0 0.35rem;
+    }
+    /* the dropdown caret's svg participates in the text baseline and pushed
+       the has-submenu item ~2px below its siblings; centering the label and
+       caret against each other keeps all menu items on the same line */
+    .header-nav .menu > li.has-submenu {
+        display: flex;
+        align-items: center;
+    }
+    .header-nav .menu .menu-caret svg {
+        vertical-align: middle;
+    }
+}
+
+/* Content-triggered stacked mode: header-reflow.js applies "nav-stacked"
+   whenever the menu cannot fit beside the logo row at the current width —
+   long site titles or many menu items — so the centered stacked layout is
+   not tied to the 767px viewport breakpoint. The rules mirror the ≤767px
+   block above. */
+.header-nav.nav-stacked {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 4px;
+    line-height: 1.4;
+}
+.header-nav.nav-stacked .logo {
+    line-height: var(--header-height);
+    position: relative;
+}
+.header-nav.nav-stacked .logo-switches {
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+.header-nav.nav-stacked .menu {
+    flex: 0 0 auto;
+    justify-content: center;
+}
+.header-nav.nav-stacked .menu a {
+    font-size: 0.92rem;
+    padding: 0 0.35rem;
+}
+.header-nav.nav-stacked .menu > li.has-submenu {
+    display: flex;
+    align-items: center;
+}
+.header-nav.nav-stacked .menu .menu-caret svg {
+    vertical-align: middle;
+}

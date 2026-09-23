@@ -1,0 +1,12 @@
+{{- /* Homepage: the notes feed, always. SciDraft has a single homepage model —
+       the feed of notes from content/notes/ (cards, promotions, pagination).
+       There is no mode switch and no alternative layout. */ -}}
+{{- define "main" }}
+{{- $notesSection := site.GetPage "/notes" }}
+{{- with $notesSection }}
+{{- partial "notes-feed.html" . }}
+{{- else }}
+<p>No <code>content/notes/</code> section found — add notes there to populate
+the homepage feed.</p>
+{{- end }}
+{{- end }}

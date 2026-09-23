@@ -1,0 +1,360 @@
+{{- /* Header submenu tap-to-toggle. The theme only bundles the scripts it
+       lists itself, so this must be wired here; assets/js is unioned with
+       the theme's, so resources.Get resolves the site's file. */}}
+{{- $menuToggle := resources.Get "js/menu-toggle.js" | js.Build | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $menuToggle = $menuToggle | fingerprint }}
+{{- end }}
+<script defer src="{{ $menuToggle.RelPermalink }}"{{ with $menuToggle.Data.Integrity }} crossorigin="anonymous"
+    integrity="{{ . }}"{{ end }}></script>
+
+{{- /* Header re-flow: stacks the header into the centered two-row layout
+       whenever the menu cannot fit beside the logo row — long site titles,
+       many menu items, mid-size windows — at any screen width. See
+       assets/js/header-reflow.js for the measure-then-decide logic. */ -}}
+{{- $headerReflow := resources.Get "js/header-reflow.js" | js.Build | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $headerReflow = $headerReflow | fingerprint }}
+{{- end }}
+<script defer src="{{ $headerReflow.RelPermalink }}"{{ with $headerReflow.Data.Integrity }} crossorigin="anonymous"
+    integrity="{{ . }}"{{ end }}></script>
+
+{{- /* Mermaid diagrams: loaded only on pages that contain a ```mermaid
+       block (the render hook sets the hasMermaid page store flag), plus
+       the notes feed wherever it lives: the /notes/ section page and —
+       the homepage, because both render many
+       notes' full content in their body while <head> is emitted before
+       any of it, so the per-page flags are never set there. Pinned major
+       on the same CDN as MathJax; theme "neutral" stays legible in both
+       light and dark modes. */ -}}
+{{- if or (.Store.Get "hasMermaid") (eq .Section "notes") (.IsHome) }}
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({
+    startOnLoad: true,
+    securityLevel: "strict",
+    theme: "neutral",
+    {{- /* Natural-size SVGs so pre.mermaid's overflow-x scrolls wide
+           charts on phones instead of shrinking them unreadable. */ -}}
+    flowchart: { useMaxWidth: false },
+    sequence: { useMaxWidth: false },
+    class: { useMaxWidth: false },
+    er: { useMaxWidth: false },
+    gantt: { useMaxWidth: false },
+  });
+</script>
+{{- end }}
+
+{{- /* Pseudo-algorithm rendering: pseudocode.js turns the LaTeX algorithmic
+       source kept by the render hook into HTML; KaTeX typesets the math
+       inside lines. Loaded only on pages the hook flagged. The sanitizer
+       adapts paper-LaTeX idioms the web renderer does not take: \(..\)
+       becomes $..$, and float-only commands ([H], \footnotesize, \label)
+       are dropped. On a parse failure the raw source is shown unhidden
+       instead of an empty box. Same notes-feed exception as Mermaid above:
+       the feed's head cannot see the render hooks' flags. */ -}}
+{{- if or (.Store.Get "hasAlgorithm") (eq .Section "notes") (.IsHome) }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@2.4.0/build/pseudocode.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@2.4.0/build/pseudocode.min.js" defer></script>
+<script defer>
+  window.addEventListener("DOMContentLoaded", function () {
+    if (!window.pseudocode) return;
+    document.querySelectorAll("pre.algorithm-src").forEach(function (pre) {
+      var box = pre.closest(".pseudo-algorithm") || pre.parentElement;
+      try {
+        var src = pre.textContent
+          .replace(/\\\(/g, "$").replace(/\\\)/g, "$")
+          .replace(/\\begin\{(algorithm|algorithmic)\}\[[^\]]*\]/g, "\\begin{$1}")
+          .replace(/\\footnotesize/g, "")
+          .replace(/\\label\{[^}]*\}/g, "")
+          .replace(/\\hspace\{[^}]*\}/g, "$\\hspace{1em}$");
+        box.innerHTML = window.pseudocode.renderToString(src, { lineNumber: true });
+      } catch (err) {
+        pre.hidden = false;
+      }
+    });
+  });
+</script>
+{{- end }}
+
+{{- /* Standalone math (inline $..$ / \(..\) and display $$..$$ / \[..\])
+       in note bodies: MathJax v4 typesets it in the browser. v4's automatic
+       line breaking (displayOverflow: linebreak) wraps long display
+       equations to the content column on narrow screens — KaTeX cannot
+       break lines, which is why the engine changed — and lineleading
+       spaces the wrapped lines for readability. Enabled by the `math`
+       site param (hugo.toml) or a note's own `math = true`. pre/code stay
+       literal so algorithm sources and syntax examples are untouched
+       (MathJax ignores them by default, the same tag list KaTeX used).
+
+       KaTeX is no longer loaded for ordinary equations. It remains in the
+       pseudo-algorithm block above because pseudocode.js is built on it;
+       pages with algorithms therefore run both engines side by side.
+       v4 components live at the package root: there is no /es5/ prefix
+       as in v3. */ -}}
+{{- if or .Params.math site.Params.math }}
+<script>
+  window.MathJax = {
+    output: {
+      displayOverflow: "linebreak",
+      linebreaks: { inline: true, width: "100%", lineleading: 0.8 }
+    },
+    tex: {
+      inlineMath: [["\\(", "\\)"], ["$", "$"]],
+      displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+    },
+    options: { enableMenu: false }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" defer></script>
+<script defer>
+  /* Live re-flow: MathJax lays out each equation once, against the column
+     width at load time, so resizing the window afterwards leaves stale line
+     breaks — narrow it enough and a display equation overflows the column.
+     This watcher re-typesets, but ONLY when narrowing actually causes
+     overflow (checked ~250ms after resizing stops). Widening is deliberately
+     ignored — stale breaks are harmless and a full redraw would disturb the
+     reader — and so are height-only changes: mobile URL bars fire resize
+     while scrolling, and re-typesetting on those would stutter the page. */
+  (function () {
+    "use strict";
+    var lastWidth = window.innerWidth;
+    var timer = null;
+
+    function hasOverflow() {
+      var eqs = document.querySelectorAll('mjx-container[display="true"]');
+      for (var i = 0; i < eqs.length; i++) {
+        var eq = eqs[i];
+        if (eq.scrollWidth > eq.clientWidth + 1) return true;
+        var limit = document.documentElement.clientWidth + 1;
+        if (eq.getBoundingClientRect().right > limit) return true;
+        var kids = eq.querySelectorAll("*");
+        for (var j = 0; j < kids.length; j++) {
+          if (kids[j].getBoundingClientRect().right > limit) return true;
+        }
+      }
+      return false;
+    }
+
+    function reTypeset() {
+      /* v4 has no supported in-place re-layout: typesetClear + typesetPromise
+         is a silent no-op (verified). What works is restoring each equation's
+         original TeX — v4 keeps it in the data-latex attribute of mjx-math —
+         as fresh text and typesetting that, which re-measures the column. */
+      var eqs = document.querySelectorAll("mjx-container");
+      eqs.forEach(function (eq) {
+        var root = eq.querySelector("mjx-math");
+        var tex = root && root.getAttribute("data-latex");
+        if (tex === null) return;
+        var display = eq.getAttribute("display") === "true";
+        var delim = display ? "$$" : "$";
+        eq.parentNode.insertBefore(document.createTextNode(delim + tex + delim), eq);
+        eq.remove();
+      });
+      var mj = window.MathJax;
+      mj.startup.promise.then(function () { return mj.typesetPromise(); })
+        .catch(function () {});
+    }
+
+    window.addEventListener("resize", function () {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(function () {
+        var w = window.innerWidth;
+        if (w >= lastWidth) { lastWidth = w; return; }   // widening: accepted
+        var narrowed = w < lastWidth;
+        lastWidth = w;
+        if (narrowed && hasOverflow()) reTypeset();
+      }, 250);
+    });
+  })();
+</script>
+{{- end }}
+
+{{- /* Citations: \cite{...} occurrences in a note become numbered links, and
+       every reference list a {{< references bib="..." title="..." >}} shortcode
+       emitted is filled with formatted entries.
+
+       One list per shortcode call and one file per list: a note may carry
+       several lists, each naming its own bibliography, and each is numbered
+       independently from 1. The scope of a list is the text that precedes it
+       and has not been claimed by an earlier list — the convention a paper uses
+       when it puts a second bibliography further down the page. Markers that
+       come after every list therefore stay as written.
+
+       Text inside pre, code, script, style, .references and math output
+       (.katex / .MathJax) is skipped, so LaTeX shown as an example, the
+       bibliography itself and typeset maths are never touched. A list whose
+       scope contains no citations stays hidden
+       and fetches nothing, which is why a page carrying the shortcode without
+       any markers still downloads no bibliography. */ -}}
+{{- /* When the page itself cites, its own shortcode sets the flag. List pages
+       cannot set it — their <head> is written before the cards' shortcodes run —
+       so they load the library when any note in the site cites, which is the
+       same feed exception mermaid and pseudo-algorithms use. The cost is one
+       library download on list pages of a site that uses citations. */ -}}
+{{- $feedCites := false -}}
+{{- if or (eq .Section "notes") (.IsHome) -}}
+{{- range where site.RegularPages "Section" "notes" -}}
+{{- if .HasShortcode "references" }}{{ $feedCites = true }}{{ end -}}
+{{- end -}}
+{{- end -}}
+{{- if or (.Store.Get "hasCitations") $feedCites }}
+<script src="https://cdn.jsdelivr.net/npm/citation-js@0.6.9/build/citation.js" defer></script>
+<script defer>
+  window.addEventListener("DOMContentLoaded", function () {
+    /* The CDN bundle (0.6.9) registers its browserify require as a global
+       instead of a window.Cite global; the main module exports the class. */
+    var Cite = (typeof window.Cite !== "undefined" && window.Cite) ||
+               (typeof window.require === "function" && window.require("citation-js"));
+    if (!Cite) return;
+
+    var boxes = Array.prototype.slice.call(document.querySelectorAll(".references"));
+    if (!boxes.length) return;
+
+    var parsed = {};    // file url -> parsed bibliography, so a shared file is fetched once
+    var claimed = [];   // text nodes already numbered by an earlier list
+    var backCount = 0;  // global counter: citation anchors stay unique across lists
+
+    /* Citation-js's BibTeX parser cannot read standard comment lines: a line
+       whose first non-space character is % is a comment in BibTeX, and a single
+       commented-out entry is enough to make the whole file fail to parse (seen
+       with a %@online{...} block inside an otherwise valid file). Comments are
+       therefore removed before parsing. A field value that happens to contain a
+       line beginning with % would be affected, which is rare enough to accept in
+       exchange for files that parse. */
+    function stripBibComments(text) {
+      return text.split("\n").filter(function (line) {
+        return line.replace(/^\s+/, "").charAt(0) !== "%";
+      }).join("\n");
+    }
+
+    /* Parses a file once, however many lists name it. When a file cannot be
+       parsed the list is revealed with a message rather than left hidden: a
+       silent empty list is the hardest kind of failure to notice. */
+    function loadBib(url, then) {
+      if (parsed[url]) { then(parsed[url]); return; }
+      fetch(url).then(function (res) { return res.text(); }).then(function (bib) {
+        try {
+          parsed[url] = new Cite(stripBibComments(bib));
+        } catch (err) {
+          parsed[url] = { data: [], broken: true };
+        }
+        then(parsed[url]);
+      });
+    }
+
+    boxes.forEach(function (box, boxIndex) {
+      var src = box.dataset.bibSrc;
+      if (!src) return;
+      /* Cards in the recommendation box under a note are pointers to other
+         notes, not reading pages: they keep the plain teaser they had before
+         cards could cite, and the loader neither numbers them nor fetches their
+         bibliographies. */
+      if (box.closest(".note-recommendations")) return;
+
+      /* Scope of this list. Inside a feed card the scope is that card, so its
+         numbers cannot claim citations from a card above it; on a note page the
+         scope is the document and the position test below keeps each list to the
+         text that precedes it. Within either scope, markers already numbered by
+         an earlier list are skipped. */
+      var scopeRoot = box.closest("article.note-card") || document.body;
+      var walker = document.createTreeWalker(scopeRoot, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (node) {
+          if (node.parentElement.closest("pre, code, script, style, .references, .katex, .MathJax, mjx-container")) return NodeFilter.FILTER_REJECT;
+          if (node.textContent.indexOf("\\cite{") === -1) return NodeFilter.FILTER_SKIP;
+          if (claimed.indexOf(node) !== -1) return NodeFilter.FILTER_SKIP;
+          return (box.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_PRECEDING)
+            ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      var nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      if (!nodes.length) return;   // nothing to number: heading and list stay hidden
+
+      var order = [];              // keys in order of first appearance, numbered from 1
+      var backTargets = {};
+      nodes.forEach(function (node) {
+        claimed.push(node);
+        var frag = document.createDocumentFragment();
+        var text = node.textContent;
+        var re = /\\cite\{([^}]*)\}/g;
+        var match;
+        var last = 0;
+        while ((match = re.exec(text))) {
+          frag.appendChild(document.createTextNode(text.slice(last, match.index)));
+          var sup = document.createElement("sup");
+          sup.className = "citation";
+          sup.id = "cite-back-" + backCount++;   // anchor the back-link points at
+          sup.innerHTML = match[1].split(",").map(function (key) {
+            key = key.trim();
+            if (!key) return null;
+            var n = order.indexOf(key);
+            if (n === -1) { order.push(key); n = order.length - 1; }
+            (backTargets[key] = backTargets[key] || []).push(sup.id);
+            /* The entry id carries the list index, so the same key may appear
+               in two lists on one page without the entries colliding. */
+            return '<a href="#ref-' + boxIndex + '-' + key + '">[' + (n + 1) + "]</a>";
+          }).filter(Boolean).join(",");
+          frag.appendChild(sup);
+          last = match.index + match[0].length;
+        }
+        frag.appendChild(document.createTextNode(text.slice(last)));
+        node.replaceWith(frag);
+      });
+
+      if (!order.length) return;
+      loadBib(src, function (data) {
+        var list = document.createElement("ol");
+        list.className = "ref-list";
+        if (data.broken) {
+          var note = document.createElement("li");
+          note.innerHTML = "<em>bibliography could not be parsed: check " +
+            src.split("/").slice(-1)[0].split("?")[0] + "</em>";
+          list.appendChild(note);
+          box.appendChild(list);
+          box.hidden = false;
+          return;
+        }
+        order.forEach(function (key, i) {
+          var li = document.createElement("li");
+          li.id = "ref-" + boxIndex + "-" + key;
+          var entry = data.data.find(function (e) { return e.id === key; });
+          li.innerHTML = '<span class="ref-num">[' + (i + 1) + "]</span> " +
+            (entry ? new Cite([entry]).format("bibliography", { format: "html", template: "vancouver", lang: "en-US" })
+                   : "<em>missing reference: " + key + "</em>");
+          // One back-arrow per citing location (Wikipedia footnote pattern).
+          var back = document.createElement("span");
+          back.className = "ref-back";
+          back.innerHTML = (backTargets[key] || []).map(function (id, n) {
+            return '<a href="#' + id + '" title="Back to citation ' + (n + 1) + '">\u21A9</a>';
+          }).join(" ");
+          li.appendChild(back);
+          list.appendChild(li);
+        });
+        box.appendChild(list);   // after the heading, when the shortcode emitted one
+        box.hidden = false;
+      });
+    });
+  });
+</script>
+{{- end }}
+{{- /* LaTeX text commands in note bodies: \textbf, \textit, \emph and \texttt
+       are converted to strong, em and code by assets/js/latex-text.js, with the
+       reasoning documented in that file.
+
+       Loaded on the pages that render note bodies: a note itself (Kind page,
+       which also covers standalone pages), the /notes/ feed and the homepage,
+       whose cards carry note text. This block must stay BELOW the math block
+       above: handlers registered later run later, so KaTeX has already replaced
+       math text nodes and the script can skip .katex subtrees instead of
+       rewriting a command that belongs to an equation. */}}
+{{- if or (eq .Kind "page") (eq .Section "notes") (.IsHome) }}
+{{- $latexText := resources.Get "js/latex-text.js" | js.Build | resources.Minify }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $latexText = $latexText | fingerprint }}
+{{- end }}
+<script defer src="{{ $latexText.RelPermalink }}"{{ with $latexText.Data.Integrity }} crossorigin="anonymous"
+    integrity="{{ . }}"{{ end }}></script>
+{{- end }}

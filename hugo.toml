@@ -1,21 +1,55 @@
 # baseURL = "https://example.com/"
 baseURL = "https://mengyaozhu.github.io/"
 # languageCode = "en-us"
-title = "AI · Math · Science"
-theme = "hugo-PaperMod"
+title = "zhumengyao.com | AI · Math · Science"
+theme = "scidraft"
+enableRobotsTXT = true
+
+# Required for the search page: Hugo does not inherit [outputs] from a theme.
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# Required for math in note bodies: preserve the \( \) and $$ $$ delimiters
+# through Markdown for KaTeX auto-render. Hugo does not merge [markup] from a theme.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['$$', '$$'], ['\[', '\]']]
+        inline = [['\(', '\)'], ['$', '$']]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+  [markup.highlight]
+    noClasses = false
+
+[taxonomies]
+  tag = "tags"
+
 
 [pagination]
-  pagerSize = 6
+  pagerSize = 8
 
 [params]
+  mainSections = ["notes"]
   math = true
+  recommendationCount = 3
+
+  # Identity shown on every note card unless the note sets its own.
+  institute = "zhumengyao.com"
+  author = "zhumengyao"
   ShowShareButtons = true
-  ShowReadingTime = true 
-  ShowToc = true 
-  ShowBreadCrumbs = true 
-  ShowPostnavLinks = true 
-  ShowCodeCopyButtons = true 
-  ShowRelatedPosts = true 
+  ShowReadingTime = true
+  ShowToc = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowRelatedPosts = true
+
+
   # disableThemeToggle = true
 
     # [params.homeInfoParams]
@@ -38,26 +72,26 @@ theme = "hugo-PaperMod"
   #  name = "Archive"
   #  url = "/archives/"
   #  weight = 10
-  [[menu.main]]
-    identifier = "agentic-ai"
-    name = "Agentic AI"
-    url = "/tags/agentic-ai/"
-    weight = 10
-    [[menu.main]]
-    identifier = "agentic-tasks"
-    name = "Agentic Tasks"
-    url = "/tags/agentic-tasks/"
-    weight = 20
+  #[[menu.main]]
+  #  identifier = "agentic-ai"
+  #  name = "Agentic AI"
+  #  url = "/tags/agentic-ai/"
+  #  weight = 10
+  # [[menu.main]]
+  # identifier = "agentic-tasks"
+  # name = "Agentic Tasks"
+  # url = "/tags/agentic-tasks/"
+  # weight = 20
   # [[menu.main]]
     # identifier = "math-and-research"
     # name = "Math · Research"
     # url = "/tags/math-and-research/"
     # weight = 30
-  [[menu.main]]
-    identifier = "search"
-    name = "Search"
-    url = "/search/"
-    weight = 30
+  #[[menu.main]]
+  #  identifier = "search"
+  #  name = "Search"
+  #  url = "/search/"
+  #  weight = 30
 #  [[menu.main]]
 #    identifier = "tags"
 #    name = "Tags"
@@ -74,18 +108,5 @@ theme = "hugo-PaperMod"
   #   url = "/projects/"
   #   weight = 25     
 
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
 
-[taxonomies]
-  tag = "tags"
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-    [markup.goldmark.parser]
-      [markup.goldmark.parser.attribute]
-        block = true
-  [markup.highlight]
-    noClasses = false

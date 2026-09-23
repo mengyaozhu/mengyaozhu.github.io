@@ -1,0 +1,59 @@
+/* Promotion styles shared by ALL promotion types, present and future: the
+   "Sponsored" disclosure badge and its line. Type-specific rules live in
+   promotion-<type>.css and load after this file, so they override these when a
+   type needs to differ.
+
+   Adding a new promotion type needs no edit here for the badge: emit
+   class="promotion-sponsored-line" wrapping class="promotion-sponsored-label",
+   and the shared rules below apply.
+
+   The title treatment is different in kind — each type names its own title
+   class, so the selector lists them explicitly. */
+
+/* Promotion title — every type's headline renders at the same size/weight so
+   the types look like one family. Add a type's title class to this list.
+   Loaded before the type files, so a type may override. */
+.textual-promotion-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--primary);
+}
+
+/* "Sponsored" label — rendered when a promo is marked sponsored=true
+   (disclosure for paid/affiliate links). Any promotion type may use it. */
+.promotion-sponsored-label {
+    display: inline-block;
+    font-size: 0.65rem;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.12rem 0.35rem;
+    vertical-align: middle;
+}
+
+/* Badge line: its own row, left-aligned with the title on the same vertical
+   axis, directly above the promoted content (disclosure before content,
+   without stealing title width). Small type + tight spacing keep the added
+   height to roughly half a text line.
+
+   Unscoped on purpose: it is keyed to the badge's own class, not to any
+   promotion type's wrapper, so every type — and every future one — picks it up
+   without appending a selector. */
+.promotion-sponsored-line {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 0.2rem;
+    line-height: 1;
+}
+
+@media (max-width: 680px) {
+    .textual-promotion-title {
+        font-size: 20px;
+    }
+}
