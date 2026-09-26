@@ -1,7 +1,7 @@
-# AI · Math · Research
+# AI · Math · Science
 
-Personal site built with [Hugo](https://gohugo.io/) and the
-[hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme.
+My personal site built with [Hugo](https://gohugo.io/) and the
+[SciDraft](https://github.com/mengyaozhu/scidraft) theme.
 
-Live site: <https://mengyaozhu.github.io/>
+Live site: <https://www.zhumengyao.com/>
 
