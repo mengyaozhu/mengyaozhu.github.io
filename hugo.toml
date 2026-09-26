@@ -1,7 +1,7 @@
 # baseURL = "https://example.com/"
 baseURL = "https://www.zhumengyao.com/"
 # languageCode = "en-us"
-title = "AI · Math · Science"
+title = "Zhu Mengyao | AI · Math · Science"
 theme = "scidraft"
 enableRobotsTXT = true
 
