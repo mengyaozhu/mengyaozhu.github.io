@@ -72,11 +72,11 @@ enableRobotsTXT = true
   #  name = "Archive"
   #  url = "/archives/"
   #  weight = 10
-  #[[menu.main]]
-  #  identifier = "agentic-ai"
-  #  name = "Agentic AI"
-  #  url = "/tags/agentic-ai/"
-  #  weight = 10
+  [[menu.main]]
+    identifier = "agentic-ai"
+    name = "Agentic AI"
+    url = "/tags/agentic-ai/"
+    weight = 10
   # [[menu.main]]
   # identifier = "agentic-tasks"
   # name = "Agentic Tasks"
@@ -107,6 +107,12 @@ enableRobotsTXT = true
   #   name = "Projects"
   #   url = "/projects/"
   #   weight = 25     
+
+
+[services.googleAnalytics]
+id = "G-LVXL8SN3ZM"
+
+
 
 
 
